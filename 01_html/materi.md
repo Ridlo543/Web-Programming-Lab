@@ -263,7 +263,7 @@ List digunakan untuk menampilkan daftar. Terdapat beberapa jenis list, yaitu ord
 
 ### 2.6. Table
 
-Table digunakan untuk menampilkan data dalam bentuk tabel. Table dibuat dengan elemen <table>, yang berisi baris (row) dengan elemen <tr>, dan kolom (cell) dengan elemen <td> atau <th> sebagai header.
+Table digunakan untuk menampilkan data dalam bentuk tabel. Table dibuat dengan elemen `<table>`, yang berisi baris (row) dengan elemen `<tr>`, dan kolom (cell) dengan elemen `<td>` atau `<th>` sebagai header.
 
 ```html
 <table>
