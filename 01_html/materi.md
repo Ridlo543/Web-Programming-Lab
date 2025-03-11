@@ -586,9 +586,14 @@ Komentar digunakan untuk memberikan keterangan pada kode HTML. Komentar tidak ak
 <!-- Ini adalah komentar -->
 ```
 
-## 5. Elemen Semantik HTML5
+## 5. Elemen Semantik
 
 Elemen semantik adalah elemen HTML yang memberikan makna pada konten, bukan hanya untuk presentasi. Penggunaan elemen semantik mempermudah mesin pencari, screen reader, dan pengembang untuk memahami struktur halaman.
+
+<details>
+  <summary><img src="semantic_html.png" alt="Elemen Semantik HTML" width="600"></summary>
+  <p>Gambar di atas adalah perbedaan menggunakan elemen semantik dan non-semantik dengan <code>&lt;div&gt;</code> semua. Kenapa elemen semantik lebih baik? Karena elemen semantik memberikan makna pada konten, memudahkan Search Engine, Screen Reader, dan pengembang web untuk memahami struktur halaman.</p>
+</details>
 
 ### 5.1. `<header>`
 
