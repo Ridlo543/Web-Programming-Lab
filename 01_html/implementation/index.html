@@ -48,5 +48,263 @@
         <h1>Image</h1>
         <img src="/01_html/implementation/assets/sayurmayur.png" alt="ini gambar sayur mayur" />
     </div>
+
+    <div>
+        <h1>LIST</h1>
+        <h2>Ordered List (berurutan)</h2>
+        <ol>
+            <li>Item pertama</li>
+            <li>Item kedua</li>
+            <li>Item ketiga</li>
+          </ol>
+        <h2>Unordered List (Daftar Tidak Berurutan)</h2>
+        <!-- Daftar dengan angka romawi -->
+        <ol type="I">
+            <li>Item pertama</li>
+            <li>Item kedua</li>
+            <li>Item ketiga</li>
+          </ol>
+          
+          <!-- Daftar dengan awal nomor 5 -->
+          <ol start="5">
+            <li>Item kelima</li>
+            <li>Item keenam</li>
+            <li>Item ketujuh</li>
+          </ol>
+        <h2>Description List (Daftar Deskripsi)</h2>
+        <ul>
+            <li>Item satu</li>
+            <li>Item dua</li>
+            <li>Item tiga</li>
+          </ul>
+        <h2>List Bersarang (Nested List)</h2>
+        <ul style="list-style-type: square;">
+            <li>Item 1</li>
+            <li>Item 2</li>
+        </ul>
+    </div>
+
+    <div>
+        <h1>Table</h1>
+        <table>
+            <thead>
+              <tr>
+                <th>Nama</th>
+                <th>Umur</th>
+                <th>Kota</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Andi</td>
+                <td>20</td>
+                <td>Jakarta</td>
+              </tr>
+              <tr>
+                <td>Budi</td>
+                <td>25</td>
+                <td>Bandung</td>
+              </tr>
+              <tr>
+                <td>Citra</td>
+                <td>22</td>
+                <td>Surabaya</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3">Total: 3 orang</td>
+              </tr>
+            </tfoot>
+          </table>
+
+    <h3>Tabel dengan caption dan sel yang digabung</h3>
+    
+    <table border="1">
+        <caption>
+          Data Karyawan
+        </caption>
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Departemen</th>
+            <th colspan="2">Kontak</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th></th>
+            <th>Email</th>
+            <th>Telepon</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2">Andi</td>
+            <td>IT</td>
+            <td>andi@example.com</td>
+            <td>081234567890</td>
+          </tr>
+          <tr>
+            <td>Support</td>
+            <td>support@example.com</td>
+            <td>089876543210</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+        <h1>FORM</h1>
+        <form action="/proses.php" method="post">
+            <div>
+              <label for="nama">Nama:</label>
+              <input
+                type="text"
+                id="nama"
+                name="nama"
+                placeholder="Masukkan nama"
+                required
+              />
+            </div>
+          
+            <div>
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Masukkan email"
+                required
+              />
+            </div>
+          
+            <div>
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" required />
+            </div>
+          
+            <div>
+              <label for="jenis_kelamin">Jenis Kelamin:</label>
+              <select id="jenis_kelamin" name="jenis_kelamin">
+                <option value="">Pilih Jenis Kelamin</option>
+                <option value="L">Laki-laki</option>
+                <option value="P">Perempuan</option>
+              </select>
+            </div>
+          
+            <div>
+              <p>Hobi:</p>
+              <input type="checkbox" id="membaca" name="hobi[]" value="membaca" />
+              <label for="membaca">Membaca</label>
+          
+              <input type="checkbox" id="menulis" name="hobi[]" value="menulis" />
+              <label for="menulis">Menulis</label>
+          
+              <input type="checkbox" id="coding" name="hobi[]" value="coding" />
+              <label for="coding">Coding</label>
+            </div>
+          
+            <div>
+              <p>Status:</p>
+              <input type="radio" id="single" name="status" value="single" />
+              <label for="single">Single</label>
+          
+              <input type="radio" id="menikah" name="status" value="menikah" />
+              <label for="menikah">Menikah</label>
+            </div>
+          
+            <div>
+              <label for="pesan">Pesan:</label>
+              <textarea
+                id="pesan"
+                name="pesan"
+                rows="4"
+                cols="50"
+                placeholder="Tulis pesan Anda di sini"
+              ></textarea>
+            </div>
+          
+            <div>
+              <button type="submit">Kirim</button>
+              <button type="reset">Reset</button>
+            </div>
+          </form>
+
+    <h3>tipe input</h3>
+          <!-- Text -->
+        <input type="text" name="nama" />
+
+        <!-- Password -->
+        <input type="password" name="password" />
+
+        <!-- Email -->
+        <input type="email" name="email" />
+
+        <!-- Number -->
+        <input type="number" name="umur" min="0" max="120" />
+
+        <!-- Checkbox -->
+        <input type="checkbox" name="setuju" />
+
+        <!-- Radio -->
+        <input type="radio" name="gender" value="L" />
+
+        <!-- Date -->
+        <input type="date" name="tanggal_lahir" />
+
+        <!-- Time -->
+        <input type="time" name="waktu" />
+
+        <!-- File -->
+        <input type="file" name="foto" accept="image/*" />
+
+        <!-- Color -->
+        <input type="color" name="warna" />
+
+        <!-- Range -->
+        <input type="range" name="volume" min="0" max="100" />
+
+        <!-- Hidden -->
+        <input type="hidden" name="user_id" value="123" />
+
+        <!-- Submit -->
+        <input type="submit" value="Kirim" />
+
+        <!-- Reset -->
+        <input type="reset" value="Reset" />
+    </div>
+
+    <div>
+    <h1>
+        Elemen Blok dan Inline
+    </h1>
+    <h3>
+        Elemen Blok (Block Elements)
+    </h3>
+        <div>Ini adalah elemen blok</div>
+        <p>Ini juga elemen blok</p>
+
+        <div style="border: 1px solid blue; padding: 10px;">
+          <p>Elemen blok bisa berisi elemen blok lain</p>
+          <div style="border: 1px solid red; padding: 5px;">
+            Ini adalah div dalam div
+          </div>
+        </div>
+    <h3>
+        Elemen Inline (Inline Elements)
+    </h3>
+    <p>
+        Ini adalah paragraf dengan
+        <span style="color: red;">teks berwarna merah</span> dan
+        <a href="#">link</a> di dalamnya serta <strong>teks tebal</strong>.
+      </p>
+      
+      <div>
+        Elemen blok bisa berisi elemen inline:
+        <span style="background-color: yellow;">Ini adalah elemen inline</span>
+        dan <span style="font-style: italic;">ini juga elemen inline</span>.
+      </div>
+    </div>
+
 </body>
 </html>
