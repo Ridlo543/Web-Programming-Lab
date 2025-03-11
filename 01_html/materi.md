@@ -926,7 +926,7 @@ Tujuan dari penggunaan entitas HTML adalah untuk menghindari konflik dengan kara
 <textarea spellcheck="true">Teks ini akan diperiksa ejaan.</textarea>
 ```
 
-### 10. Penggunaan Meta Tags
+## 10. Penggunaan Meta Tags
 
 Meta tags bertujujuan penting untuk SEO (Search Engine Optimization) dan aksesibilitas responsif. Berikut adalah beberapa meta tags yang umum digunakan:
 
@@ -938,10 +938,19 @@ Meta tags bertujujuan penting untuk SEO (Search Engine Optimization) dan aksesib
 <meta name="author" content="Nama Penulis" />
 ```
 
-### 11. Favicon
+## 11. Favicon
 
 Favicon adalah ikon kecil yang ditampilkan di tab browser. Favicon biasanya berupa file `.ico` atau gambar `.png`.
 
 ```html
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 ```
+
+## Referensi
+
+- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [W3Schools](https://www.w3schools.com/html/)
+- [HTML Living Standard](https://html.spec.whatwg.org/multipage/)
+- [HTML Reference](https://htmlreference.io/)
+- [HTML Cheatsheet](https://htmlcheatsheet.com/)
+- [HTML5 Doctor](http://html5doctor.com/)
