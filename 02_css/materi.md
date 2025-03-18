@@ -55,20 +55,6 @@ Selektor CSS digunakan untuk memilih elemen HTML yang akan diberi gaya.
 
 ### Selektor Atribut
 
-```css
-/* Memilih elemen dengan atribut tertentu */
-[type] {
-}
-
-/* Memilih elemen dengan atribut dan nilai tertentu */
-[type="text"] {
-}
-
-/* Memilih elemen dengan nilai atribut yang mengandung kata tertentu */
-[class~="btn"] {
-}
-```
-
 ### Pseudo-class dan Pseudo-element
 
 ## Properti CSS Penting
