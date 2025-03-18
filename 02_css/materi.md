@@ -107,12 +107,12 @@ p {
 ```
 
 ### **Kelebihan**:
-- Memisahkan konten dari gaya sehingga lebih mudah dikelola.
+- Memisahkan konten dari style sehingga lebih mudah dikelola.
 - Dapat digunakan untuk banyak halaman sekaligus.
 - Meningkatkan efisiensi dengan caching browser.
 
 ### **Kekurangan**:
-- Memerlukan permintaan HTTP tambahan untuk mengambil file CSS.
+- Membutuhkan proses load file CSS Terlebih lagi jika ada banyak file CSS eksternal yang diload, ini jelas akan membuat proses load halaman menjadi lama.
 - Tidak akan diterapkan jika file CSS gagal dimuat.
 
 ---
@@ -884,3 +884,6 @@ Design responsif memungkinkan halaman web terlihat baik di semua perangkat.
 ## Contoh Proyek Praktikum
 
 [implementation](./implementation/)
+
+<!-- https://www.wiblogger.com/2022/10/kelebihan-dan-kekurangan-eksternal-internal-inline-css.html
+https://www.w3schools.com/css/css_colors.asp -->
