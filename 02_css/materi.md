@@ -140,6 +140,97 @@ span {
 }
 ```
 
+### Contoh Implementasi
+
+<details>
+  <summary>Klik untuk contoh</summary>
+  
+  ```html
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display & Position Example</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            margin: 10px;
+        }
+
+        .block-box {
+            display: block;
+            background-color: #e74c3c;
+        }
+
+        .inline-box {
+            display: inline;
+            background-color: #2ecc71;
+        }
+
+        .inline-block-box {
+            display: inline-block;
+            background-color: #f1c40f;
+        }
+
+        .relative-box {
+            position: relative;
+            top: 20px;
+            left: 20px;
+            <!-- background-color: #9b59b6;  -->
+            background-color: ;
+        }
+
+        .absolute-container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background-color: #ecf0f1;
+            margin: 20px;
+        }
+
+        .absolute-box {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #e67e22;
+        }
+
+        .fixed-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #34495e;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Display & Position Example</h1>
+    <div class="box block-box">Block</div>
+    <span class="box inline-box">Inline</span>
+    <span class="box inline-block-box">Inline-Block</span>
+    <div class="box relative-box">Relative</div>
+    <div class="absolute-container">
+        <div class="box absolute-box">Absolute</div>
+    </div>
+    <div class="box fixed-box">Fixed</div>
+</body>
+</html>
+  ```
+</details>
+
 ## Flexbox
 
 Flexbox adalah model layout satu dimensi untuk mengatur elemen dalam container.
@@ -188,6 +279,72 @@ Flexbox adalah model layout satu dimensi untuk mengatur elemen dalam container.
 }
 ```
 
+### Contoh Implementasi
+
+<details>
+  <summary>Klik untuk contoh flex</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox Example</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .flex-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        background-color: #ecf0f1;
+        padding: 20px;
+        margin: 20px;
+        min-height: 200px;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: #3498db;
+        color: white;
+        text-align: center;
+        line-height: 100px;
+        margin: 10px;
+      }
+
+      .box:nth-child(2) {
+        background-color: #e74c3c;
+        flex-grow: 1;
+      }
+
+      .box:nth-child(3) {
+        background-color: #2ecc71;
+        align-self: flex-end;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Flexbox Example</h1>
+    <div class="flex-container">
+      <div class="box">Box 1</div>
+      <div class="box">Box 2</div>
+      <div class="box">Box 3</div>
+      <div class="box">Box 4</div>
+    </div>
+  </body>
+</html>
+```
+
+</details>
+
 ## Grid
 
 CSS Grid adalah model layout dua dimensi untuk mengatur elemen dalam baris dan kolom.
@@ -231,6 +388,76 @@ CSS Grid adalah model layout dua dimensi untuk mengatur elemen dalam baris dan k
   grid-row: span 2; /* Membentang 2 baris */
 }
 ```
+
+### Contoh Implementasi
+
+<details>
+  <summary>Klik untuk contoh grid</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Example</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 100px 100px;
+        gap: 10px;
+        background-color: #ecf0f1;
+        padding: 20px;
+        margin: 20px;
+      }
+
+      .box {
+        background-color: #3498db;
+        color: white;
+        text-align: center;
+        line-height: 100px;
+      }
+
+      .box:nth-child(1) {
+        background-color: #e74c3c;
+        grid-column: 1 / 3; /* Membentang 2 kolom */
+      }
+
+      .box:nth-child(2) {
+        background-color: #2ecc71;
+      }
+
+      .box:nth-child(3) {
+        background-color: #f1c40f;
+        grid-row: 1 / 3; /* Membentang 2 baris */
+      }
+
+      .box:nth-child(4) {
+        background-color: #9b59b6;
+        grid-column: span 2; /* Membentang 2 kolom */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Grid Example</h1>
+    <div class="grid-container">
+      <div class="box">Box 1</div>
+      <div class="box">Box 2</div>
+      <div class="box">Box 3</div>
+      <div class="box">Box 4</div>
+    </div>
+  </body>
+</html>
+```
+
+</details>
 
 ## Responsif Design
 
