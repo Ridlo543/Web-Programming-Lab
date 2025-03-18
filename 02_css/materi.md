@@ -80,7 +80,6 @@ Internal CSS ditulis di dalam elemen `<style>` dalam bagian `<head>` dari dokume
 
 ### **Kekurangan**:
 - Tidak efisien untuk proyek besar.
-- Tidak mendukung pemisahan penuh antara konten dan gaya.
 - Dapat memperlambat waktu muat halaman jika banyak kode CSS di dalam HTML.
 
 ---
@@ -288,11 +287,105 @@ Dengan memahami berbagai selektor CSS, kita dapat mengontrol tampilan halaman we
 
 ## Properti CSS Penting
 
+Dalam CSS, terdapat beberapa properti penting yang sering digunakan untuk mengatur tampilan elemen pada halaman web. Properti ini mencakup pengaturan warna, font, teks, serta struktur elemen menggunakan box model.
+
 ### Warna dan Latar Belakang
+Properti warna dan latar belakang digunakan untuk mengubah tampilan elemen dengan warna tertentu.
+
+- **`color`**: Mengatur warna teks.
+  ```css
+  p {
+      color: blue;
+  }
+  ```
+
+- **`background-color`**: Mengatur warna latar belakang elemen.
+  ```css
+  div {
+      background-color: lightgray;
+  }
+  ```
+
+- **`background-image`**: Menentukan gambar sebagai latar belakang.
+  ```css
+  body {
+      background-image: url('background.jpg');
+      background-size: cover;
+  }
+  ```
+
+---
 
 ### Font dan Teks
+Properti ini digunakan untuk mengatur tampilan teks dalam elemen HTML.
+
+- **`font-family`**: Menentukan jenis font yang digunakan.
+  ```css
+  p {
+      font-family: Arial, sans-serif;
+  }
+  ```
+
+- **`font-size`**: Mengatur ukuran teks.
+  ```css
+  h1 {
+      font-size: 24px;
+  }
+  ```
+
+- **`font-weight`**: Menentukan ketebalan teks.
+  ```css
+  strong {
+      font-weight: bold;
+  }
+  ```
+
+- **`text-align`**: Mengatur perataan teks.
+  ```css
+  p {
+      text-align: center;
+  }
+  ```
+
+- **`line-height`**: Menentukan tinggi baris teks.
+  ```css
+  p {
+      line-height: 1.5;
+  }
+  ```
+
+---
 
 ### Box Model
+Box Model adalah konsep dasar dalam CSS yang menjelaskan bagaimana elemen HTML ditampilkan sebagai kotak yang terdiri dari beberapa bagian:
+
+1. **Content** – Isi elemen, seperti teks atau gambar.
+2. **Padding** – Ruang antara content dan border.
+3. **Border** – Garis yang mengelilingi elemen.
+4. **Margin** – Ruang di luar border yang memisahkan elemen dengan elemen lainnya.
+
+![Box Model Diagram](./implementation/assets/CSS-box-model.webp)
+[Sumber gambar](https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Frofzm44oka091.png&rdt=39915)
+
+**Contoh Penggunaan Box Model dalam CSS:**
+```css
+div {
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 10px;
+}
+```
+
+Dalam contoh di atas:
+- **Content** memiliki lebar 200px dan tinggi 100px.
+- **Padding** menambahkan 20px ruang di dalam border.
+- **Border** memiliki ketebalan 5px.
+- **Margin** memberikan jarak 10px antara elemen ini dengan elemen lain di sekitarnya.
+
+Dengan memahami Box Model, kita dapat mengatur tata letak elemen dengan lebih baik dan menghindari kesalahan dalam desain web.
+
 
 ![Box Model Diagram](./implementation/assets/CSS-box-model.webp)
 [Sumber gambar](https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Frofzm44oka091.png&rdt=39915)
