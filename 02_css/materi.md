@@ -32,30 +32,259 @@
 
 CSS (_Cascading Style Sheets_) adalah bahasa yang digunakan untuk mengatur tampilan dan format elemen HTML pada halaman web. CSS memungkinkan pemisahan antara konten (HTML) dan presentasi (gaya tampilan), sehingga kita dapat mengatur warna, font, layout, dan aspek visual lainnya dengan lebih terstruktur.
 
-## Cara Menerapkan CSS
+# Cara Menerapkan CSS
 
-Ada tiga metode utama
+Ada tiga metode utama dalam menerapkan CSS ke dalam dokumen HTML:
 
-### 1. Inline CSS
+## 1. Inline CSS
+Inline CSS diterapkan langsung pada elemen HTML dengan menggunakan atribut `style`.
 
-**Kelebihan**:
-**Kekurangan**:
+### Contoh:
+```html
+<p style="color: blue; font-size: 16px;">Teks ini berwarna biru</p>
+```
 
-### 2. Internal CSS
+### **Kelebihan**:
+- Mudah dan cepat diterapkan pada elemen tertentu.
+- Tidak memerlukan file terpisah.
 
-**Kelebihan**:
+### **Kekurangan**:
+- Sulit dikelola untuk proyek besar.
+- Tidak mendukung pemisahan antara konten dan gaya.
+- Kurang efisien karena harus ditulis pada setiap elemen.
 
-### 3. External CSS
+---
+
+## 2. Internal CSS
+Internal CSS ditulis di dalam elemen `<style>` dalam bagian `<head>` dari dokumen HTML.
+
+### Contoh:
+```html
+<head>
+    <style>
+        p {
+            color: red;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <p>Teks ini berwarna merah</p>
+</body>
+```
+
+### **Kelebihan**:
+- Lebih mudah dikelola dibandingkan inline CSS.
+- Tidak memerlukan file terpisah.
+- Bisa digunakan untuk mengatur beberapa elemen sekaligus.
+
+### **Kekurangan**:
+- Tidak efisien untuk proyek besar.
+- Tidak mendukung pemisahan penuh antara konten dan gaya.
+- Dapat memperlambat waktu muat halaman jika banyak kode CSS di dalam HTML.
+
+---
+
+## 3. External CSS
+External CSS ditulis dalam file terpisah dengan ekstensi `.css` dan dihubungkan ke dokumen HTML menggunakan elemen `<link>`.
+
+### Contoh:
+**File HTML:**
+```html
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p>Teks ini memiliki gaya dari file eksternal</p>
+</body>
+```
+
+**File `style.css`:**
+```css
+p {
+    color: green;
+    font-size: 20px;
+}
+```
+
+### **Kelebihan**:
+- Memisahkan konten dari gaya sehingga lebih mudah dikelola.
+- Dapat digunakan untuk banyak halaman sekaligus.
+- Meningkatkan efisiensi dengan caching browser.
+
+### **Kekurangan**:
+- Memerlukan permintaan HTTP tambahan untuk mengambil file CSS.
+- Tidak akan diterapkan jika file CSS gagal dimuat.
+
+---
+
+## Kesimpulan
+
+| Metode        | Kelebihan                                  | Kekurangan                                    |
+|--------------|--------------------------------|--------------------------------|
+| **Inline**   | Mudah diterapkan, tidak butuh file terpisah | Sulit dikelola, tidak efisien, bercampur dengan HTML |
+| **Internal** | Bisa digunakan untuk beberapa elemen, tidak butuh file terpisah | Tidak efisien untuk proyek besar, mempengaruhi performa |
+| **External** | Dapat digunakan untuk banyak halaman, terpisah dari HTML | Membutuhkan permintaan HTTP tambahan, bisa gagal dimuat |
+
+Metode yang paling direkomendasikan adalah **External CSS** karena lebih terstruktur, efisien, dan mendukung pemisahan antara tampilan dan konten.
 
 ## Selektor CSS
 
-Selektor CSS digunakan untuk memilih elemen HTML yang akan diberi gaya.
+Selektor CSS digunakan untuk memilih elemen HTML yang akan diberi gaya. Dengan menggunakan selektor, kita dapat menerapkan aturan gaya ke elemen tertentu tanpa harus menambahkan atribut gaya secara langsung.
 
 ### Selektor
+Selektor dasar digunakan untuk memilih elemen berdasarkan nama tag, kelas, atau ID.
+
+- **Selektor Tag**: Memilih semua elemen dengan tag tertentu.
+  ```css
+  p {
+      color: blue;
+  }
+  ```
+  (Menerapkan warna biru ke semua elemen `<p>`)
+
+- **Selektor Kelas**: Memilih semua elemen dengan atribut `class` tertentu.
+  ```css
+  .highlight {
+      background-color: yellow;
+  }
+  ```
+  (Menerapkan warna latar kuning ke elemen dengan kelas `highlight`)
+
+- **Selektor ID**: Memilih elemen dengan atribut `id` tertentu.
+  ```css
+  #header {
+      font-size: 24px;
+  }
+  ```
+  (Menerapkan ukuran font 24px ke elemen dengan ID `header`)
+
+- **Selektor Gabungan**: Memilih elemen berdasarkan kombinasi beberapa faktor.
+  ```css
+  div p {
+      color: red;
+  }
+  ```
+  (Menerapkan warna merah ke semua `<p>` yang berada dalam elemen `<div>`)
+
+---
 
 ### Selektor Atribut
+Selektor atribut memungkinkan pemilihan elemen berdasarkan atribut yang dimilikinya.
+
+- **Memilih berdasarkan keberadaan atribut**:
+  ```css
+  input[required] {
+      border: 2px solid red;
+  }
+  ```
+  (Menerapkan border merah ke semua elemen `<input>` yang memiliki atribut `required`)
+
+- **Memilih berdasarkan nilai atribut tertentu**:
+  ```css
+  a[target="_blank"] {
+      color: green;
+  }
+  ```
+  (Menerapkan warna hijau ke semua `<a>` yang memiliki atribut `target="_blank"`)
+
+- **Memilih berdasarkan awal atau akhir nilai atribut**:
+  ```css
+  img[src^="https"] {
+      border: 3px solid blue;
+  }
+  ```
+  (Menerapkan border biru ke semua `<img>` dengan atribut `src` yang dimulai dengan `https`)
+
+---
 
 ### Pseudo-class dan Pseudo-element
+Pseudo-class dan Pseudo-element memungkinkan penerapan gaya berdasarkan kondisi tertentu atau bagian spesifik dari elemen.
+
+- **Pseudo-class**: Digunakan untuk menargetkan elemen dalam keadaan tertentu.
+  ```css
+  a:hover {
+      color: orange;
+  }
+  ```
+  (Mengubah warna teks menjadi oranye saat kursor berada di atas elemen `<a>`)
+
+  Contoh lainnya:
+  - `:focus` → Saat elemen menerima fokus.
+  - `:nth-child(odd)` → Memilih elemen ganjil dalam daftar.
+  - `:first-child` → Memilih elemen pertama dalam induknya.
+
+- **Pseudo-element**: Digunakan untuk menargetkan bagian spesifik dari elemen.
+  ```css
+  p::first-letter {
+      font-size: 2em;
+      color: red;
+  }
+  ```
+  (Mengubah huruf pertama dalam elemen `<p>` menjadi lebih besar dan berwarna merah)
+
+  Contoh lainnya:
+  - `::before` → Menambahkan elemen sebelum konten elemen tertentu.
+  - `::after` → Menambahkan elemen setelah konten elemen tertentu.
+  - `::selection` → Menentukan gaya teks yang dipilih oleh pengguna.
+
+---
+
+### Contoh Penggunaan
+Berikut contoh penggunaan berbagai selektor dalam HTML dan CSS:
+
+**File HTML:**
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Selektor CSS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 id="header">Judul Halaman</h1>
+    <p class="highlight">Ini adalah paragraf dengan latar kuning.</p>
+    <p>Paragraf biasa.</p>
+    <a href="#" target="_blank">Klik di sini</a>
+    <input type="text" required>
+</body>
+</html>
+```
+
+**File `styles.css`:**
+```css
+/* Selektor ID */
+#header {
+    color: blue;
+    text-align: center;
+}
+
+/* Selektor Kelas */
+.highlight {
+    background-color: yellow;
+    padding: 10px;
+}
+
+/* Selektor Atribut */
+input[required] {
+    border: 2px solid red;
+}
+
+/* Pseudo-class */
+a:hover {
+    color: orange;
+}
+
+/* Pseudo-element */
+p::first-letter {
+    font-size: 2em;
+    color: red;
+}
+```
+
+Dengan memahami berbagai selektor CSS, kita dapat mengontrol tampilan halaman web dengan lebih fleksibel dan efisien.
 
 ## Properti CSS Penting
 
