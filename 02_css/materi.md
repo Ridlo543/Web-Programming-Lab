@@ -334,7 +334,7 @@ Design responsif memungkinkan halaman web terlihat baik di semua perangkat.
 }
 ```
 
-## Best Practice CSS atau Tips
+## Tips atau Best Practice CSS
 
 1. **Gunakan External CSS** untuk memisahkan struktur (HTML) dan presentasi (CSS).
 2. **Gunakan Class** untuk styling daripada ID (kecuali untuk JavaScript).
@@ -343,7 +343,9 @@ Design responsif memungkinkan halaman web terlihat baik di semua perangkat.
 5. **Organisasikan CSS** dengan baik, kelompokkan berdasarkan komponen atau fungsionalitas.
 6. **Optimasi Performa** dengan menghindari selektor universal dan selektor yang terlalu dalam.
 7. **Responsif Design** dengan mobile-first approach.
+8. **Gunakan CSS Variables** untuk mengatur warna, ukuran, dan properti lain yang sering digunakan.
+9. **Gunakan Library CSS** seperti Bootstrap, Tailwind CSS, atau Materialize CSS untuk mempercepat pengembangan.
 
 ## Contoh Proyek Praktikum
 
-### Membuat ...
+[implementation](./implementation/)

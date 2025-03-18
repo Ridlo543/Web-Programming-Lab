@@ -1,0 +1,134 @@
+/* CSS Variables */
+:root {
+  --primary-color: #3498db;
+  --primary-hover: #2980b9;
+  --secondary-bg: #f2f2f2;
+  --secondary-hover: #e6e6e6;
+  --text-dark: #333;
+  --text-gray: #666;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-dark: rgba(0, 0, 0, 0.2);
+  --spacing-sm: 10px;
+  --spacing-md: 15px;
+  --spacing-lg: 20px;
+  --card-width: 300px;
+  --avatar-size: 100px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: var(--card-width);
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px var(--shadow-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px var(--shadow-dark);
+}
+
+.card-header {
+  padding: var(--spacing-lg);
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+}
+
+.avatar {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+  border: 3px solid white;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: var(--spacing-lg);
+  flex-grow: 1;
+}
+
+.name {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  color: var(--text-dark);
+}
+
+.title {
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: var(--spacing-md);
+}
+
+.description {
+  color: var(--text-gray);
+  line-height: 1.5;
+}
+
+.card-footer {
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #eee;
+}
+
+.btn {
+  padding: 8px var(--spacing-md);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-bg);
+  color: var(--text-dark);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-hover);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 350px) {
+  .card {
+    width: 90%;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
