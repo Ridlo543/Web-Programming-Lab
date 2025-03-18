@@ -1,4 +1,4 @@
-# Praktikum Pemrograman Web 2 - CSS (Cascading Style Sheets)
+# Praktikum Pemrograman Web 2: CSS
 
 ## Table of Contents
 

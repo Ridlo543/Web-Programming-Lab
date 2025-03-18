@@ -2,7 +2,7 @@
 
 Buatlah sebuah HTML Page yang berisi implementasi semantic HTML dan CSS. HTML Page yang dibuat harus memenuhi kriteria seperti pada gambar berikut:
 
-![Tugas 2](./implementation/assets/semantic-html.png)
+<img src="./implementation/assets/semantic-html.png" alt="Tugas 2" width="50%">
 
 ### Kriteria:
 
