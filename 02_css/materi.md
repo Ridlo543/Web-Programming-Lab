@@ -630,7 +630,8 @@ span {
 
 Flexbox adalah model layout satu dimensi untuk mengatur elemen dalam container.
 
-![Flexbox Diagram](./implementation/assets/flexbox.png)
+<img src="./implementation/assets/flexbox.png" alt="Flexbox Diagram" width="50%"> <br>
+
 [Sumber gambar](https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Frofzm44oka091.png&rdt=39915)
 
 ```css
