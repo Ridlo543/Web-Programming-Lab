@@ -914,7 +914,7 @@ Design responsif memungkinkan halaman web terlihat baik di semua perangkat.
 [implementation](./implementation/)
 
 
-#LEARN MORE
+# LEARN MORE
 
 * [CSS Tutorial](https://www.w3schools.com/css/)
 * [CSS Reference](https://www.wiblogger.com/2022/10/kelebihan-dan-kekurangan-eksternal-internal-inline-css.html)
