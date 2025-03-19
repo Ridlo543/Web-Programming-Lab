@@ -763,12 +763,6 @@ CSS Grid adalah model layout dua dimensi untuk mengatur elemen dalam baris dan k
   gap: 10px; /* row-gap & column-gap */
   row-gap: 15px;
   column-gap: 10px;
-
-  /* Nama area */
-  grid-template-areas:
-    "header header header"
-    "sidebar content content"
-    "footer footer footer";
 }
 
 .grid-item {
