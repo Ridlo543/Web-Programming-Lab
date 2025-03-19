@@ -87,11 +87,11 @@ Internal CSS ditulis di dalam elemen `<style>` dalam bagian `<head>` dari dokume
 ## 3. External CSS
 External CSS ditulis dalam file terpisah dengan ekstensi `.css` dan dihubungkan ke dokumen HTML menggunakan elemen `<link>`.
 
+### Contoh Implementasi:
 <details>
   <summary>Klik untuk contoh css external</summary>
 
-### Contoh:
-**File HTML:**
+File HTML:
 ```html
 <head>
     <link rel="stylesheet" href="style.css">
@@ -101,7 +101,7 @@ External CSS ditulis dalam file terpisah dengan ekstensi `.css` dan dihubungkan 
 </body>
 ```
 
-**File `style.css`:**
+File `style.css`:
 ```css
 p {
     color: green;
@@ -231,13 +231,13 @@ Pseudo-class dan Pseudo-element memungkinkan penerapan gaya berdasarkan kondisi 
   - `::selection` → Menentukan gaya teks yang dipilih oleh pengguna.
 
 ---
+### Contoh Penggunaan selector
 <details>
   <summary>Klik untuk contoh penggunaan selector</summary>
 
-### Contoh Penggunaan
 Berikut contoh penggunaan berbagai selektor dalam HTML dan CSS:
 
-**File HTML:**
+File HTML:
 ```html
 <!DOCTYPE html>
 <html lang="id">
@@ -257,7 +257,7 @@ Berikut contoh penggunaan berbagai selektor dalam HTML dan CSS:
 </html>
 ```
 
-**File `styles.css`:**
+File `styles.css`:
 ```css
 /* Selektor ID */
 #header {
