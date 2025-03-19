@@ -87,6 +87,9 @@ Internal CSS ditulis di dalam elemen `<style>` dalam bagian `<head>` dari dokume
 ## 3. External CSS
 External CSS ditulis dalam file terpisah dengan ekstensi `.css` dan dihubungkan ke dokumen HTML menggunakan elemen `<link>`.
 
+<details>
+  <summary>Klik untuk contoh css external</summary>
+
 ### Contoh:
 **File HTML:**
 ```html
@@ -228,6 +231,8 @@ Pseudo-class dan Pseudo-element memungkinkan penerapan gaya berdasarkan kondisi 
   - `::selection` → Menentukan gaya teks yang dipilih oleh pengguna.
 
 ---
+<details>
+  <summary>Klik untuk contoh penggunaan selector</summary>
 
 ### Contoh Penggunaan
 Berikut contoh penggunaan berbagai selektor dalam HTML dan CSS:
@@ -409,8 +414,6 @@ Dalam contoh di atas:
 Dengan memahami Box Model, kita dapat mengatur tata letak elemen dengan lebih baik dan menghindari kesalahan dalam desain web.
 
 
-![Box Model Diagram](./implementation/assets/CSS-box-model.webp)
-[Sumber gambar](https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Frofzm44oka091.png&rdt=39915)
 
 ## Display dan Position
 
