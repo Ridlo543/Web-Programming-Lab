@@ -823,7 +823,7 @@ CSS Grid adalah model layout dua dimensi untuk mengatur elemen dalam baris dan k
 
       .box:nth-child(1) {
         background-color: #e74c3c;
-        grid-column: 1 / 3; /* Membentang 2 kolom */
+        grid-column: 1 / 3; /* Membentang 2 kolom, 1 sampai 3 */
       }
 
       .box:nth-child(2) {
