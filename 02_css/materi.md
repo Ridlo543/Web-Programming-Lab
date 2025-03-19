@@ -37,18 +37,22 @@ CSS (_Cascading Style Sheets_) adalah bahasa yang digunakan untuk mengatur tampi
 Ada tiga metode utama dalam menerapkan CSS ke dalam dokumen HTML:
 
 ## 1. Inline CSS
+
 Inline CSS diterapkan langsung pada elemen HTML dengan menggunakan atribut `style`.
 
 ### Contoh:
+
 ```html
 <p style="color: blue; font-size: 16px;">Teks ini berwarna biru</p>
 ```
 
 ### **Kelebihan**:
+
 - Mudah dan cepat diterapkan pada elemen tertentu.
 - Tidak memerlukan file terpisah.
 
 ### **Kekurangan**:
+
 - Sulit dikelola untuk proyek besar.
 - Tidak mendukung pemisahan antara konten dan gaya.
 - Kurang efisien karena harus ditulis pada setiap elemen.
@@ -56,66 +60,77 @@ Inline CSS diterapkan langsung pada elemen HTML dengan menggunakan atribut `styl
 ---
 
 ## 2. Internal CSS
+
 Internal CSS ditulis di dalam elemen `<style>` dalam bagian `<head>` dari dokumen HTML.
 
 ### Contoh:
+
 ```html
 <head>
-    <style>
-        p {
-            color: red;
-            font-size: 18px;
-        }
-    </style>
+  <style>
+    p {
+      color: red;
+      font-size: 18px;
+    }
+  </style>
 </head>
 <body>
-    <p>Teks ini berwarna merah</p>
+  <p>Teks ini berwarna merah</p>
 </body>
 ```
 
 ### **Kelebihan**:
+
 - Lebih mudah dikelola dibandingkan inline CSS.
 - Tidak memerlukan file terpisah.
 - Bisa digunakan untuk mengatur beberapa elemen sekaligus.
 
 ### **Kekurangan**:
+
 - Tidak efisien untuk proyek besar.
 - Dapat memperlambat waktu muat halaman jika banyak kode CSS di dalam HTML.
 
 ---
 
 ## 3. External CSS
+
 External CSS ditulis dalam file terpisah dengan ekstensi `.css` dan dihubungkan ke dokumen HTML menggunakan elemen `<link>`.
 
 ### Contoh Implementasi:
+
 <details>
   <summary>Klik untuk contoh css external</summary>
 
 File HTML:
+
 ```html
 <head>
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <p>Teks ini memiliki gaya dari file eksternal</p>
+  <p>Teks ini memiliki gaya dari file eksternal</p>
 </body>
 ```
 
 File `style.css`:
+
 ```css
 p {
-    color: green;
-    font-size: 20px;
+  color: green;
+  font-size: 20px;
 }
 ```
+
 </details>
 
 ### **Kelebihan**:
+
 - Memisahkan konten dari style sehingga lebih mudah dikelola.
 - Dapat digunakan untuk banyak halaman sekaligus.
 - Meningkatkan efisiensi dengan caching browser.
 
 ### **Kekurangan**:
+
 - Membutuhkan proses load file CSS Terlebih lagi jika ada banyak file CSS eksternal yang diload, ini jelas akan membuat proses load halaman menjadi lama.
 - Tidak akan diterapkan jika file CSS gagal dimuat.
 
@@ -123,11 +138,11 @@ p {
 
 ## Kesimpulan
 
-| Metode        | Kelebihan                                  | Kekurangan                                    |
-|--------------|--------------------------------|--------------------------------|
-| **Inline**   | Mudah diterapkan, tidak butuh file terpisah | Sulit dikelola, tidak efisien, bercampur dengan HTML |
+| Metode       | Kelebihan                                                       | Kekurangan                                              |
+| ------------ | --------------------------------------------------------------- | ------------------------------------------------------- |
+| **Inline**   | Mudah diterapkan, tidak butuh file terpisah                     | Sulit dikelola, tidak efisien, bercampur dengan HTML    |
 | **Internal** | Bisa digunakan untuk beberapa elemen, tidak butuh file terpisah | Tidak efisien untuk proyek besar, mempengaruhi performa |
-| **External** | Dapat digunakan untuk banyak halaman, terpisah dari HTML | Membutuhkan permintaan HTTP tambahan, bisa gagal dimuat |
+| **External** | Dapat digunakan untuk banyak halaman, terpisah dari HTML        | Membutuhkan permintaan HTTP tambahan, bisa gagal dimuat |
 
 Metode yang paling direkomendasikan adalah **External CSS** karena lebih terstruktur, efisien, dan mendukung pemisahan antara tampilan dan konten.
 
@@ -136,36 +151,43 @@ Metode yang paling direkomendasikan adalah **External CSS** karena lebih terstru
 Selektor CSS digunakan untuk memilih elemen HTML yang akan diberi gaya. Dengan menggunakan selektor, kita dapat menerapkan aturan gaya ke elemen tertentu tanpa harus menambahkan atribut gaya secara langsung.
 
 ### Selektor
+
 Selektor dasar digunakan untuk memilih elemen berdasarkan nama tag, kelas, atau ID.
 
 - **Selektor Tag**: Memilih semua elemen dengan tag tertentu.
+
   ```css
   p {
-      color: blue;
+    color: blue;
   }
   ```
+
   (Menerapkan warna biru ke semua elemen `<p>`)
 
 - **Selektor Kelas**: Memilih semua elemen dengan atribut `class` tertentu.
+
   ```css
   .highlight {
-      background-color: yellow;
+    background-color: yellow;
   }
   ```
+
   (Menerapkan warna latar kuning ke elemen dengan kelas `highlight`)
 
 - **Selektor ID**: Memilih elemen dengan atribut `id` tertentu.
+
   ```css
   #header {
-      font-size: 24px;
+    font-size: 24px;
   }
   ```
+
   (Menerapkan ukuran font 24px ke elemen dengan ID `header`)
 
 - **Selektor Gabungan**: Memilih elemen berdasarkan kombinasi beberapa faktor.
   ```css
   div p {
-      color: red;
+    color: red;
   }
   ```
   (Menerapkan warna merah ke semua `<p>` yang berada dalam elemen `<div>`)
@@ -173,28 +195,33 @@ Selektor dasar digunakan untuk memilih elemen berdasarkan nama tag, kelas, atau 
 ---
 
 ### Selektor Atribut
+
 Selektor atribut memungkinkan pemilihan elemen berdasarkan atribut yang dimilikinya.
 
 - **Memilih berdasarkan keberadaan atribut**:
+
   ```css
   input[required] {
-      border: 2px solid red;
+    border: 2px solid red;
   }
   ```
+
   (Menerapkan border merah ke semua elemen `<input>` yang memiliki atribut `required`)
 
 - **Memilih berdasarkan nilai atribut tertentu**:
+
   ```css
   a[target="_blank"] {
-      color: green;
+    color: green;
   }
   ```
+
   (Menerapkan warna hijau ke semua `<a>` yang memiliki atribut `target="_blank"`)
 
 - **Memilih berdasarkan awal atau akhir nilai atribut**:
   ```css
   img[src^="https"] {
-      border: 3px solid blue;
+    border: 3px solid blue;
   }
   ```
   (Menerapkan border biru ke semua `<img>` dengan atribut `src` yang dimulai dengan `https`)
@@ -202,94 +229,105 @@ Selektor atribut memungkinkan pemilihan elemen berdasarkan atribut yang dimiliki
 ---
 
 ### Pseudo-class dan Pseudo-element
+
 Pseudo-class dan Pseudo-element memungkinkan penerapan gaya berdasarkan kondisi tertentu atau bagian spesifik dari elemen.
 
 - **Pseudo-class**: Digunakan untuk menargetkan elemen dalam keadaan tertentu.
+
   ```css
   a:hover {
-      color: orange;
+    color: orange;
   }
   ```
+
   (Mengubah warna teks menjadi oranye saat kursor berada di atas elemen `<a>`)
 
   Contoh lainnya:
+
   - `:focus` → Saat elemen menerima fokus.
   - `:nth-child(odd)` → Memilih elemen ganjil dalam daftar.
   - `:first-child` → Memilih elemen pertama dalam induknya.
 
 - **Pseudo-element**: Digunakan untuk menargetkan bagian spesifik dari elemen.
+
   ```css
   p::first-letter {
-      font-size: 2em;
-      color: red;
+    font-size: 2em;
+    color: red;
   }
   ```
+
   (Mengubah huruf pertama dalam elemen `<p>` menjadi lebih besar dan berwarna merah)
 
   Contoh lainnya:
+
   - `::before` → Menambahkan elemen sebelum konten elemen tertentu.
   - `::after` → Menambahkan elemen setelah konten elemen tertentu.
   - `::selection` → Menentukan gaya teks yang dipilih oleh pengguna.
 
 ---
+
 ### Contoh Penggunaan selector
+
 <details>
   <summary>Klik untuk contoh penggunaan selector</summary>
 
 Berikut contoh penggunaan berbagai selektor dalam HTML dan CSS:
 
 File HTML:
+
 ```html
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contoh Selektor CSS</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <h1 id="header">Judul Halaman</h1>
     <p class="highlight">Ini adalah paragraf dengan latar kuning.</p>
     <p>Paragraf biasa.</p>
     <a href="#" target="_blank">Klik di sini</a>
-    <input type="text" required>
-</body>
+    <input type="text" required />
+  </body>
 </html>
 ```
 
 File `styles.css`:
+
 ```css
 /* Selektor ID */
 #header {
-    color: blue;
-    text-align: center;
+  color: blue;
+  text-align: center;
 }
 
 /* Selektor Kelas */
 .highlight {
-    background-color: yellow;
-    padding: 10px;
+  background-color: yellow;
+  padding: 10px;
 }
 
 /* Selektor Atribut */
 input[required] {
-    border: 2px solid red;
+  border: 2px solid red;
 }
 
 /* Pseudo-class */
 a:hover {
-    color: orange;
+  color: orange;
 }
 
 /* Pseudo-element */
 p::first-letter {
-    font-size: 2em;
-    color: red;
+  font-size: 2em;
+  color: red;
 }
 ```
-</details>
 
+</details>
 
 Dengan memahami berbagai selektor CSS, kita dapat mengontrol tampilan halaman web dengan lebih fleksibel dan efisien.
 
@@ -297,11 +335,8 @@ Dengan memahami berbagai selektor CSS, kita dapat mengontrol tampilan halaman we
 
 Dalam CSS, terdapat beberapa properti penting yang sering digunakan untuk mengatur tampilan elemen pada halaman web. Properti ini mencakup pengaturan warna, font, teks, serta struktur elemen menggunakan box model.
 
-## Properti CSS Penting
-
-Dalam CSS, terdapat beberapa properti penting yang sering digunakan untuk mengatur tampilan elemen pada halaman web. Properti ini mencakup pengaturan warna, font, teks, serta struktur elemen menggunakan box model.
-
 ### Warna dan Latar Belakang
+
 Dalam CSS, sudah terdefinisikan berbagai warna sebagai berikut:
 
 ![Warna CSS](./implementation/assets/image.png)
@@ -319,74 +354,81 @@ Namun, 140 warna mungkin masih kurang lengkap dan sulit diingat semuanya. Oleh k
 - **HSL (Hue, Saturation, Lightness):**
   [Pelajari lebih lanjut](https://www.w3schools.com/css/css_colors_hsl.asp)
 
-
 Properti warna dan latar belakang digunakan untuk mengubah tampilan elemen dengan warna tertentu.
 
 - **`color`**: Mengatur warna teks.
+
   ```css
   p {
-      color: blue;
+    color: blue;
   }
   ```
 
 - **`background-color`**: Mengatur warna latar belakang elemen.
+
   ```css
   div {
-      background-color: lightgray;
+    background-color: lightgray;
   }
   ```
 
 - **`background-image`**: Menentukan gambar sebagai latar belakang.
   ```css
   body {
-      background-image: url('background.jpg');
-      background-size: cover;
+    background-image: url("background.jpg");
+    background-size: cover;
   }
   ```
 
 ---
 
 ### Font dan Teks
+
 Properti ini digunakan untuk mengatur tampilan teks dalam elemen HTML.
 
 - **`font-family`**: Menentukan jenis font yang digunakan.
+
   ```css
   p {
-      font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif;
   }
   ```
 
 - **`font-size`**: Mengatur ukuran teks.
+
   ```css
   h1 {
-      font-size: 24px;
+    font-size: 24px;
   }
   ```
 
 - **`font-weight`**: Menentukan ketebalan teks.
+
   ```css
   strong {
-      font-weight: bold;
+    font-weight: bold;
   }
   ```
 
 - **`text-align`**: Mengatur perataan teks.
+
   ```css
   p {
-      text-align: center;
+    text-align: center;
   }
   ```
 
 - **`line-height`**: Menentukan tinggi baris teks.
   ```css
   p {
-      line-height: 1.5;
+    line-height: 1.5;
   }
   ```
 
 ---
 
 ### Box Model
+
 Box Model adalah konsep dasar dalam CSS yang menjelaskan bagaimana elemen HTML ditampilkan sebagai kotak yang terdiri dari beberapa bagian:
 
 1. **Content** – Isi elemen, seperti teks atau gambar.
@@ -398,25 +440,25 @@ Box Model adalah konsep dasar dalam CSS yang menjelaskan bagaimana elemen HTML d
 [Sumber gambar](https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Frofzm44oka091.png&rdt=39915)
 
 **Contoh Penggunaan Box Model dalam CSS:**
+
 ```css
 div {
-    width: 200px;
-    height: 100px;
-    padding: 20px;
-    border: 5px solid black;
-    margin: 10px;
+  width: 200px;
+  height: 100px;
+  padding: 20px;
+  border: 5px solid black;
+  margin: 10px;
 }
 ```
 
 Dalam contoh di atas:
+
 - **Content** memiliki lebar 200px dan tinggi 100px.
 - **Padding** menambahkan 20px ruang di dalam border.
 - **Border** memiliki ketebalan 5px.
 - **Margin** memberikan jarak 10px antara elemen ini dengan elemen lain di sekitarnya.
 
 Dengan memahami Box Model, kita dapat mengatur tata letak elemen dengan lebih baik dan menghindari kesalahan dalam desain web.
-
-
 
 ## Display dan Position
 
@@ -463,6 +505,7 @@ span {
 }
 
 /* Relative: relatif terhadap posisi normal */
+/* Dapat digeser dengan top, left, bottom,right*/
 .relative {
   position: relative;
   top: 10px;
@@ -476,7 +519,7 @@ span {
   right: 0;
 }
 
-/* Fixed: relatif terhadap viewport */
+/* Fixed: relatif terhadap viewport, absolute */
 .fixed {
   position: fixed;
   bottom: 20px;
@@ -498,6 +541,7 @@ span {
   ```html
     <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -538,8 +582,7 @@ span {
             position: relative;
             top: 20px;
             left: 20px;
-            <!-- background-color: #9b59b6;  -->
-            background-color: ;
+            background-color: #9b59b6;
         }
 
         .absolute-container {
@@ -566,6 +609,7 @@ span {
     </style>
 
 </head>
+
 <body>
     <h1>Display & Position Example</h1>
     <div class="box block-box">Block</div>
@@ -577,6 +621,7 @@ span {
     </div>
     <div class="box fixed-box">Fixed</div>
 </body>
+
 </html>
   ```
 </details>
@@ -913,8 +958,7 @@ Design responsif memungkinkan halaman web terlihat baik di semua perangkat.
 
 [implementation](./implementation/)
 
-
 # LEARN MORE
 
-* [CSS Tutorial](https://www.w3schools.com/css/)
-* [CSS Reference](https://www.wiblogger.com/2022/10/kelebihan-dan-kekurangan-eksternal-internal-inline-css.html)
+- [CSS Tutorial](https://www.w3schools.com/css/)
+- [CSS Reference](https://www.wiblogger.com/2022/10/kelebihan-dan-kekurangan-eksternal-internal-inline-css.html)
