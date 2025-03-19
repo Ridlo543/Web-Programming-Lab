@@ -289,7 +289,29 @@ Dengan memahami berbagai selektor CSS, kita dapat mengontrol tampilan halaman we
 
 Dalam CSS, terdapat beberapa properti penting yang sering digunakan untuk mengatur tampilan elemen pada halaman web. Properti ini mencakup pengaturan warna, font, teks, serta struktur elemen menggunakan box model.
 
+## Properti CSS Penting
+
+Dalam CSS, terdapat beberapa properti penting yang sering digunakan untuk mengatur tampilan elemen pada halaman web. Properti ini mencakup pengaturan warna, font, teks, serta struktur elemen menggunakan box model.
+
 ### Warna dan Latar Belakang
+Dalam CSS, sudah terdefinisikan berbagai warna sebagai berikut:
+
+![Warna CSS](./implementation/assets/image.png)
+
+Warna-warna tersebut tentu saja masih terbatas, namun CSS/HTML sudah mendukung **140 warna standar** yang dapat dilihat di tautan berikut:
+
+[Daftar Warna Standar CSS](https://www.w3schools.com/colors/colors_names.asp)
+
+Namun, 140 warna mungkin masih kurang lengkap dan sulit diingat semuanya. Oleh karena itu, kita bisa menggunakan kode warna dalam beberapa format:
+
+- **RGB (Red, Green, Blue):**
+  [Pelajari lebih lanjut](https://www.w3schools.com/css/css_colors_rgb.asp)
+- **HEX (Hexadecimal):**
+  [Pelajari lebih lanjut](https://www.w3schools.com/css/css_colors_hex.asp)
+- **HSL (Hue, Saturation, Lightness):**
+  [Pelajari lebih lanjut](https://www.w3schools.com/css/css_colors_hsl.asp)
+
+
 Properti warna dan latar belakang digunakan untuk mengubah tampilan elemen dengan warna tertentu.
 
 - **`color`**: Mengatur warna teks.
