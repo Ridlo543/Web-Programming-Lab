@@ -436,7 +436,8 @@ Box Model adalah konsep dasar dalam CSS yang menjelaskan bagaimana elemen HTML d
 3. **Border** – Garis yang mengelilingi elemen.
 4. **Margin** – Ruang di luar border yang memisahkan elemen dengan elemen lainnya.
 
-![Box Model Diagram](./implementation/assets/CSS-box-model.webp)
+![Box Model Diagram](./assets/CSS-box-model.png)
+
 [Sumber gambar](https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Frofzm44oka091.png&rdt=39915)
 
 **Contoh Penggunaan Box Model dalam CSS:**
