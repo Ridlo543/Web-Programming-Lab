@@ -108,6 +108,7 @@ p {
     font-size: 20px;
 }
 ```
+<details>
 
 ### **Kelebihan**:
 - Memisahkan konten dari style sehingga lebih mudah dikelola.
@@ -287,6 +288,8 @@ p::first-letter {
     color: red;
 }
 ```
+<details>
+
 
 Dengan memahami berbagai selektor CSS, kita dapat mengontrol tampilan halaman web dengan lebih fleksibel dan efisien.
 
