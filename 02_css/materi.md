@@ -1,4 +1,4 @@
-# Praktikum Pemrograman Web 2: CSS
+# Praktikum Pemrograman Web 02: CSS
 
 ## Table of Contents
 

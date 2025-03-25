@@ -1,4 +1,4 @@
-# Praktikum Pemrograman Web 1: HTML
+# Praktikum Pemrograman Web 01: HTML
 
 ## Table of Contents
 
