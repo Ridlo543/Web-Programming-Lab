@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.accordion {
+  width: 300px;
+  margin: 20px auto;
+}
+
+.accordion-title {
+  background-color: #3498db;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-content {
+  background-color: #f1f1f1;
+  padding: 10px;
+  display: none; /* Tersembunyi secara default */
+}

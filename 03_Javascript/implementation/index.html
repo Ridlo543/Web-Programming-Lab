@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="accordion">
+        <div class="accordion-title" onclick="toggleAccordion(this)">
+            <span>Judul Accordion</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-content">
+            Ini adalah konten accordion yang dapat diperluas atau disembunyikan.
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const chevron = element.querySelector("i");
+
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                chevron.classList.remove("fa-chevron-up");
+                chevron.classList.add("fa-chevron-down");
+            } else {
+                content.style.display = "block";
+                chevron.classList.remove("fa-chevron-down");
+                chevron.classList.add("fa-chevron-up");
+            }
+        }
+    </script>
+</body>
+
+</html>

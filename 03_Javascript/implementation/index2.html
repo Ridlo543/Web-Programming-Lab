@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Query Selector & getElementById</title>
+    <style>
+        .class {
+            padding: 10px;
+            border: 1px solid black;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="myElement">Judul pertama</h1>
+    <p class="class">ini paragraf pertama</p>
+    <p class="class">ini paragraf kedua</p>
+    <p class="class">ini paragraf ketiga</p>
+
+    <button id="myButton" onclick="ubahTampilan()">Klik ini</button>
+
+    <script>
+        function ubahTampilan() {
+            let elemen = document.getElementById("myElement");
+            elemen.textContent = "Judul telah berubah"
+            elemen.style.color = "red"
+            elemen.style.backgroundColor = "yellow"
+
+            let paragrafPertama = document.querySelector(".class");
+            paragrafPertama.textContent = "paragra pertama berubah"
+
+            let paragraf = document.querySelectorAll(".class");
+            paragraf.forEach((elemen, index) => {
+                elemen.style.fontWeight = "bold";
+            });
+        }
+    </script>
+</body>
+
+</html>
