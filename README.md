@@ -11,7 +11,7 @@
 
 1. HTML CSS Support
 
-<img width="245" alt="image" src="https://github.com/user-attachments/assets/80952e04-4731-4fc7-a8e2-854142879bcf" />
+<img height="150" width="auto" alt="image" src="https://github.com/user-attachments/assets/80952e04-4731-4fc7-a8e2-854142879bcf" />
 
 2. Live Preview & Server
 
