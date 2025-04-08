@@ -3,7 +3,7 @@
 1. [HTML](01_html/materi.md#praktikum-pemrograman-web-1-html)
 2. [CSS](02_css/materi.md#praktikum-pemrograman-web-2-css)
 3. [Javascript](03_Javascript/materi.md#praktikum-pemrograman-web-3-javascript)
-4. [jQuery](04_jquery/materi.md#praktikum-pemrograman-web-4-jquery)
+4. [jQuery](04_JQuery/materi.md#praktikum-pemrograman-web-4-jquery)
 
 # Tugas
 
