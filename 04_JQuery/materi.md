@@ -188,6 +188,10 @@ jQuery menyediakan metode yang memudahkan untuk mengubah elemen HTML dan kontenn
 
 #### 3.1.1 Mendapatkan dan Mengubah Teks
 
+```html
+<p id="elemen">Teks awal</p>
+```
+
 ```javascript
 // Mendapatkan teks
 var teks = $("#elemen").text();
@@ -199,6 +203,10 @@ $("#elemen").text("Teks baru");
 `text()` hanya menangani teks biasa, tanpa menerjemahkan tag HTML.
 
 #### 3.1.2 Mendapatkan dan Mengubah HTML
+
+```html
+<p id="elemen"><strong>Teks awal</strong></p>
+```
 
 ```javascript
 // Mendapatkan konten HTML
@@ -212,6 +220,10 @@ $("#elemen").html("<strong>Konten baru</strong>");
 
 #### 3.1.3 Mendapatkan dan Mengubah Nilai Input
 
+```html
+<input type="text" id="input-username" value="user123" />
+```
+
 ```javascript
 // Mendapatkan nilai dari input
 var nilai = $("#input-username").val();
@@ -223,6 +235,10 @@ $("#input-username").val("john_doe");
 ### 3.2 Menambah dan Menghapus Elemen
 
 #### 3.2.1 Menambah Elemen
+
+```html
+<div id="div1">Div 1</div>
+```
 
 ```javascript
 // Menambahkan konten di akhir elemen yang dipilih
@@ -317,6 +333,14 @@ jQuery menyediakan method sederhana untuk menangani event seperti klik, hover, d
 
 #### 4.1.1 Event Mouse
 
+```html
+<button id="btn">Klik Saya</button>
+<div
+  id="box"
+  style="width: 100px; height: 100px; background-color: lightgray;"
+></div>
+```
+
 ```javascript
 // Klik pada elemen
 $("#btn").click(function () {
@@ -353,6 +377,10 @@ $("#box").hover(
 
 #### 4.1.2 Event Keyboard
 
+```html
+<input id="input" type="text" placeholder="Ketik di sini" />
+```
+
 ```javascript
 // Ketika tombol ditekan
 $("#input").keydown(function () {
@@ -371,6 +399,17 @@ $("#input").keypress(function (event) {
 ```
 
 #### 4.1.3 Event Form
+
+```html
+<form id="myForm">
+  <input type="text" id="input" placeholder="Ketik di sini" />
+  <select id="dropdown">
+    <option value="1">Satu</option>
+    <option value="2">Dua</option>
+  </select>
+  <button type="submit">Kirim</button>
+</form>
+```
 
 ```javascript
 // Ketika form disubmit
@@ -421,6 +460,10 @@ $(window).scroll(function () {
 #### 4.2.1 Metode .on()
 
 `.on()` adalah metode yang fleksibel untuk menangani event.
+
+```html
+<button id="btn">Klik Saya</button>
+```
 
 ```javascript
 // Sintaks dasar
@@ -482,6 +525,12 @@ jQuery menawarkan efek visual seperti menyembunyikan, menampilkan, dan animasi.
 
 #### 5.1.1 Show dan Hide
 
+```html
+<div id="elemen" style="display:none;">Ini elemen tersembunyi</div>
+
+<button id="tombol">Tampilkan</button>
+```
+
 ```javascript
 // Menampilkan elemen
 $("#elemen").show();
@@ -499,6 +548,19 @@ $("#elemen").toggle("fast");
 ```
 
 #### 5.1.2 Fade
+
+```html
+<div id="elemen" style="display:none;">Ini elemen tersembunyi</div>
+
+<button id="tombol">Tampilkan</button>
+<script>
+  $(document).ready(function () {
+    $("#tombol").click(function () {
+      $("#elemen").fadeIn(1000);
+    });
+  });
+</script>
+```
 
 ```javascript
 // Memudar masuk (dari transparan ke terlihat)
@@ -525,22 +587,6 @@ $("#elemen").slideUp();
 
 // Toggle slide
 $("#elemen").slideToggle();
-```
-
-### 5.2 Kontrol Animasi
-
-```javascript
-// Menghentikan semua animasi
-$("#elemen").stop();
-
-// Menghentikan animasi saat ini, tapi tetap menjalankan yang berada dalam antrian
-$("#elemen").stop(false, false);
-
-// Menghentikan animasi saat ini dan mengosongkan antrian animasi
-$("#elemen").stop(true, false);
-
-// Menghentikan animasi saat ini, melompat ke akhir, dan mengosongkan antrian
-$("#elemen").stop(true, true);
 ```
 
 ### Contoh
