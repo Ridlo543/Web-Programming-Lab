@@ -42,3 +42,9 @@
 9. path intellisense
 
 ![image](https://github.com/user-attachments/assets/9f70d6a1-795e-4868-bfff-a0f3d8cb5166)
+
+10. Jquery
+
+![image](https://github.com/user-attachments/assets/b1960a26-ea31-46a4-a89f-5454b83cd39f)
+
+11. 
