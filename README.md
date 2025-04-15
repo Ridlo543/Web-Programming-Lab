@@ -4,6 +4,7 @@
 2. [CSS](02_css/materi.md#praktikum-pemrograman-web-2-css)
 3. [Javascript](03_Javascript/materi.md#praktikum-pemrograman-web-3-javascript)
 4. [jQuery](04_JQuery/materi.md#praktikum-pemrograman-web-4-jquery)
+5. [AJAX](05_AJAX/materi.md#praktikum-pemrograman-web-5-ajax)
 
 # Tugas
 
@@ -47,4 +48,4 @@
 
 ![image](https://github.com/user-attachments/assets/b1960a26-ea31-46a4-a89f-5454b83cd39f)
 
-11. 
+11.
