@@ -611,7 +611,7 @@ function fetchDataWithLoading() {
 }
 ```
 
-### 2. Implementasi Throttling dan Debouncing
+### 2. Implementasi Throttling atau Debouncing
 
 Untuk mencegah terlalu banyak request AJAX, gunakan teknik throttling atau debouncing:
 
@@ -665,34 +665,3 @@ searchInput.addEventListener("input", (e) => searchUsers(e.target.value));
 ### 3. Caching Hasil Request
 
 Menyimpan hasil request dapat meningkatkan performa dan mengurangi beban server:
-
-```javascript
-// Cache sederhana untuk hasil request
-const apiCache = new Map();
-
-function fetchWithCache(url) {
-  // Periksa cache dulu
-  if (apiCache.has(url)) {
-    console.log("Mengambil data dari cache");
-    return Promise.resolve(apiCache.get(url));
-  }
-
-  // Jika tidak ada di cache, buat request baru
-  return fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      // Simpan hasil di cache
-      apiCache.set(url, data);
-      return data;
-    });
-}
-
-// Penggunaan
-document.getElementById("loadBtn").addEventListener("click", () => {
-  fetchWithCache("https://jsonplaceholder.typicode.com/users/1").then(
-    (user) => {
-      document.getElementById("result").textContent = user.name;
-    }
-  );
-});
-```
