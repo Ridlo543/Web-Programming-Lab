@@ -363,6 +363,14 @@ jQuery menyediakan metode AJAX yang mudah digunakan yang menyederhanakan penggun
 
 ### Metode $.get() - Untuk Request GET
 
+```html
+<body>
+  <button id="getBtn">Ambil Data</button>
+  <div id="result"></div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+```
+
 ```javascript
 // Versi singkat untuk GET request
 $("#getBtn").click(function () {
@@ -375,6 +383,14 @@ $("#getBtn").click(function () {
 ```
 
 ### Metode $.post() - Untuk Request POST
+
+```html
+<body>
+  <button id="postBtn">Kirim Data</button>
+  <div id="result"></div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+```
 
 ```javascript
 $("#postBtn").click(function () {
@@ -456,7 +472,6 @@ Form adalah cara umum untuk mengumpulkan dan mengirim data di web. Dengan AJAX, 
     <script>
       $(document).ready(function () {
         $("#postForm").submit(function (event) {
-          // Cegah form dikirim dengan cara tradisional
           event.preventDefault();
 
           // Validasi form sederhana
@@ -510,6 +525,14 @@ Form adalah cara umum untuk mengumpulkan dan mengirim data di web. Dengan AJAX, 
 
 Menangani error dengan baik sangat penting dalam aplikasi AJAX untuk memberikan feedback yang tepat kepada pengguna.
 
+```html
+<body>
+  <button id="fetchBtn">Ambil Data</button>
+  <div id="result"></div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+```
+
 ```javascript
 function fetchDataWithErrorHandling() {
   // Tampilkan status loading
@@ -552,61 +575,7 @@ function fetchDataWithErrorHandling() {
 }
 ```
 
-## 9. CORS dan Solusinya
-
-CORS (Cross-Origin Resource Sharing) adalah mekanisme keamanan browser yang membatasi permintaan HTTP dari domain yang berbeda dengan domain saat ini.
-
-### Penjelasan CORS
-
-Ketika halaman web di domain A mencoba mengakses resource di domain B menggunakan JavaScript, browser akan memeriksa apakah domain B mengizinkan akses dari domain A. Jika tidak, browser akan memblokir permintaan dan menampilkan error CORS.
-
-### Contoh Error CORS
-
-```javascript
-// Contoh kode yang mungkin menghasilkan error CORS
-fetch("https://api.domain-lain.com/data")
-  .then((response) => response.json())
-  .then((data) => console.log(data))
-  .catch((error) => {
-    console.error("Error:", error);
-    // Mungkin error CORS: "Access to fetch at 'https://api.domain-lain.com/data'
-    // from origin 'http://your-site.com' has been blocked by CORS policy"
-  });
-```
-
-### Solusi untuk CORS
-
-1. **Gunakan API yang mendukung CORS**:
-   API modern biasanya dikonfigurasi untuk mendukung CORS dengan menambahkan header tertentu di respons server.
-
-2. **Proxy Server**:
-   Membuat proxy sederhana di server yang sama dengan halaman web untuk meneruskan permintaan.
-
-   ```javascript
-   // Alih-alih fetch langsung ke domain lain:
-   fetch("/api/proxy?url=https://api.domain-lain.com/data")
-     .then((response) => response.json())
-     .then((data) => console.log(data));
-   ```
-
-3. **JSONP (metode lama)**:
-   Teknik ini memanfaatkan fakta bahwa tag `<script>` tidak dibatasi oleh kebijakan same-origin.
-
-   ```javascript
-   function handleData(data) {
-     console.log("Data dari JSONP:", data);
-   }
-
-   // Membuat dan menambahkan tag script
-   const script = document.createElement("script");
-   script.src = "https://api.domain-lain.com/data?callback=handleData";
-   document.body.appendChild(script);
-   ```
-
-4. **API Gateway atau Backend**:
-   Pendekatan yang lebih aman adalah membuat backend yang mengambil data dari API eksternal.
-
-## 10. Praktik Terbaik AJAX
+## 9. Praktik Terbaik AJAX
 
 Berikut beberapa praktik terbaik saat mengimplementasikan AJAX:
 
@@ -645,6 +614,14 @@ function fetchDataWithLoading() {
 ### 2. Implementasi Throttling dan Debouncing
 
 Untuk mencegah terlalu banyak request AJAX, gunakan teknik throttling atau debouncing:
+
+```html
+<body>
+  <input type="text" id="search" placeholder="Cari pengguna..." />
+  <div id="results"></div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+```
 
 ```javascript
 // Debouncing: Delay permintaan sampai pengguna selesai mengetik

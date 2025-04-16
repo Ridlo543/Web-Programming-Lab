@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async/Await dengan jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #loading {
+            display: none;
+            color: blue;
+            margin: 10px 0;
+        }
+
+        #hasil {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="ambilData">Ambil Data Pengguna</button>
+    <div id="loading">Memuat...</div>
+    <div id="hasil"></div>
+
+    <script>
+        $(document).ready(function () {
+            $("#ambilData").click(async function () {
+                // Tampilkan loading
+                $("#loading").show();
+                $("#hasil").empty();
+
+                try {
+                    // Gunakan await untuk $.get()
+                    const data = await $.get("https://jsonplaceholder.typicode.com/users/1");
+
+                    // Tampilkan data
+                    $("#hasil").text(`Nama: ${data.name}, Email: ${data.email}`);
+                } catch (error) {
+                    // Tangani error
+                    $("#hasil").text("Error: Tidak dapat memuat data");
+                    console.error("Error:", error);
+                } finally {
+                    // Sembunyikan loading
+                    $("#loading").hide();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
