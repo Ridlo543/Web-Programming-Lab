@@ -13,7 +13,7 @@ Mahasiswa membuat proyek web, bisa menggunakan tugas sebelumnya atau membuat bar
 ### AJAX
 
 - Ambil data dari API publik atau API sederhana yang dibuat sendiri (misal file JSON statis di server lokal)
-- Gunakan Fetch API aau jQuery AJAX untuk mengambil/mengirim data
+- Gunakan Fetch API aau jQuery AJAX untuk mengambil data
 
 ### Opsional
 

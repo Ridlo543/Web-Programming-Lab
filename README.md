@@ -9,6 +9,7 @@
 # Tugas
 
 1. [Tugas 1: HTML & CSS](02_css/tugas.md)
+2. [Tugas 2: Javascript, jQuery, AJAX](04_AJAX/tugas.md)
 
 # Extension
 
