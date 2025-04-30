@@ -71,13 +71,666 @@ Beberapa extension VS Code yang membantu dalam pengembangan PHP:
 </html>
 ```
 
-Sintaks Dasar (Variabel, Echo, Data Type)
+## 2. Sintaks Dasar PHP
 
-Operator dan Struktur Kontrol (if, switch, for, while)
+### Tag PHP
 
-Fungsi (Deklarasi, Parameter, Return)
+PHP dimulai dengan tag `<?php` dan diakhiri dengan `?>`. Semua kode PHP harus berada di antara tag ini.
 
-Array dan Array Associative
+```php
+<?php
+    // Kode PHP di sini
+?>
+```
+
+Untuk output cepat, dapat juga menggunakan tag singkat:
+
+```php
+<?= "Teks ini akan langsung di-echo" ?>
+```
+
+### Komentar
+
+```php
+<?php
+    // Komentar satu baris
+
+    /*
+    Komentar
+    multi-baris
+    */
+
+    # Gaya komentar shell
+?>
+```
+
+### Echo dan Print
+
+Digunakan untuk menampilkan output ke browser.
+
+```php
+<?php
+    echo "Hello World"; // Lebih cepat, tanpa return value
+    print "Hello World"; // Lebih lambat, return value 1
+
+    // Dapat menampilkan beberapa nilai
+    echo "Nama: ", $nama, ", Umur: ", $umur;
+
+    // Juga bisa dalam format HTML
+    echo "<h1>Judul</h1>";
+    echo "<p>Paragraf.</p>";
+?>
+```
+
+### Variabel
+
+Variabel di PHP dimulai dengan tanda `$` diikuti nama variabel. PHP adalah bahasa dengan tipe data dinamis (tidak perlu mendeklarasikan tipe data).
+
+```php
+<?php
+    $nama = "John Doe";     // String
+    $umur = 25;             // Integer
+    $tinggi = 175.5;        // Float
+    $aktif = true;          // Boolean
+
+    echo "Nama: $nama, Umur: $umur tahun";
+
+    // Variable variables
+    $foo = "bar";
+    $$foo = "baz";  // Membuat variabel $bar dengan nilai "baz"
+
+    // Variabel global
+    global $database;
+?>
+```
+
+### Tipe Data
+
+PHP mendukung beberapa tipe data utama:
+
+```php
+<?php
+    // 1. String
+    $nama = "John Doe";
+    $alamat = 'Jl. Merdeka No. 123';  // Single quotes atau double quotes
+
+    // 2. Integer
+    $umur = 25;
+    $tahun = -2023;
+
+    // 3. Float/Double
+    $ipk = 3.75;
+    $harga = 99.99;
+
+    // 4. Boolean
+    $aktif = true;
+    $lulus = false;
+
+    // 5. Array
+    $buah = array("Apel", "Jeruk", "Mangga");
+    $buah_baru = ["Apel", "Jeruk", "Mangga"];  // Sintaks array baru
+
+    // 6. Object
+    class Mahasiswa {
+        public $nama;
+        public $nim;
+    }
+    $mhs = new Mahasiswa();
+
+    // 7. NULL
+    $kosong = NULL;
+
+    // 8. Resource
+    $file = fopen("test.txt", "r");
+
+    // Memeriksa tipe data
+    echo gettype($nama);    // string
+    echo var_dump($umur);   // int(25)
+    echo is_string($nama);  // true
+    echo is_int($ipk);      // false
+?>
+```
+
+### Konstanta
+
+Konstanta adalah identifier yang nilainya tidak dapat diubah selama eksekusi script.
+
+```php
+<?php
+    // Mendefinisikan konstanta
+    define("PI", 3.14159);
+    define("SITE_NAME", "Web Programming");
+
+    // Konstanta case-insensitive (tidak disarankan)
+    define("DATABASE", "mysql", true);  // Parameter ketiga 'true'
+
+    // Menggunakan konstanta
+    echo "Nilai PI: " . PI;
+
+    // Konstanta bawaan PHP
+    echo "PHP Version: " . PHP_VERSION;
+    echo "Line number: " . __LINE__;
+    echo "File path: " . __FILE__;
+?>
+```
+
+## 3. Operator dan Struktur Kontrol
+
+### Operator
+
+PHP mendukung berbagai jenis operator untuk operasi yang berbeda:
+
+#### 1. Operator Aritmatika
+
+```php
+<?php
+    $a = 10;
+    $b = 3;
+
+    echo $a + $b;  // Penjumlahan: 13
+    echo $a - $b;  // Pengurangan: 7
+    echo $a * $b;  // Perkalian: 30
+    echo $a / $b;  // Pembagian: 3.33...
+    echo $a % $b;  // Modulus (sisa pembagian): 1
+    echo $a ** $b; // Eksponen (pangkat): 1000
+
+    // Increment & Decrement
+    $a++;  // Post-increment
+    ++$a;  // Pre-increment
+    $b--;  // Post-decrement
+    --$b;  // Pre-decrement
+?>
+```
+
+#### 2. Operator Assignment (Penugasan)
+
+```php
+<?php
+    $a = 10;        // Assignment dasar
+    $a += 5;        // $a = $a + 5; (menjadi 15)
+    $a -= 3;        // $a = $a - 3; (menjadi 12)
+    $a *= 2;        // $a = $a * 2; (menjadi 24)
+    $a /= 4;        // $a = $a / 4; (menjadi 6)
+    $a %= 4;        // $a = $a % 4; (menjadi 2)
+
+    $str = "Hello";
+    $str .= " World"; // Concatenation assignment (menjadi "Hello World")
+?>
+```
+
+#### 3. Operator Perbandingan
+
+```php
+<?php
+    $a = 10;
+    $b = "10";
+
+    var_dump($a == $b);   // Sama dengan (true)
+    var_dump($a === $b);  // Identik (false, karena tipe data berbeda)
+    var_dump($a != $b);   // Tidak sama dengan (false)
+    var_dump($a !== $b);  // Tidak identik (true)
+    var_dump($a < 20);    // Kurang dari (true)
+    var_dump($a > 20);    // Lebih dari (false)
+    var_dump($a <= 10);   // Kurang dari atau sama dengan (true)
+    var_dump($a >= 5);    // Lebih dari atau sama dengan (true)
+
+    // Spaceship operator (sejak PHP 7)
+    var_dump($a <=> 5);   // Hasil: 1 (karena $a > 5)
+    var_dump($a <=> 10);  // Hasil: 0 (karena $a = 10)
+    var_dump($a <=> 15);  // Hasil: -1 (karena $a < 15)
+?>
+```
+
+#### 4. Operator Logika
+
+```php
+<?php
+    $a = true;
+    $b = false;
+
+    var_dump($a && $b);  // AND (false)
+    var_dump($a || $b);  // OR (true)
+    var_dump(!$a);       // NOT (false)
+    var_dump($a and $b); // AND (false) (prioritas lebih rendah dari &&)
+    var_dump($a or $b);  // OR (true) (prioritas lebih rendah dari ||)
+    var_dump($a xor $b); // XOR (true) (true jika $a atau $b true, tapi tidak keduanya)
+?>
+```
+
+### Struktur Kontrol
+
+Struktur kontrol digunakan untuk mengontrol alur eksekusi dari kode berdasarkan kondisi atau perulangan.
+
+#### 1. Struktur Kondisional
+
+##### If, Else, Elseif
+
+```php
+<?php
+    $nilai = 85;
+
+    if ($nilai >= 90) {
+        echo "Grade: A";
+    } elseif ($nilai >= 80) {
+        echo "Grade: B";
+    } elseif ($nilai >= 70) {
+        echo "Grade: C";
+    } elseif ($nilai >= 60) {
+        echo "Grade: D";
+    } else {
+        echo "Grade: E";
+    }
+
+    // Sintaks alternatif untuk template
+    if ($user_logged_in): ?>
+        <h1>Welcome, <?= $username ?></h1>
+    <?php else: ?>
+        <h1>Please log in</h1>
+    <?php endif; ?>
+```
+
+##### Operator Ternary
+
+```php
+<?php
+    $umur = 20;
+
+    // Standar if-else
+    if ($umur >= 18) {
+        $status = "Dewasa";
+    } else {
+        $status = "Anak-anak";
+    }
+
+    // Dengan operator ternary
+    $status = ($umur >= 18) ? "Dewasa" : "Anak-anak";
+
+    // Ternary pendek (sejak PHP 5.3)
+    $nama = $_GET['nama'] ?? "Tamu"; // Jika $_GET['nama'] tidak ada, gunakan "Tamu"
+?>
+```
+
+##### Switch Case
+
+```php
+<?php
+    $hari = "Senin";
+
+    switch ($hari) {
+        case "Senin":
+            echo "Hari pertama dalam minggu";
+            break;
+        case "Selasa":
+            echo "Hari kedua dalam minggu";
+            break;
+        case "Rabu":
+            echo "Hari ketiga dalam minggu";
+            break;
+        case "Kamis":
+            echo "Hari keempat dalam minggu";
+            break;
+        case "Jumat":
+            echo "Hari kelima dalam minggu";
+            break;
+        case "Sabtu":
+        case "Minggu":
+            echo "Akhir pekan";
+            break;
+        default:
+            echo "Hari tidak valid";
+    }
+
+    // Sintaks alternatif
+    switch ($color):
+        case "red":
+            echo "Merah";
+            break;
+        case "blue":
+            echo "Biru";
+            break;
+        default:
+            echo "Warna lain";
+    endswitch;
+?>
+```
+
+#### 2. Struktur Perulangan (Loop)
+
+##### For Loop
+
+```php
+<?php
+    // For loop dasar
+    for ($i = 0; $i < 5; $i++) {
+        echo "Iterasi ke-$i <br>";
+    }
+
+    // For loop dengan multiple expressions
+    for ($i = 0, $j = 10; $i < 10; $i++, $j--) {
+        echo "$i - $j <br>";
+    }
+
+    // Sintaks alternatif
+    for ($i = 0; $i < 5; $i++):
+        echo "Iterasi ke-$i <br>";
+    endfor;
+?>
+```
+
+##### While Loop
+
+```php
+<?php
+    // While loop dasar
+    $i = 0;
+    while ($i < 5) {
+        echo "Iterasi ke-$i <br>";
+        $i++;
+    }
+
+    // Sintaks alternatif
+    $i = 0;
+    while ($i < 5):
+        echo "Iterasi ke-$i <br>";
+        $i++;
+    endwhile;
+?>
+```
+
+##### Do-While Loop
+
+```php
+<?php
+    // Do-While loop
+    $i = 0;
+    do {
+        echo "Iterasi ke-$i <br>";
+        $i++;
+    } while ($i < 5);
+
+    // Do-While selalu dieksekusi minimal satu kali
+    $i = 10;
+    do {
+        echo "Ini akan dieksekusi meski kondisi false";
+    } while ($i < 5);
+?>
+```
+
+##### Foreach Loop (untuk Array)
+
+```php
+<?php
+    $buah = ["Apel", "Jeruk", "Mangga", "Pisang"];
+
+    // Foreach basic
+    foreach ($buah as $item) {
+        echo "Buah: $item <br>";
+    }
+
+    // Foreach dengan key
+    $mahasiswa = [
+        "nim" => "123456",
+        "nama" => "John Doe",
+        "jurusan" => "Informatika"
+    ];
+
+    foreach ($mahasiswa as $key => $value) {
+        echo "$key: $value <br>";
+    }
+
+    // Sintaks alternatif
+    foreach ($buah as $item):
+        echo "Buah: $item <br>";
+    endforeach;
+?>
+```
+
+##### Break dan Continue
+
+```php
+<?php
+    // Break: menghentikan loop
+    for ($i = 0; $i < 10; $i++) {
+        if ($i == 5) {
+            break; // Keluar dari loop saat $i = 5
+        }
+        echo "Nilai i: $i <br>";
+    }
+
+    // Continue: melewati iterasi saat ini
+    for ($i = 0; $i < 10; $i++) {
+        if ($i % 2 == 0) {
+            continue; // Skip iterasi untuk nilai genap
+        }
+        echo "Nilai i: $i <br>";
+    }
+?>
+```
+
+## 4. Fungsi dalam PHP
+
+Fungsi adalah blok kode yang dapat digunakan kembali untuk melakukan tugas tertentu.
+
+### Deklarasi Fungsi
+
+```php
+<?php
+    // Fungsi dasar
+    function sapa() {
+        echo "Halo, Selamat datang!";
+    }
+
+    // Memanggil fungsi
+    sapa(); // Output: Halo, Selamat datang!
+
+    // Fungsi dengan parameter
+    function sapaNama($nama) {
+        echo "Halo, $nama!";
+    }
+
+    sapaNama("John"); // Output: Halo, John!
+
+    // Fungsi dengan parameter default
+    function sapaFormal($nama, $gelar = "Mr.") {
+        echo "Halo, $gelar $nama";
+    }
+
+    sapaFormal("John");     // Output: Halo, Mr. John
+    sapaFormal("Jane", "Ms."); // Output: Halo, Ms. Jane
+?>
+```
+
+### Parameter dan Argumen
+
+```php
+<?php
+    // Parameter wajib
+    function hitungLuas($panjang, $lebar) {
+        return $panjang * $lebar;
+    }
+
+    echo hitungLuas(5, 3); // Output: 15
+
+    // Parameter default
+    function power($base, $exponent = 2) {
+        return $base ** $exponent;
+    }
+
+    echo power(4);    // Output: 16 (4^2)
+    echo power(2, 3); // Output: 8 (2^3)
+
+    // Parameter dengan tipe data (sejak PHP 7)
+    function tambah(int $a, int $b): int {
+        return $a + $b;
+    }
+
+    echo tambah(5, 3); // Output: 8
+
+    // Parameter variadic (sejak PHP 5.6)
+    function jumlahkan(...$angka) {
+        return array_sum($angka);
+    }
+
+    echo jumlahkan(1, 2, 3, 4, 5); // Output: 15
+
+    // Parameter by reference
+    function tambahLima(&$nilai) {
+        $nilai += 5;
+    }
+
+    $angka = 10;
+    tambahLima($angka);
+    echo $angka; // Output: 15
+?>
+```
+
+### Return Values
+
+```php
+<?php
+    // Return single value
+    function kuadrat($angka) {
+        return $angka * $angka;
+    }
+
+    $hasil = kuadrat(4);
+    echo $hasil; // Output: 16
+
+    // Early return untuk kontrol alur
+    function cekNilai($nilai) {
+        if ($nilai < 0) {
+            return "Nilai tidak valid";
+        }
+
+        if ($nilai < 60) {
+            return "Tidak Lulus";
+        }
+
+        return "Lulus";
+    }
+
+    echo cekNilai(-5); // Output: Nilai tidak valid
+    echo cekNilai(50); // Output: Tidak Lulus
+    echo cekNilai(80); // Output: Lulus
+
+    // Return multiple values (dengan array)
+    function getMinMax($arr) {
+        return [
+            'min' => min($arr),
+            'max' => max($arr)
+        ];
+    }
+
+    $hasil = getMinMax([3, 1, 7, 2, 9]);
+    echo "Min: " . $hasil['min'] . ", Max: " . $hasil['max']; // Output: Min: 1, Max: 9
+
+    // Return type declarations (sejak PHP 7)
+    function pembagian(float $a, float $b): float {
+        return $a / $b;
+    }
+?>
+```
+
+### Fungsi Anonymous dan Closure
+
+```php
+<?php
+    // Anonymous function (fungsi tanpa nama)
+    $sapa = function($nama) {
+        return "Halo, $nama!";
+    };
+
+    echo $sapa("John"); // Output: Halo, John!
+
+    // Fungsi sebagai parameter (callback)
+    function prosesArray($arr, $callback) {
+        $result = [];
+        foreach ($arr as $item) {
+            $result[] = $callback($item);
+        }
+        return $result;
+    }
+
+    $angka = [1, 2, 3, 4, 5];
+    $kuadrat = prosesArray($angka, function($n) {
+        return $n * $n;
+    });
+
+    print_r($kuadrat); // Output: Array ( [0] => 1 [1] => 4 [2] => 9 [3] => 16 [4] => 25 )
+
+    // Closure (fungsi yang dapat mengakses variabel dari cakupan induknya)
+    $pesan = "Selamat Datang";
+    $greeter = function($nama) use ($pesan) {
+        return "$pesan, $nama!";
+    };
+
+    echo $greeter("John"); // Output: Selamat Datang, John!
+
+    // Arrow function (sejak PHP 7.4)
+    $kuadrat = fn($n) => $n * $n;
+    echo $kuadrat(5); // Output: 25
+?>
+```
+
+### Recursive Function
+
+```php
+<?php
+    // Contoh rekursi: Faktorial
+    function faktorial($n) {
+        if ($n <= 1) {
+            return 1;
+        }
+        return $n * faktorial($n - 1);
+    }
+
+    echo faktorial(5); // Output: 120 (5 * 4 * 3 * 2 * 1)
+
+    // Contoh rekursi: Fibonacci
+    function fibonacci($n) {
+        if ($n <= 1) {
+            return $n;
+        }
+        return fibonacci($n - 1) + fibonacci($n - 2);
+    }
+
+    echo fibonacci(10); // Output: 55
+?>
+```
+
+### Fungsi Bawaan PHP
+
+PHP memiliki banyak fungsi bawaan yang berguna:
+
+```php
+<?php
+    // String functions
+    echo strlen("Hello");       // Output: 5
+    echo str_word_count("Hello World"); // Output: 2
+    echo strrev("Hello");       // Output: olleH
+    echo str_replace("World", "PHP", "Hello World"); // Output: Hello PHP
+
+    // Math functions
+    echo abs(-5);      // Output: 5
+    echo sqrt(16);     // Output: 4
+    echo round(3.7);   // Output: 4
+    echo rand(1, 10);  // Output: random number between 1 and 10
+
+    // Array functions
+    $arr = [3, 1, 4, 2];
+    sort($arr);
+    print_r($arr);     // Output: Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 )
+    echo count($arr);  // Output: 4
+
+    // Date and Time functions
+    echo date("Y-m-d H:i:s"); // Output: current date and time
+    echo time();              // Output: current timestamp
+
+    // File functions
+    echo file_exists("test.txt"); // Output: 1 (true) or nothing (false)
+    // ... dan masih banyak lagi
+?>
+```
 
 ## 5. Array dalam PHP
 
