@@ -820,7 +820,7 @@ Dengan static, kamu bisa membuat class seperti kalkulator, logger, atau konfigur
 
 ## 9. Method Chaining
 
-### 🔗 Apa Itu Method Chaining?
+### Apa Itu Method Chaining?
 
 **Method Chaining** adalah teknik dalam OOP PHP yang memungkinkan kita untuk memanggil beberapa method secara berurutan **dalam satu baris**. Hal ini membuat kode lebih singkat dan terlihat rapi.
 
@@ -828,7 +828,7 @@ Agar method chaining bisa dilakukan, setiap method **harus mengembalikan objek i
 
 ---
 
-### 💡 Kenapa Menggunakan Method Chaining?
+### Kenapa Menggunakan Method Chaining?
 
 - Membuat kode lebih ringkas.
 - Meningkatkan keterbacaan saat mengatur banyak properti/metode berurutan.
@@ -836,7 +836,7 @@ Agar method chaining bisa dilakukan, setiap method **harus mengembalikan objek i
 
 ---
 
-### 📂 Contoh Sederhana
+### Contoh Sederhana
 
 ```php
 class Builder {
