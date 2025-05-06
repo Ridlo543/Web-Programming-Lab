@@ -400,7 +400,7 @@ Koneksi ke database ditutup.
 
 # 5. Inheritance (Pewarisan)
 
-### 👪 Apa Itu Inheritance?
+### Apa Itu Inheritance?
 
 **Inheritance (Pewarisan)** adalah konsep dalam OOP yang memungkinkan sebuah class (disebut *child class* atau *subclass*) untuk mewarisi properti dan method dari class lain (disebut *parent class* atau *superclass*).
 
@@ -411,7 +411,7 @@ Tujuannya adalah untuk:
 
 ---
 
-### 🧩 Struktur Pewarisan di PHP
+### Struktur Pewarisan di PHP
 
 Gunakan keyword `extends` untuk mewarisi class lain:
 
@@ -517,7 +517,7 @@ Inheritance membantu membuat struktur kode yang modular, bersih, dan terorganisi
 
 # 6. Encapsulation (Enkapsulasi)
 
-### 🔐 Apa Itu Enkapsulasi?
+### Apa Itu Enkapsulasi?
 
 **Encapsulation (Enkapsulasi)** adalah konsep OOP yang digunakan untuk menyembunyikan data atau implementasi detail dari suatu objek agar tidak bisa diakses secara langsung dari luar class. Tujuannya adalah:
 
@@ -527,7 +527,7 @@ Inheritance membantu membuat struktur kode yang modular, bersih, dan terorganisi
 
 ---
 
-### 🛡️ Access Modifiers di PHP
+### Access Modifiers di PHP
 
 PHP menyediakan tiga modifier untuk mengatur visibilitas properti dan method:
 
@@ -539,7 +539,7 @@ PHP menyediakan tiga modifier untuk mengatur visibilitas properti dan method:
 
 ---
 
-### 📘 Contoh Enkapsulasi Dasar
+### Contoh Enkapsulasi Dasar
 
 ```php
 class RekeningBank {
@@ -627,20 +627,106 @@ Dengan enkapsulasi, kode menjadi lebih aman, terkontrol, dan terstruktur. Ini ad
 
 ---
 
-## 7. Abstraction dan Interface
+# 7. Abstraction dan Interface
 
-- **Abstract Class**: Tidak bisa diinstansiasi langsung.
-- **Interface**: Menyediakan kontrak method yang harus diimplementasikan.
+### Apa Itu Abstraction?
+
+**Abstraction (Abstraksi)** adalah konsep OOP yang menyembunyikan detail implementasi dan hanya menampilkan fungsionalitas penting kepada pengguna. Abstraksi dilakukan menggunakan:
+
+- **Abstract Class**
+- **Interface**
+
+Tujuannya adalah agar pengguna cukup mengetahui *apa yang dilakukan*, tanpa perlu tahu *bagaimana cara melakukannya*.
+
+---
+
+### Abstract Class
+
+- Tidak dapat diinstansiasi langsung.
+- Dapat memiliki property dan method biasa (dengan implementasi).
+- Harus memiliki minimal satu method `abstract`.
+- Child class wajib mengimplementasikan method abstract tersebut.
 
 ```php
 abstract class Bentuk {
-    abstract public function luas();
+    protected $warna;
+
+    public function __construct($warna) {
+        $this->warna = $warna;
+    }
+
+    abstract public function luas(); // Harus diimplementasi di child class
 }
 
+class Persegi extends Bentuk {
+    private $sisi;
+
+    public function __construct($warna, $sisi) {
+        parent::__construct($warna);
+        $this->sisi = $sisi;
+    }
+
+    public function luas() {
+        return $this->sisi * $this->sisi;
+    }
+}
+
+$persegi = new Persegi("Biru", 4);
+echo "Luas: " . $persegi->luas();
+```
+### Interface
+Menyediakan kontrak method tanpa implementasi.
+
+Tidak memiliki property atau method dengan isi.
+
+Tidak dapat memiliki constructor.
+
+Sebuah class dapat mengimplementasi lebih dari satu interface (`multiple inheritance`).
+
+```php
 interface Kendaraan {
     public function jalan();
+    public function berhenti();
 }
+
+class Mobil implements Kendaraan {
+    public function jalan() {
+        echo "Mobil berjalan...\n";
+    }
+
+    public function berhenti() {
+        echo "Mobil berhenti.\n";
+    }
+}
+
+$avanza = new Mobil();
+$avanza->jalan();
+$avanza->berhenti();
 ```
+
+### Perbedaan Abstract Class vs Interface
+| Fitur                 | Abstract Class                        | Interface                           |
+| --------------------- | ------------------------------------- | ----------------------------------- |
+| Dapat diinstansiasi?  | ❌ Tidak                               | ❌ Tidak                             |
+| Method dengan isi?    | ✅ Bisa                                | ❌ Tidak                             |
+| Property?             | ✅ Bisa                                | ❌ Tidak                             |
+| Constructor?          | ✅ Bisa                                | ❌ Tidak                             |
+| Multiple inheritance? | ❌ Tidak bisa diwarisi lebih dari satu | ✅ Bisa implement lebih dari satu    |
+| Tujuan                | Pewarisan dengan dasar umum           | Kontrak perilaku yang harus diikuti |
+
+### Kapan Abstract Class dan Interface digunakan?
+| Situasi                                        | Gunakan        |
+| ---------------------------------------------- | -------------- |
+| Butuh pewarisan dengan method umum + wajib     | Abstract Class |
+| Hanya ingin memaksa class agar punya method    | Interface      |
+| Perlu inheritance jamak (multiple inheritance) | Interface      |
+
+### Kesimpulan
+- Abstraction menyembunyikan detail implementasi dan menampilkan fungsionalitas penting.
+- Abstract Class digunakan jika kita ingin menyediakan implementasi dasar.
+- Interface digunakan saat kita ingin membuat kontrak method yang harus dipenuhi class.
+
+Dengan abstraksi, kode menjadi lebih modular, mudah dikembangkan, dan mengikuti prinsip design to interface, not implementation.
 
 ---
 
