@@ -1037,21 +1037,118 @@ Dengan namespace, kode kamu menjadi lebih terstruktur, terorganisir, dan mudah d
 
 ## 11. Magic Methods (Opsional)
 
-Method khusus dengan awalan `__`, seperti `__construct`, `__get`, `__set`, `__toString`.
+### 🔮 Apa Itu Magic Methods?
+
+**Magic methods** adalah metode khusus dalam PHP yang memiliki awalan `__` (dua garis bawah). PHP secara otomatis memanggil magic methods ini pada saat-saat tertentu, tanpa perlu memanggilnya langsung. 
+
+Magic methods memberikan kemampuan untuk menangani perilaku khusus dalam objek, seperti ketika properti diakses atau objek dikonstruksi.
+
+---
+
+### 📜 Daftar Magic Methods
+
+1. **`__construct()`** - Digunakan untuk inisialisasi objek saat objek dibuat (Constructor).
+2. **`__destruct()`** - Digunakan untuk melakukan pembersihan objek sebelum objek dihancurkan (Destructor).
+3. **`__get()`** - Dipanggil saat mencoba mengakses properti yang tidak ada atau tidak terdefinisi dalam objek.
+4. **`__set()`** - Dipanggil saat mencoba mengubah nilai properti yang tidak ada atau tidak terdefinisi.
+5. **`__call()`** - Dipanggil saat mencoba memanggil metode yang tidak ada dalam objek.
+6. **`__callStatic()`** - Dipanggil saat mencoba memanggil metode statis yang tidak ada dalam objek.
+7. **`__toString()`** - Digunakan untuk mengonversi objek menjadi string saat dipanggil dengan `echo` atau `print`.
+8. **`__isset()`** - Dipanggil saat memeriksa apakah properti yang tidak ada sudah diset.
+9. **`__unset()`** - Dipanggil saat mencoba menghapus properti yang tidak ada.
+10. **`__clone()`** - Dipanggil saat objek di-clone menggunakan `clone`.
+
+---
+
+### 🧩 Contoh Magic Method: `__construct` dan `__destruct`
 
 ```php
-class User {
-    private $name;
+class Produk {
+    public $nama;
 
-    public function __set($name, $value) {
-        $this->$name = $value;
+    public function __construct($nama) {
+        $this->nama = $nama;
+        echo "Produk {$this->nama} telah dibuat.\n";
     }
 
-    public function __get($name) {
-        return $this->$name;
+    public function __destruct() {
+        echo "Produk {$this->nama} telah dihancurkan.\n";
     }
 }
+
+$produk = new Produk("Laptop");
+unset($produk); // Menjalankan __destruct()
 ```
+- `__construct()` digunakan untuk inisialisasi objek dan menjalankan kode saat objek dibuat.
+- `__destruct()` dipanggil saat objek dihancurkan, misalnya dengan unset().
+
+### Magic Method: `__get()` dan `__set()`
+Magic method `__get()` dan `__set()` digunakan untuk menangani akses atau penulisan ke properti yang tidak ada.
+```php
+class Mahasiswa {
+    private $data = [];
+
+    public function __get($key) {
+        if (isset($this->data[$key])) {
+            return $this->data[$key];
+        }
+        return null;
+    }
+
+    public function __set($key, $value) {
+        $this->data[$key] = $value;
+    }
+}
+
+$mhs = new Mahasiswa();
+$mhs->nama = "Andi"; // Memanggil __set()
+echo $mhs->nama;      // Memanggil __get()
+```
+- `__get($key)` menangani saat properti yang tidak ada diakses.
+- `__set($key, $value)` menangani saat properti yang tidak ada diubah nilainya.
+
+### Magic Method: `__call()`
+`__call()` dipanggil saat mencoba memanggil method yang tidak ada pada objek.
+```php
+class Kontak {
+    public function __call($method, $args) {
+        echo "Memanggil method: $method dengan argumen: " . implode(", ", $args) . "\n";
+    }
+}
+
+$kontak = new Kontak();
+$kontak->hubungi("John", "Malam ini"); // Memanggil __call()
+
+```
+### Magic Method: `__toString()`
+`__toString()` digunakan untuk mengonversi objek menjadi string, yang memungkinkan kita untuk menampilkan objek secara langsung menggunakan `echo`.
+```php
+class Buku {
+    public $judul;
+
+    public function __construct($judul) {
+        $this->judul = $judul;
+    }
+
+    public function __toString() {
+        return "Buku ini berjudul: {$this->judul}";
+    }
+}
+
+$buku = new Buku("Belajar PHP");
+echo $buku; // Memanggil __toString()
+```
+- `__toString()` memungkinkan objek ditampilkan sebagai string.
+
+### Menggunakan Magic Methods dengan Bijak
+Magic methods sangat berguna, tetapi penggunaan yang berlebihan atau tidak tepat bisa membuat kode sulit dibaca dan dipelihara. Sebaiknya hanya gunakan magic methods ketika benar-benar diperlukan, dan pastikan untuk mendokumentasikannya dengan jelas agar pengembang lain memahami bagaimana objek tersebut berfungsi.
+
+### Kesimpulan
+- Magic Methods memungkinkan PHP untuk menangani beberapa perilaku objek secara otomatis.
+- Magic methods seperti `__construct()`, `__get()`, `__set()`, dan lainnya memberikan fleksibilitas tambahan dalam OOP.
+- Gunakan magic methods untuk menangani skenario yang membutuhkan kontrol dinamis terhadap objek atau properti.
+
+Dengan magic methods, kamu bisa mengontrol cara objek berperilaku lebih lanjut dalam aplikasi PHP kamu!
 
 ---
 
