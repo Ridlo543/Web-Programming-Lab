@@ -395,27 +395,123 @@ Koneksi ke database ditutup.
 | `__destruct()`  | Saat objek dihancurkan/selesai | Membersihkan resource atau proses akhir    |
 
 - Constructor membantu menyederhanakan pembuatan objek dengan langsung mengisi nilai.
-
 - Destructor berguna untuk penanganan cleanup otomatis saat objek sudah tidak dipakai lagi.
 
 
 ## 5. Inheritance (Pewarisan)
 
-Memungkinkan class untuk mewarisi properti dan method dari class lain.
+### 👪 Apa Itu Inheritance?
+
+**Inheritance (Pewarisan)** adalah konsep dalam OOP yang memungkinkan sebuah class (disebut *child class* atau *subclass*) untuk mewarisi properti dan method dari class lain (disebut *parent class* atau *superclass*).
+
+Tujuannya adalah untuk:
+- **Menghindari duplikasi kode**
+- **Mendukung prinsip DRY (Don't Repeat Yourself)**
+- **Memungkinkan ekspansi dan modifikasi tanpa mengubah class induk**
+
+---
+
+### 🧩 Struktur Pewarisan di PHP
+
+Gunakan keyword `extends` untuk mewarisi class lain:
 
 ```php
+class ParentClass {
+    // Properties dan methods
+}
+
+class ChildClass extends ParentClass {
+    // Bisa menambahkan atau menimpa (override) method
+}
+```
+### Contoh Sederhana
+```php
 class Hewan {
-    public function suara() {
-        echo "Suara hewan";
+    public $nama;
+
+    public function bersuara() {
+        echo "$this->nama bersuara...\n";
     }
 }
 
 class Kucing extends Hewan {
-    public function suara() {
-        echo "Meong";
+    public function bersuara() {
+        echo "$this->nama berkata: Meong!\n";
+    }
+}
+
+// Membuat objek
+$kucing = new Kucing();
+$kucing->nama = "Kitty";
+$kucing->bersuara();
+```
+output
+```php
+Kitty berkata: Meong!
+```
+
+### Overriding Method
+Child class bisa menimpa method dari parent class dengan mendefinisikan ulang method dengan nama yang sama.
+
+```php
+class Kendaraan {
+    public function jalan() {
+        echo "Kendaraan berjalan...\n";
+    }
+}
+
+class Mobil extends Kendaraan {
+    public function jalan() {
+        echo "Mobil melaju di jalan raya.\n";
     }
 }
 ```
+### Menambahkan Method Baru di Child Class
+Child class juga dapat menambahkan method tambahan yang tidak ada di parent class.
+```php
+class Pegawai {
+    public function kerja() {
+        echo "Pegawai sedang bekerja...\n";
+    }
+}
+
+class Manajer extends Pegawai {
+    public function rapat() {
+        echo "Manajer sedang memimpin rapat.\n";
+    }
+}
+```
+### Aksesibilitas Pewarisan
+Pewarisan tetap tunduk pada access modifier:
+- `public`: dapat diwarisi dan diakses
+- `protected`: dapat diwarisi, tapi hanya diakses dari class itu sendiri dan subclass
+- `private`: tidak dapat diwarisi atau diakses dari subclass
+```php
+class Orang {
+    private $nama = "Rahasia";
+
+    protected $umur = 30;
+
+    public function tampilkanUmur() {
+        echo "Umur: $this->umur\n";
+    }
+}
+
+class Anak extends Orang {
+    public function tampilkanData() {
+        // echo $this->nama; // ❌ Error (private)
+        echo $this->umur;    // ✅ Bisa (protected)
+    }
+}
+```
+| Konsep          | Penjelasan                                                         |
+| --------------- | ------------------------------------------------------------------ |
+| `extends`       | Digunakan untuk mendefinisikan class anak dari class induk         |
+| Overriding      | Method dari class induk bisa ditimpa dengan versi baru di subclass |
+| Reusability     | Inheritance mendorong penggunaan ulang kode                        |
+| Access Modifier | Menentukan properti/method mana yang bisa diwarisi dan diakses     |
+
+Inheritance membantu membuat struktur kode yang modular, bersih, dan terorganisir, terutama ketika ada hierarki objek seperti Hewan → Kucing, Pegawai → Manajer, atau Kendaraan → Mobil.
 
 ---
 
