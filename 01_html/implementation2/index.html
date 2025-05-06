@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pemweb 2025</title>
+  </head>
+  <body>
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
+
+    <p>Ini adalah contoh paragraf.</p>
+
+    <p>Paragraf baru akan dimulai pada baris baru dengan jarak yang sesuai.</p>
+
+    <a href="https:/instagram.com/salsaa.rs">instagramsalsa</a>
+
+    <!-- Tautan ke halaman eksternal yang terbuka di tab baru -->
+    <a href="https://www.google.com" target="_blank" rel="noopener">Google</a>
+
+    <!-- Tautan untuk mengunduh file -->
+    <a href="dokumen.pdf" download="laporan.pdf">Download PDF</a>
+
+    <!-- Tautan ke bagian dalam halaman yang sama (anchor) -->
+    <a href="#section1">Pergi ke Bagian 1</a>
+    <div id="section1">Bagian 1</div>
+
+    <!-- Tautan email -->
+    <a href="mailto:email@contoh.com">Kirim Email</a>
+
+    <!-- Tautan telepon -->
+    <a href="https://wa.me/6285743863245">Hubungi Kami</a>
+
+    <img src="assets/LogoUNS.png" alt=logo uns" width="500">
+
+    <!--urorde-->
+    <ul>
+      <li>Item satu</li>
+      <li>Item dua</li>
+      <li>Item tiga</li>
+    </ul>
+
+    <!-- Daftar dengan angka romawi -->
+    <ol type="1">
+      <li>Item pertama</li>
+      <li>Item kedua</li>
+      <li>Item ketiga</li>
+    </ol>
+
+    <!-- Daftar dengan awal nomor 5 -->
+    <ol start="5">
+      <li>Item kelima</li>
+      <li>Item keenam</li>
+      <li>Item ketujuh</li>
+    </ol>
+
+    <dl>
+      <dt>HTML</dt>
+      <dd>Hyper Text Markup Language</dd>
+
+      <dt>CSS</dt>
+      <dd>Cascading Style Sheets</dd>
+
+      <dt>JS</dt>
+      <dd>JavaScript</dd>
+    </dl>
+
+    <br />
+    <br />
+    <br />
+    <table border="1">
+      <thead>
+        <th>Nama</th>
+        <th>Angakatan</th>
+        <th>Jurusan</th>
+      </thead>
+      <tr>
+        <td>Ridlo</td>
+        <td>2022</td>
+        <td>Informatika</td>
+      </tr>
+      <tr>
+        <td>Salsa</td>
+        <td>2022</td>
+        <td>Informatika</td>
+      </tr>
+      <tfoot>
+        <td colspan="3">dentitas</td>
+      </tfoot>
+    </table>
+
+    <br />
+    <br />
+
+    <form>
+      <label for="nama">Nama:</label>
+      <input type="text" name="" id="" />
+      <br />
+
+      <label for="tlp">telepon </label>
+      <input type="number" name="" id="" placeholder="diawali 08"/>
+
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+
+      <div>
+        <label for="jenis_kelamin">Jenis Kelamin:</label>
+        <select id="jenis_kelamin" name="jenis_kelamin">
+          <option value="">Pilih Jenis Kelamin</option>
+          <option value="L">Laki-laki</option>
+          <option value="P">Perempuan</option>
+        </select>
+      </div>
+      <div>
+        <p>Hobi:</p>
+        <input type="checkbox" id="membaca" name="hobi[]" value="membaca" />
+        <label for="membaca">Membaca</label>
+
+        <input type="checkbox" id="menulis" name="hobi[]" value="menulis" />
+        <label for="menulis">Menulis</label>
+
+        <input type="checkbox" id="coding" name="hobi[]" value="coding" />
+        <label for="coding">Coding</label>
+      </div>
+
+      <div>
+        <p>Status:</p>
+        <input type="radio" id="single" name="status" value="single" />
+        <label for="single">Single</label>
+
+        <input type="radio" id="menikah" name="status" value="menikah" />
+        <label for="menikah">Menikah</label>
+      </div>
+
+      <div>
+        <label for="pesan">Pesan:</label>
+        <textarea
+          id="pesan"
+          name="pesan"
+          rows="1"
+          cols="30"
+          placeholder="Tulis pesan Anda di sini"
+        ></textarea>
+      </div>
+    
+
+      <div>
+        <button type="submit">Kirim</button>
+        <button type="reset">Reset</button>
+      </div>
+    
+    </form>
+    <br />
+    <br />
+  </body>
+</html>
