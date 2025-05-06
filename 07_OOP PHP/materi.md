@@ -732,13 +732,13 @@ Dengan abstraksi, kode menjadi lebih modular, mudah dikembangkan, dan mengikuti 
 
 ## 8. Static Properties dan Methods
 
-### 📌 Apa Itu Static?
+### Apa Itu Static?
 
 Dalam OOP PHP, keyword `static` digunakan untuk mendefinisikan **property** atau **method** yang **terikat ke class**, bukan ke objek. Artinya, kita **tidak perlu membuat objek** untuk mengaksesnya.
 
 ---
 
-### 🧠 Kapan Menggunakan Static?
+### Kapan Menggunakan Static?
 
 Gunakan `static` ketika:
 - Fungsi/properti tidak tergantung pada data instance.
@@ -747,7 +747,7 @@ Gunakan `static` ketika:
 
 ---
 
-### 📂 Contoh Static Property
+### Contoh Static Property
 
 ```php
 class Counter {
@@ -820,27 +820,95 @@ Dengan static, kamu bisa membuat class seperti kalkulator, logger, atau konfigur
 
 ## 9. Method Chaining
 
-Memanggil beberapa method secara berurutan dalam satu baris.
+### 🔗 Apa Itu Method Chaining?
+
+**Method Chaining** adalah teknik dalam OOP PHP yang memungkinkan kita untuk memanggil beberapa method secara berurutan **dalam satu baris**. Hal ini membuat kode lebih singkat dan terlihat rapi.
+
+Agar method chaining bisa dilakukan, setiap method **harus mengembalikan objek itu sendiri**, biasanya menggunakan `return $this;`.
+
+---
+
+### 💡 Kenapa Menggunakan Method Chaining?
+
+- Membuat kode lebih ringkas.
+- Meningkatkan keterbacaan saat mengatur banyak properti/metode berurutan.
+- Populer dalam library seperti Laravel, Guzzle, atau Query Builder.
+
+---
+
+### 📂 Contoh Sederhana
 
 ```php
 class Builder {
-    public function step1() {
-        echo "Langkah 1
-";
-        return $this;
+    private $text = "";
+
+    public function tambahTeks($teks) {
+        $this->text .= $teks . " ";
+        return $this; // Mengembalikan objek saat ini
     }
 
-    public function step2() {
-        echo "Langkah 2
-";
+    public function cetak() {
+        echo trim($this->text) . "\n";
         return $this;
     }
 }
 
-$obj = new Builder();
-$obj->step1()->step2();
+// Penggunaan method chaining
+$kalimat = new Builder();
+$kalimat->tambahTeks("Halo")
+        ->tambahTeks("dunia")
+        ->tambahTeks("PHP!")
+        ->cetak(); // Output: Halo dunia PHP!
 ```
+### Cara Kerja return $this
+- Setiap method yang mengembalikan `$this` akan membuat objek yang dipanggil
+- Method berikutnya dapat dipanggil langsung setelah method sebelumnya
+- Ini memungkinkan penggunaan method chaining
+```php
+public function namaMethod() {
+    // aksi
+    return $this; // penting untuk method chaining
+}
+```
+Dengan mengembalikan `$this`, setiap method akan "mengembalikan dirinya", sehingga kita bisa memanggil method berikutnya.
 
+### Contoh Lain: Konfigurasi Objek
+```php
+class Pengguna {
+    private $nama;
+    private $email;
+
+    public function setNama($nama) {
+        $this->nama = $nama;
+        return $this;
+    }
+
+    public function setEmail($email) {
+        $this->email = $email;
+        return $this;
+    }
+
+    public function info() {
+        echo "Nama: $this->nama, Email: $this->email\n";
+        return $this;
+    }
+}
+
+$user = new Pengguna();
+$user->setNama("Salsa")
+     ->setEmail("salsa@example.com")
+     ->info();
+```
+### Perhatian
+- Jangan lupa menambahkan return $this; di setiap method yang ingin digunakan dalam chaining.
+- Tidak cocok untuk method yang hanya melakukan satu aksi final (seperti exit() atau die()).
+
+### Kesimpulan
+- Method chaining memudahkan pemanggilan method berantai dalam satu baris.
+- Setiap method harus `return $this`.
+- Berguna untuk builder pattern, konfigurasi objek, atau chaining query.
+
+Dengan method chaining, kode PHP kamu akan terlihat lebih profesional dan bersih.
 ---
 
 ## 10. Namespaces
