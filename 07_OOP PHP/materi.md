@@ -909,21 +909,129 @@ $user->setNama("Salsa")
 - Berguna untuk builder pattern, konfigurasi objek, atau chaining query.
 
 Dengan method chaining, kode PHP kamu akan terlihat lebih profesional dan bersih.
+
 ---
 
 ## 10. Namespaces
 
-Menghindari konflik nama class atau fungsi.
+### Apa Itu Namespace?
+
+**Namespace** adalah cara untuk mengelompokkan class, interface, fungsi, atau konstanta ke dalam satu nama yang terpisah. Tujuannya adalah untuk menghindari **konflik nama** antara class atau fungsi yang memiliki nama sama, terutama dalam proyek besar yang melibatkan banyak file dan library.
+
+Namespace memungkinkan kita untuk memiliki beberapa class atau fungsi dengan nama yang sama tetapi berada di dalam namespace yang berbeda.
+
+---
+
+### Mengapa Menggunakan Namespace?
+
+1. **Menghindari Konflik Nama**: Jika dua library berbeda menggunakan nama yang sama untuk class atau fungsi, kita bisa menaruhnya dalam namespace yang berbeda.
+2. **Organisasi Kode**: Namespace membantu mengelompokkan class atau fungsi berdasarkan fungsionalitas, sehingga lebih mudah dalam manajemen dan pemeliharaan.
+3. **Mempermudah Autoloading**: Framework PHP seperti Composer menggunakan namespace untuk autoloading class.
+
+---
+
+### Cara Mendefinisikan Namespace
 
 ```php
 namespace App\Utils;
 
 class Helper {
     public static function greet() {
-        echo "Halo dari Utils!";
+        echo "Halo, selamat datang di namespace App\\Utils!";
     }
 }
 ```
+- `namespace App\Utils;` mendefinisikan namespace `App\Utils`.
+- Class `Helper` berada di dalam namespace ini.
+
+### Menggunakan Namespace
+Untuk menggunakan class atau fungsi yang berada dalam namespace, kita perlu menggunakan `use` untuk mendeklarasikan namespace tersebut.
+```php
+namespace App\Main;
+
+use App\Utils\Helper; // Import namespace App\Utils
+
+class MainClass {
+    public function __construct() {
+        Helper::greet(); // Memanggil fungsi dari namespace App\Utils
+    }
+}
+
+$obj = new MainClass();
+
+```
+- `use App\Utils\Helper;` memberitahu PHP untuk mencari class Helper dalam namespace App\Utils.
+- Fungsi `greet` dapat dipanggil langsung menggunakan `Helper::greet()` setelah di-import.
+
+### Penggunaan Namespace dalam File Terpisah
+Namespace memudahkan manajemen kode ketika kita membagi kode ke dalam banyak file. Misalnya, file `Helper.php` akan berisi class `Helper` dengan namespace `App\Utils`, dan file lain seperti `MainClass.php` akan memanggilnya.
+```php
+// File Helper.php
+namespace App\Utils;
+
+class Helper {
+    public static function greet() {
+        echo "Halo dari Helper!";
+    }
+}
+```
+```php
+// File MainClass.php
+namespace App\Main;
+
+use App\Utils\Helper;
+
+class MainClass {
+    public function __construct() {
+        Helper::greet(); // Memanggil fungsi dari namespace App\Utils
+    }
+}
+
+$obj = new MainClass();
+```
+### Tanpa Namespace
+Jika tidak menggunakan namespace, semua class dan fungsi berada di dalam satu ruang nama global, yang bisa menyebabkan konflik jika ada class dengan nama yang sama.
+
+```php
+class Helper {
+    public static function greet() {
+        echo "Halo tanpa namespace!";
+    }
+}
+
+class Helper { // Konflik: class dengan nama yang sama
+    public static function greet() {
+        echo "Ini adalah helper kedua!";
+    }
+}
+
+```
+### Menghindari Konflik Nama Dengan Alias
+Kadang kita membutuhkan alias untuk namespace atau class agar tidak ada konflik atau untuk penamaan yang lebih singkat.
+
+```php
+namespace MyLongNamespace\SubNamespace;
+
+class MyClass {
+    public function sayHello() {
+        echo "Hello from MyClass!";
+    }
+}
+
+// Aliasing namespace untuk penggunaan yang lebih mudah
+use MyLongNamespace\SubNamespace\MyClass as MC;
+
+$mc = new MC();
+$mc->sayHello();
+
+```
+### Kesimpulan
+-Namespace membantu mengorganisir kode dan menghindari konflik nama antara class, fungsi, atau konstanta.
+- Gunakan `namespace` untuk mengelompokkan class yang memiliki fungsionalitas yang serupa.
+- Gunakan `use` untuk mengimpor class atau fungsi dari namespace lain.
+- Namespace sangat penting dalam proyek besar dan ketika menggunakan composer atau library eksternal.
+
+Dengan namespace, kode kamu menjadi lebih terstruktur, terorganisir, dan mudah di-manage.
 
 ---
 
