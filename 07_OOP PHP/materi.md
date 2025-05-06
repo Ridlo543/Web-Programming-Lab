@@ -316,26 +316,88 @@ echo $obj->lihatRahasia(); // OK
 
 ---
 
-## 4. Constructor dan Destructor
+# 4. Constructor dan Destructor
 
-- **Constructor** otomatis dijalankan saat objek dibuat.
-- **Destructor** otomatis dijalankan saat objek dihancurkan.
+### Apa Itu Constructor?
+
+**Constructor** adalah method khusus yang secara otomatis dijalankan saat sebuah objek dari class dibuat. Fungsinya biasanya digunakan untuk menginisialisasi nilai properti atau melakukan proses awal saat objek dibuat.
+
+- Nama method constructor di PHP adalah `__construct()`.
+- Bisa menerima parameter saat pembuatan objek.
+- Tidak perlu dipanggil secara manual.
+
+### Apa Itu Destructor?
+
+**Destructor** adalah method khusus yang otomatis dipanggil saat objek dihancurkan atau keluar dari *scope* (misalnya di akhir eksekusi script). Umumnya digunakan untuk membersihkan resource seperti koneksi database, file, atau memori.
+
+- Nama method destructor adalah `__destruct()`.
+- Tidak menerima parameter.
+
+---
+
+### Contoh Penggunaan Constructor
 
 ```php
-class Buku {
-    public function __construct() {
-        echo "Buku dibuat
-";
+class Mahasiswa {
+    public $nama;
+    public $nim;
+
+    // Constructor
+    public function __construct($nama, $nim) {
+        $this->nama = $nama;
+        $this->nim = $nim;
+        echo "Objek Mahasiswa '$this->nama' dengan NIM '$this->nim' telah dibuat.\n";
     }
 
-    public function __destruct() {
-        echo "Buku dihancurkan
-";
+    public function tampilkanData() {
+        echo "Nama: $this->nama, NIM: $this->nim\n";
     }
 }
+
+// Membuat objek
+$mhs1 = new Mahasiswa("Andi", "12345678");
+$mhs1->tampilkanData();
+```
+output
+```php
+Objek Mahasiswa 'Andi' dengan NIM '12345678' telah dibuat.
+Nama: Andi, NIM: 12345678
 ```
 
 ---
+
+### Contoh Penggunaan Destructor
+```php
+class KoneksiDatabase {
+    public function __construct() {
+        echo "Koneksi ke database dibuat.\n";
+    }
+
+    public function __destruct() {
+        echo "Koneksi ke database ditutup.\n";
+    }
+}
+
+// Membuat objek
+$db = new KoneksiDatabase();
+
+// Di akhir eksekusi script, destructor otomatis dijalankan
+
+```
+output
+```php
+Koneksi ke database dibuat.
+Koneksi ke database ditutup.
+```
+| Method          | Kapan Dijalanakan              | Fungsi Utama                               |
+| --------------- | ------------------------------ | ------------------------------------------ |
+| `__construct()` | Saat objek dibuat (`new`)      | Menginisialisasi data saat pembuatan objek |
+| `__destruct()`  | Saat objek dihancurkan/selesai | Membersihkan resource atau proses akhir    |
+
+- Constructor membantu menyederhanakan pembuatan objek dengan langsung mengisi nilai.
+
+- Destructor berguna untuk penanganan cleanup otomatis saat objek sudah tidak dipakai lagi.
+
 
 ## 5. Inheritance (Pewarisan)
 
