@@ -19,7 +19,6 @@ Panduan dasar dan lanjutan mengenai konsep Object-Oriented Programming (OOP) dal
 10. [Namespaces](#10-namespaces)
 11. [Magic Methods (Opsional)](#11-magic-methods-opsional)
 
----
 
 ### Apa Itu OOP?
 
@@ -27,7 +26,6 @@ Panduan dasar dan lanjutan mengenai konsep Object-Oriented Programming (OOP) dal
 
 Berbeda dengan pemrograman prosedural (seperti menggunakan fungsi global secara terpisah), OOP menggabungkan **data (properties)** dan **perilaku (methods)** ke dalam satu unit yang disebut **objek**.
 
----
 
 ### Konsep Utama dalam OOP
 
@@ -40,16 +38,12 @@ Berikut adalah empat pilar utama dari OOP yang akan kamu temui saat mempelajari 
 | **Polymorphism**  | Objek dapat memiliki banyak bentuk, biasanya lewat overriding method.               |
 | **Abstraction**   | Menyembunyikan kompleksitas dan hanya menunjukkan informasi penting ke pengguna.    |
 
----
-
 ### Mengapa Menggunakan OOP di PHP?
 
 - **Modularitas:** Kode lebih mudah dipisahkan dalam class/class file.
 - **Reusability:** Class bisa digunakan kembali tanpa perlu menulis ulang kode.
 - **Maintainability:** Perubahan dalam satu class tidak akan berdampak langsung ke bagian lain.
 - **Scalability:** Struktur program lebih mudah diperluas karena berbasis objek.
-
----
 
 ### Contoh Singkat (Perbandingan)
 
@@ -79,10 +73,6 @@ $mobil->merk = "Toyota";
 $mobil->tampilkan();
 ```
 
----
-
-### Kesimpulan
-
 OOP membantu kamu menulis kode yang lebih **terstruktur**, **mudah dibaca**, dan **fleksibel untuk dikembangkan**. Konsep ini sangat penting, terutama untuk proyek berskala menengah ke atas di PHP seperti aplikasi web, sistem manajemen konten (CMS), dan framework seperti Laravel atau Symfony.
 
 ---
@@ -95,13 +85,9 @@ Class adalah *blueprint* atau cetakan untuk membuat objek. Di dalam class, kita 
 - **Properties**: variabel yang menyimpan data atau atribut dari objek.
 - **Methods**: fungsi yang mendefinisikan perilaku atau aksi dari objek.
 
----
-
 ### Apa Itu Object?
 
 Object adalah instansi nyata dari sebuah class. Setelah class didefinisikan, kita bisa membuat objek menggunakan keyword `new`.
-
----
 
 ### Struktur Dasar Class di PHP
 
@@ -314,8 +300,6 @@ echo $obj->lihatRahasia(); // OK
 * Gunakan $this untuk merujuk ke properti/method di dalam class.
 * Atur visibilitas (public, private, protected) untuk keamanan data.
 
----
-
 ## 4. Constructor dan Destructor
 
 #### Apa Itu Constructor?
@@ -333,7 +317,6 @@ echo $obj->lihatRahasia(); // OK
 - Nama method destructor adalah `__destruct()`.
 - Tidak menerima parameter.
 
----
 
 #### Contoh Penggunaan Constructor
 
