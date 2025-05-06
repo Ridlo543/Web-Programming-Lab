@@ -1,4 +1,3 @@
-
 # OOP PHP (Object-Oriented Programming)
 
 Panduan dasar dan lanjutan mengenai konsep Object-Oriented Programming (OOP) dalam PHP.
@@ -19,24 +18,22 @@ Panduan dasar dan lanjutan mengenai konsep Object-Oriented Programming (OOP) dal
 10. [Namespaces](#10-namespaces)
 11. [Magic Methods (Opsional)](#11-magic-methods-opsional)
 
-
 ## Apa Itu OOP?
 
-**Object-Oriented Programming (OOP)** adalah paradigma pemrograman yang berfokus pada penggunaan *objek* dan *class* sebagai cara utama untuk menyusun dan membangun program.
+**Object-Oriented Programming (OOP)** adalah paradigma pemrograman yang berfokus pada penggunaan _objek_ dan _class_ sebagai cara utama untuk menyusun dan membangun program.
 
 Berbeda dengan pemrograman prosedural (seperti menggunakan fungsi global secara terpisah), OOP menggabungkan **data (properties)** dan **perilaku (methods)** ke dalam satu unit yang disebut **objek**.
-
 
 ## Konsep Utama dalam OOP
 
 Berikut adalah empat pilar utama dari OOP yang akan kamu temui saat mempelajari OOP dalam PHP:
 
-| Pilar            | Penjelasan Singkat                                                                 |
-|------------------|-------------------------------------------------------------------------------------|
-| **Encapsulation** | Menyembunyikan detail internal dari objek agar tidak bisa diakses sembarangan.      |
-| **Inheritance**   | Kemampuan suatu class untuk mewarisi sifat dan perilaku dari class lain.            |
-| **Polymorphism**  | Objek dapat memiliki banyak bentuk, biasanya lewat overriding method.               |
-| **Abstraction**   | Menyembunyikan kompleksitas dan hanya menunjukkan informasi penting ke pengguna.    |
+| Pilar             | Penjelasan Singkat                                                               |
+| ----------------- | -------------------------------------------------------------------------------- |
+| **Encapsulation** | Menyembunyikan detail internal dari objek agar tidak bisa diakses sembarangan.   |
+| **Inheritance**   | Kemampuan suatu class untuk mewarisi sifat dan perilaku dari class lain.         |
+| **Polymorphism**  | Objek dapat memiliki banyak bentuk, biasanya lewat overriding method.            |
+| **Abstraction**   | Menyembunyikan kompleksitas dan hanya menunjukkan informasi penting ke pengguna. |
 
 ## Mengapa Menggunakan OOP di PHP?
 
@@ -77,11 +74,12 @@ OOP membantu kamu menulis kode yang lebih **terstruktur**, **mudah dibaca**, dan
 
 ---
 
-#  2. Class dan Object
+# 2. Class dan Object
 
 ## Apa Itu Class?
 
-Class adalah *blueprint* atau cetakan untuk membuat objek. Di dalam class, kita mendefinisikan:
+Class adalah _blueprint_ atau cetakan untuk membuat objek. Di dalam class, kita mendefinisikan:
+
 - **Properties**: variabel yang menyimpan data atau atribut dari objek.
 - **Methods**: fungsi yang mendefinisikan perilaku atau aksi dari objek.
 
@@ -134,13 +132,17 @@ $mhs1->tampilkanData();
 ```
 
 ## Keyword $this
+
 Keyword $this digunakan untuk merujuk pada objek saat ini. Biasanya digunakan di dalam method untuk mengakses property atau method dari objek itu sendiri.
- ```php
+
+```php
 $this->propertyName;
 $this->methodName();
- ```
+```
+
 contoh penggunaan
-``` php
+
+```php
 class Buku {
     public $judul;
 
@@ -149,13 +151,17 @@ class Buku {
     }
 }
 ```
+
 ## Tipe Akses Property dan Method
+
 PHP menggunakan access modifiers untuk mengatur hak akses terhadap member (property/method):
+
 - `public`: dapat diakses dari mana saja
 - `private`: hanya dapat diakses dari dalam class itu sendiri
 - `protected`: dapat diakses dari class itu sendiri dan turunannya (class anak)
 
 Contoh:
+
 ```php
 class Contoh {
     public $dataPublic = "Bisa diakses dari luar";
@@ -174,6 +180,7 @@ $obj->tampilkan(); // OK
 ```
 
 ## Banyak Objek dari Satu Class
+
 Satu class dapat digunakan untuk membuat banyak objek berbeda dengan nilai property yang berbeda-beda.
 
 ```php
@@ -197,22 +204,23 @@ $mobil2->warna = "Putih";
 $mobil2->info();
 
 ```
+
 ## Kesimpulan
+
 - Class adalah cetakan untuk membuat objek.
 - Object adalah instansi nyata dari class.
 - Gunakan keyword $this untuk mengakses property/method dari dalam class.
 - PHP menyediakan access modifiers (public, private, protected) untuk keamanan dan pengaturan akses.
 - Satu class bisa digunakan untuk membuat banyak objek dengan data yang berbeda.
 
-
-
 # 3. Properties dan Methods
 
 ## Apa Itu Properties?
 
-*Properties* adalah variabel yang dideklarasikan di dalam class untuk menyimpan data atau atribut dari objek. Properti bisa bersifat publik, privat, atau protektif tergantung pada kebutuhan keamanan data.
+_Properties_ adalah variabel yang dideklarasikan di dalam class untuk menyimpan data atau atribut dari objek. Properti bisa bersifat publik, privat, atau protektif tergantung pada kebutuhan keamanan data.
 
 Contoh:
+
 ```php
 class Produk {
     public $nama;
@@ -222,9 +230,10 @@ class Produk {
 
 ## Apa Itu Methods?
 
-*Methods* adalah fungsi yang berada di dalam class. Method menggambarkan perilaku atau aksi dari objek. Seperti fungsi biasa, method bisa menerima parameter dan mengembalikan nilai.
+_Methods_ adalah fungsi yang berada di dalam class. Method menggambarkan perilaku atau aksi dari objek. Seperti fungsi biasa, method bisa menerima parameter dan mengembalikan nilai.
 
 Contoh:
+
 ```php
 class Produk {
     public $nama;
@@ -268,11 +277,11 @@ class Produk {
 
 ## Jenis Visibility pada Property & Method
 
-| Modifier    | Akses dari Luar | Akses dari Class Sendiri | Akses dari Class Turunan |
-| ----------- | --------------- | ------------------------ | ------------------------ |
-| public    | ✔              | ✔                       | ✔                       |
-| protected | ❌               | ✔                       | ✔                       |
-| private   | ❌               | ✔                       | ❌                        |
+| Modifier  | Akses dari Luar | Akses dari Class Sendiri | Akses dari Class Turunan |
+| --------- | --------------- | ------------------------ | ------------------------ |
+| public    | ✔               | ✔                        | ✔                        |
+| protected | ❌              | ✔                        | ✔                        |
+| private   | ❌              | ✔                        | ❌                       |
 
 ```php
 class Contoh {
@@ -292,11 +301,11 @@ echo $obj->lihatRahasia(); // OK
 
 ## Kesimpulan
 
-* *Properties* adalah data/atribut objek.
-* *Methods* adalah aksi/perilaku objek.
-* Gunakan -> untuk mengakses properties dan methods dari objek.
-* Gunakan $this untuk merujuk ke properti/method di dalam class.
-* Atur visibilitas (public, private, protected) untuk keamanan data.
+- _Properties_ adalah data/atribut objek.
+- _Methods_ adalah aksi/perilaku objek.
+- Gunakan -> untuk mengakses properties dan methods dari objek.
+- Gunakan $this untuk merujuk ke properti/method di dalam class.
+- Atur visibilitas (public, private, protected) untuk keamanan data.
 
 # 4. Constructor dan Destructor
 
@@ -310,11 +319,10 @@ echo $obj->lihatRahasia(); // OK
 
 ## Apa Itu Destructor?
 
-**Destructor** adalah method khusus yang otomatis dipanggil saat objek dihancurkan atau keluar dari *scope* (misalnya di akhir eksekusi script). Umumnya digunakan untuk membersihkan resource seperti koneksi database, file, atau memori.
+**Destructor** adalah method khusus yang otomatis dipanggil saat objek dihancurkan atau keluar dari _scope_ (misalnya di akhir eksekusi script). Umumnya digunakan untuk membersihkan resource seperti koneksi database, file, atau memori.
 
 - Nama method destructor adalah `__destruct()`.
 - Tidak menerima parameter.
-
 
 ## Contoh Penggunaan Constructor
 
@@ -339,13 +347,16 @@ class Mahasiswa {
 $mhs1 = new Mahasiswa("Andi", "12345678");
 $mhs1->tampilkanData();
 ```
+
 output
+
 ```php
 Objek Mahasiswa 'Andi' dengan NIM '12345678' telah dibuat.
 Nama: Andi, NIM: 12345678
 ```
 
 ## Contoh Penggunaan Destructor
+
 ```php
 class KoneksiDatabase {
     public function __construct() {
@@ -363,11 +374,14 @@ $db = new KoneksiDatabase();
 // Di akhir eksekusi script, destructor otomatis dijalankan
 
 ```
+
 output
+
 ```php
 Koneksi ke database dibuat.
 Koneksi ke database ditutup.
 ```
+
 | Method          | Kapan Dijalanakan              | Fungsi Utama                               |
 | --------------- | ------------------------------ | ------------------------------------------ |
 | `__construct()` | Saat objek dibuat (`new`)      | Menginisialisasi data saat pembuatan objek |
@@ -376,18 +390,17 @@ Koneksi ke database ditutup.
 - Constructor membantu menyederhanakan pembuatan objek dengan langsung mengisi nilai.
 - Destructor berguna untuk penanganan cleanup otomatis saat objek sudah tidak dipakai lagi.
 
-
 # 5. Inheritance (Pewarisan)
 
 ## Apa Itu Inheritance?
 
-**Inheritance (Pewarisan)** adalah konsep dalam OOP yang memungkinkan sebuah class (disebut *child class* atau *subclass*) untuk mewarisi properti dan method dari class lain (disebut *parent class* atau *superclass*).
+**Inheritance (Pewarisan)** adalah konsep dalam OOP yang memungkinkan sebuah class (disebut _child class_ atau _subclass_) untuk mewarisi properti dan method dari class lain (disebut _parent class_ atau _superclass_).
 
 Tujuannya adalah untuk:
+
 - **Menghindari duplikasi kode**
 - **Mendukung prinsip DRY (Don't Repeat Yourself)**
 - **Memungkinkan ekspansi dan modifikasi tanpa mengubah class induk**
-
 
 ## Struktur Pewarisan di PHP
 
@@ -402,7 +415,9 @@ class ChildClass extends ParentClass {
     // Bisa menambahkan atau menimpa (override) method
 }
 ```
+
 ## Contoh Sederhana
+
 ```php
 class Hewan {
     public $nama;
@@ -423,12 +438,15 @@ $kucing = new Kucing();
 $kucing->nama = "Kitty";
 $kucing->bersuara();
 ```
+
 output
+
 ```php
 Kitty berkata: Meong!
 ```
 
 ## Overriding Method
+
 Child class bisa menimpa method dari parent class dengan mendefinisikan ulang method dengan nama yang sama.
 
 ```php
@@ -444,8 +462,11 @@ class Mobil extends Kendaraan {
     }
 }
 ```
+
 ## Menambahkan Method Baru di Child Class
+
 Child class juga dapat menambahkan method tambahan yang tidak ada di parent class.
+
 ```php
 class Pegawai {
     public function kerja() {
@@ -459,11 +480,39 @@ class Manajer extends Pegawai {
     }
 }
 ```
+
+### Keyword `parent::`
+
+Keyword `parent::` digunakan untuk mengakses methods dari parent class, terutama ketika melakukan override.
+
+```php
+<?php
+class Animal {
+    public function makeSound() {
+        return "Some sound";
+    }
+}
+
+class Cat extends Animal {
+    public function makeSound() {
+        // Override parent method
+        return parent::makeSound() . " - Meow";
+    }
+}
+
+$cat = new Cat();
+echo $cat->makeSound(); // Output: Some sound - Meow
+?>
+```
+
 ## Aksesibilitas Pewarisan
+
 Pewarisan tetap tunduk pada access modifier:
+
 - `public`: dapat diwarisi dan diakses
 - `protected`: dapat diwarisi, tapi hanya diakses dari class itu sendiri dan subclass
 - `private`: tidak dapat diwarisi atau diakses dari subclass
+
 ```php
 class Orang {
     private $nama = "Rahasia";
@@ -482,6 +531,7 @@ class Anak extends Orang {
     }
 }
 ```
+
 | Konsep          | Penjelasan                                                         |
 | --------------- | ------------------------------------------------------------------ |
 | `extends`       | Digunakan untuk mendefinisikan class anak dari class induk         |
@@ -507,11 +557,11 @@ Inheritance membantu membuat struktur kode yang modular, bersih, dan terorganisi
 
 PHP menyediakan tiga modifier untuk mengatur visibilitas properti dan method:
 
-| Modifier     | Keterangan                                                                 |
-|--------------|-----------------------------------------------------------------------------|
-| `public`     | Dapat diakses dari mana saja (dalam class, luar class, dan subclass)       |
-| `protected`  | Hanya dapat diakses di dalam class itu sendiri dan subclass-nya            |
-| `private`    | Hanya dapat diakses di dalam class itu sendiri                             |
+| Modifier    | Keterangan                                                           |
+| ----------- | -------------------------------------------------------------------- |
+| `public`    | Dapat diakses dari mana saja (dalam class, luar class, dan subclass) |
+| `protected` | Hanya dapat diakses di dalam class itu sendiri dan subclass-nya      |
+| `private`   | Hanya dapat diakses di dalam class itu sendiri                       |
 
 ---
 
@@ -542,13 +592,17 @@ class RekeningBank {
 $akun = new RekeningBank();
 $akun->setor(1000);
 $akun->tarik(200);
-echo "Saldo sekarang: " . $akun->lihatSaldo();        
+echo "Saldo sekarang: " . $akun->lihatSaldo();
 ```
+
 output
+
 ```php
 Saldo sekarang: 800
 ```
-##  Tanpa Enkapsulasi (Buruk)
+
+## Tanpa Enkapsulasi (Buruk)
+
 ```php
 class Buruk {
     public $data = 0;
@@ -558,8 +612,11 @@ $obj = new Buruk();
 $obj->data = -100; // Tidak ada kontrol, data bisa tidak valid
 
 ```
+
 ## Getter dan Setter
+
 Getter dan Setter digunakan untuk mengakses dan mengubah properti yang bersifat private/protected.
+
 ```php
 class Produk {
     private $harga;
@@ -581,8 +638,11 @@ $barang->setHarga(50000);
 echo "Harga produk: " . $barang->getHarga();
 
 ```
+
 ## Enkapsulasi + Validasi
+
 Enkapsulasi memungkinkan kita menambahkan logika validasi dalam setter:
+
 ```php
 public function setUmur($umur) {
     if ($umur < 0) {
@@ -592,6 +652,7 @@ public function setUmur($umur) {
     $this->umur = $umur;
 }
 ```
+
 | Konsep          | Penjelasan Singkat                                               |
 | --------------- | ---------------------------------------------------------------- |
 | Enkapsulasi     | Menyembunyikan data internal dan hanya membukanya lewat method   |
@@ -600,7 +661,6 @@ public function setUmur($umur) {
 | Keamanan Data   | Enkapsulasi mencegah data diubah secara langsung dan sembarangan |
 
 Dengan enkapsulasi, kode menjadi lebih aman, terkontrol, dan terstruktur. Ini adalah salah satu pilar OOP yang krusial untuk menjaga integritas data dalam program.
-
 
 # 7. Abstraction dan Interface
 
@@ -611,7 +671,7 @@ Dengan enkapsulasi, kode menjadi lebih aman, terkontrol, dan terstruktur. Ini ad
 - **Abstract Class**
 - **Interface**
 
-Tujuannya adalah agar pengguna cukup mengetahui *apa yang dilakukan*, tanpa perlu tahu *bagaimana cara melakukannya*.
+Tujuannya adalah agar pengguna cukup mengetahui _apa yang dilakukan_, tanpa perlu tahu _bagaimana cara melakukannya_.
 
 ## Abstract Class
 
@@ -647,7 +707,9 @@ class Persegi extends Bentuk {
 $persegi = new Persegi("Biru", 4);
 echo "Luas: " . $persegi->luas();
 ```
+
 ## Interface
+
 Menyediakan kontrak method tanpa implementasi.
 
 Tidak memiliki property atau method dengan isi.
@@ -678,16 +740,18 @@ $avanza->berhenti();
 ```
 
 ## Perbedaan Abstract Class vs Interface
-| Fitur                 | Abstract Class                        | Interface                           |
-| --------------------- | ------------------------------------- | ----------------------------------- |
-| Dapat diinstansiasi?  | ❌ Tidak                               | ❌ Tidak                             |
-| Method dengan isi?    | ✅ Bisa                                | ❌ Tidak                             |
-| Property?             | ✅ Bisa                                | ❌ Tidak                             |
-| Constructor?          | ✅ Bisa                                | ❌ Tidak                             |
-| Multiple inheritance? | ❌ Tidak bisa diwarisi lebih dari satu | ✅ Bisa implement lebih dari satu    |
-| Tujuan                | Pewarisan dengan dasar umum           | Kontrak perilaku yang harus diikuti |
+
+| Fitur                 | Abstract Class                         | Interface                           |
+| --------------------- | -------------------------------------- | ----------------------------------- |
+| Dapat diinstansiasi?  | ❌ Tidak                               | ❌ Tidak                            |
+| Method dengan isi?    | ✅ Bisa                                | ❌ Tidak                            |
+| Property?             | ✅ Bisa                                | ❌ Tidak                            |
+| Constructor?          | ✅ Bisa                                | ❌ Tidak                            |
+| Multiple inheritance? | ❌ Tidak bisa diwarisi lebih dari satu | ✅ Bisa implement lebih dari satu   |
+| Tujuan                | Pewarisan dengan dasar umum            | Kontrak perilaku yang harus diikuti |
 
 ## Kapan Abstract Class dan Interface digunakan?
+
 | Situasi                                        | Gunakan        |
 | ---------------------------------------------- | -------------- |
 | Butuh pewarisan dengan method umum + wajib     | Abstract Class |
@@ -695,12 +759,12 @@ $avanza->berhenti();
 | Perlu inheritance jamak (multiple inheritance) | Interface      |
 
 ## Kesimpulan
+
 - Abstraction menyembunyikan detail implementasi dan menampilkan fungsionalitas penting.
 - Abstract Class digunakan jika kita ingin menyediakan implementasi dasar.
 - Interface digunakan saat kita ingin membuat kontrak method yang harus dipenuhi class.
 
 Dengan abstraksi, kode menjadi lebih modular, mudah dikembangkan, dan mengikuti prinsip design to interface, not implementation.
-
 
 ## 8. Static Properties dan Methods
 
@@ -711,10 +775,10 @@ Dalam OOP PHP, keyword `static` digunakan untuk mendefinisikan **property** atau
 ## Kapan Menggunakan Static?
 
 Gunakan `static` ketika:
+
 - Fungsi/properti tidak tergantung pada data instance.
 - Ingin menyimpan nilai global dalam konteks class.
 - Membuat utility/helper function (misalnya kalkulasi).
-
 
 ## Contoh Static Property
 
@@ -731,12 +795,11 @@ Counter::tambah();
 Counter::tambah();
 echo "Jumlah: " . Counter::$jumlah; // Output: Jumlah: 2
 ```
-Penjelasan:
--`static $jumlah` menyimpan data yang bersifat global antar objek (shared).
--`self::` digunakan untuk mengakses property/method statis dari dalam class.
--`Counter::$jumlah` digunakan dari luar class.
+
+Penjelasan: -`static $jumlah` menyimpan data yang bersifat global antar objek (shared). -`self::` digunakan untuk mengakses property/method statis dari dalam class. -`Counter::$jumlah` digunakan dari luar class.
 
 ## Contoh Static Method
+
 ```php
 class Kalkulator {
     public static function tambah($a, $b) {
@@ -751,20 +814,24 @@ class Kalkulator {
 echo Kalkulator::tambah(5, 3); // Output: 8
 echo Kalkulator::kali(4, 2);   // Output: 8
 ```
+
 Static methods cocok untuk fungsi-fungsi utilitas karena bisa dipanggil langsung tanpa objek.
 
 ## self vs $this
+
 | Keyword  | Digunakan untuk     | Kapan digunakan                  |
 | -------- | ------------------- | -------------------------------- |
 | `$this`  | Instance (objek)    | Untuk properti/method non-static |
 | `self::` | Class (bukan objek) | Untuk properti/method static     |
 
 ## Catatan Penting
+
 - Static property bersifat global dalam konteks class, bukan per objek.
 - Static methods tidak bisa mengakses $this karena tidak ada objek yang terlibat.
 - Tidak bisa override static method seperti method biasa (polymorphism terbatas).
 
 ## Contoh Kasus Sederhana
+
 ```php
 class LoginTracker {
     public static $totalLogin = 0;
@@ -778,13 +845,14 @@ class LoginTracker {
 LoginTracker::userLogin(); // User login. Total: 1
 LoginTracker::userLogin(); // User login. Total: 2
 ```
+
 ## Kesimpulan
+
 - `static` membuat method/property terikat ke class, bukan objek.
 - Digunakan untuk fungsi atau data yang tidak butuh konteks objek.
 - Diakses menggunakan `self::` (dalam class) dan `ClassName::` (dari luar class).
 
 Dengan static, kamu bisa membuat class seperti kalkulator, logger, atau konfigurasi global dengan lebih efisien.
-
 
 ## 9. Method Chaining
 
@@ -793,7 +861,6 @@ Dengan static, kamu bisa membuat class seperti kalkulator, logger, atau konfigur
 **Method Chaining** adalah teknik dalam OOP PHP yang memungkinkan kita untuk memanggil beberapa method secara berurutan **dalam satu baris**. Hal ini membuat kode lebih singkat dan terlihat rapi.
 
 Agar method chaining bisa dilakukan, setiap method **harus mengembalikan objek itu sendiri**, biasanya menggunakan `return $this;`.
-
 
 ## Kenapa Menggunakan Method Chaining?
 
@@ -825,19 +892,24 @@ $kalimat->tambahTeks("Halo")
         ->tambahTeks("PHP!")
         ->cetak(); // Output: Halo dunia PHP!
 ```
+
 ## Cara Kerja return $this
+
 - Setiap method yang mengembalikan `$this` akan membuat objek yang dipanggil
 - Method berikutnya dapat dipanggil langsung setelah method sebelumnya
 - Ini memungkinkan penggunaan method chaining
+
 ```php
 public function namaMethod() {
     // aksi
     return $this; // penting untuk method chaining
 }
 ```
+
 Dengan mengembalikan `$this`, setiap method akan "mengembalikan dirinya", sehingga kita bisa memanggil method berikutnya.
 
 ## Contoh Lain: Konfigurasi Objek
+
 ```php
 class Pengguna {
     private $nama;
@@ -864,17 +936,63 @@ $user->setNama("Salsa")
      ->setEmail("salsa@example.com")
      ->info();
 ```
+
 ## Perhatian
+
 - Jangan lupa menambahkan return $this; di setiap method yang ingin digunakan dalam chaining.
 - Tidak cocok untuk method yang hanya melakukan satu aksi final (seperti exit() atau die()).
 
+```php
+<?php
+class QueryBuilder {
+    private $select = '*';
+    private $from = '';
+    private $where = [];
+    private $orderBy = '';
+
+    public function select($columns) {
+        $this->select = $columns;
+        return $this; // Mengembalikan object itu sendiri
+    }
+
+    public function from($table) {
+        $this->from = $table;
+        return $this;
+    }
+
+    public function where($column, $operator, $value) {
+        $this->where[] = "{$column} {$operator} '{$value}'";
+        return $this;
+    }
+
+    public function orderBy($column, $direction = 'ASC') {
+        $this->orderBy = "{$column} {$direction}";
+        return $this;
+    }
+
+    public function getQuery() {
+        $query = "SELECT {$this->select} FROM {$this->from}";
+
+        if (!empty($this->where)) {
+            $query .= " WHERE " . implode(' AND ', $this->where);
+        }
+
+        if (!empty($this->orderBy)) {
+            $query .= " ORDER BY {$this->orderBy}";
+        }
+
+        return $query;
+    }
+}
+```
+
 ## Kesimpulan
+
 - Method chaining memudahkan pemanggilan method berantai dalam satu baris.
 - Setiap method harus `return $this`.
 - Berguna untuk builder pattern, konfigurasi objek, atau chaining query.
 
 Dengan method chaining, kode PHP kamu akan terlihat lebih profesional dan bersih.
-
 
 ## 10. Namespaces
 
@@ -901,11 +1019,14 @@ class Helper {
     }
 }
 ```
+
 - `namespace App\Utils;` mendefinisikan namespace `App\Utils`.
 - Class `Helper` berada di dalam namespace ini.
 
 ## Menggunakan Namespace
+
 Untuk menggunakan class atau fungsi yang berada dalam namespace, kita perlu menggunakan `use` untuk mendeklarasikan namespace tersebut.
+
 ```php
 namespace App\Main;
 
@@ -920,11 +1041,14 @@ class MainClass {
 $obj = new MainClass();
 
 ```
+
 - `use App\Utils\Helper;` memberitahu PHP untuk mencari class Helper dalam namespace App\Utils.
 - Fungsi `greet` dapat dipanggil langsung menggunakan `Helper::greet()` setelah di-import.
 
 ## Penggunaan Namespace dalam File Terpisah
+
 Namespace memudahkan manajemen kode ketika kita membagi kode ke dalam banyak file. Misalnya, file `Helper.php` akan berisi class `Helper` dengan namespace `App\Utils`, dan file lain seperti `MainClass.php` akan memanggilnya.
+
 ```php
 // File Helper.php
 namespace App\Utils;
@@ -935,6 +1059,7 @@ class Helper {
     }
 }
 ```
+
 ```php
 // File MainClass.php
 namespace App\Main;
@@ -949,7 +1074,9 @@ class MainClass {
 
 $obj = new MainClass();
 ```
+
 ## Tanpa Namespace
+
 Jika tidak menggunakan namespace, semua class dan fungsi berada di dalam satu ruang nama global, yang bisa menyebabkan konflik jika ada class dengan nama yang sama.
 
 ```php
@@ -966,7 +1093,9 @@ class Helper { // Konflik: class dengan nama yang sama
 }
 
 ```
+
 ## Menghindari Konflik Nama Dengan Alias
+
 Kadang kita membutuhkan alias untuk namespace atau class agar tidak ada konflik atau untuk penamaan yang lebih singkat.
 
 ```php
@@ -985,20 +1114,22 @@ $mc = new MC();
 $mc->sayHello();
 
 ```
+
 ## Kesimpulan
+
 -Namespace membantu mengorganisir kode dan menghindari konflik nama antara class, fungsi, atau konstanta.
+
 - Gunakan `namespace` untuk mengelompokkan class yang memiliki fungsionalitas yang serupa.
 - Gunakan `use` untuk mengimpor class atau fungsi dari namespace lain.
 - Namespace sangat penting dalam proyek besar dan ketika menggunakan composer atau library eksternal.
 
 Dengan namespace, kode kamu menjadi lebih terstruktur, terorganisir, dan mudah di-manage.
 
-
 ## 11. Magic Methods (Opsional)
 
 ## Apa Itu Magic Methods?
 
-**Magic methods** adalah metode khusus dalam PHP yang memiliki awalan `__` (dua garis bawah). PHP secara otomatis memanggil magic methods ini pada saat-saat tertentu, tanpa perlu memanggilnya langsung. 
+**Magic methods** adalah metode khusus dalam PHP yang memiliki awalan `__` (dua garis bawah). PHP secara otomatis memanggil magic methods ini pada saat-saat tertentu, tanpa perlu memanggilnya langsung.
 
 Magic methods memberikan kemampuan untuk menangani perilaku khusus dalam objek, seperti ketika properti diakses atau objek dikonstruksi.
 
@@ -1014,7 +1145,6 @@ Magic methods memberikan kemampuan untuk menangani perilaku khusus dalam objek, 
 8. **`__isset()`** - Dipanggil saat memeriksa apakah properti yang tidak ada sudah diset.
 9. **`__unset()`** - Dipanggil saat mencoba menghapus properti yang tidak ada.
 10. **`__clone()`** - Dipanggil saat objek di-clone menggunakan `clone`.
-
 
 ## Contoh Magic Method: `__construct` dan `__destruct`
 
@@ -1035,11 +1165,14 @@ class Produk {
 $produk = new Produk("Laptop");
 unset($produk); // Menjalankan __destruct()
 ```
+
 - `__construct()` digunakan untuk inisialisasi objek dan menjalankan kode saat objek dibuat.
 - `__destruct()` dipanggil saat objek dihancurkan, misalnya dengan unset().
 
 ## Magic Method: `__get()` dan `__set()`
+
 Magic method `__get()` dan `__set()` digunakan untuk menangani akses atau penulisan ke properti yang tidak ada.
+
 ```php
 class Mahasiswa {
     private $data = [];
@@ -1060,11 +1193,14 @@ $mhs = new Mahasiswa();
 $mhs->nama = "Andi"; // Memanggil __set()
 echo $mhs->nama;      // Memanggil __get()
 ```
+
 - `__get($key)` menangani saat properti yang tidak ada diakses.
 - `__set($key, $value)` menangani saat properti yang tidak ada diubah nilainya.
 
 ## Magic Method: `__call()`
+
 `__call()` dipanggil saat mencoba memanggil method yang tidak ada pada objek.
+
 ```php
 class Kontak {
     public function __call($method, $args) {
@@ -1076,8 +1212,11 @@ $kontak = new Kontak();
 $kontak->hubungi("John", "Malam ini"); // Memanggil __call()
 
 ```
+
 ## Magic Method: `__toString()`
+
 `__toString()` digunakan untuk mengonversi objek menjadi string, yang memungkinkan kita untuk menampilkan objek secara langsung menggunakan `echo`.
+
 ```php
 class Buku {
     public $judul;
@@ -1094,12 +1233,15 @@ class Buku {
 $buku = new Buku("Belajar PHP");
 echo $buku; // Memanggil __toString()
 ```
+
 - `__toString()` memungkinkan objek ditampilkan sebagai string.
 
 ## Menggunakan Magic Methods dengan Bijak
+
 Magic methods sangat berguna, tetapi penggunaan yang berlebihan atau tidak tepat bisa membuat kode sulit dibaca dan dipelihara. Sebaiknya hanya gunakan magic methods ketika benar-benar diperlukan, dan pastikan untuk mendokumentasikannya dengan jelas agar pengembang lain memahami bagaimana objek tersebut berfungsi.
 
 ## Kesimpulan
+
 - Magic Methods memungkinkan PHP untuk menangani beberapa perilaku objek secara otomatis.
 - Magic methods seperti `__construct()`, `__get()`, `__set()`, dan lainnya memberikan fleksibilitas tambahan dalam OOP.
 - Gunakan magic methods untuk menangani skenario yang membutuhkan kontrol dinamis terhadap objek atau properti.
