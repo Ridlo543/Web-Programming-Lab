@@ -345,8 +345,6 @@ Objek Mahasiswa 'Andi' dengan NIM '12345678' telah dibuat.
 Nama: Andi, NIM: 12345678
 ```
 
----
-
 ## Contoh Penggunaan Destructor
 ```php
 class KoneksiDatabase {
@@ -390,7 +388,6 @@ Tujuannya adalah untuk:
 - **Mendukung prinsip DRY (Don't Repeat Yourself)**
 - **Memungkinkan ekspansi dan modifikasi tanpa mengubah class induk**
 
----
 
 ## Struktur Pewarisan di PHP
 
@@ -493,8 +490,6 @@ class Anak extends Orang {
 | Access Modifier | Menentukan properti/method mana yang bisa diwarisi dan diakses     |
 
 Inheritance membantu membuat struktur kode yang modular, bersih, dan terorganisir, terutama ketika ada hierarki objek seperti Hewan → Kucing, Pegawai → Manajer, atau Kendaraan → Mobil.
-
----
 
 # 6. Encapsulation (Enkapsulasi)
 
@@ -606,7 +601,6 @@ public function setUmur($umur) {
 
 Dengan enkapsulasi, kode menjadi lebih aman, terkontrol, dan terstruktur. Ini adalah salah satu pilar OOP yang krusial untuk menjaga integritas data dalam program.
 
----
 
 # 7. Abstraction dan Interface
 
@@ -618,8 +612,6 @@ Dengan enkapsulasi, kode menjadi lebih aman, terkontrol, dan terstruktur. Ini ad
 - **Interface**
 
 Tujuannya adalah agar pengguna cukup mengetahui *apa yang dilakukan*, tanpa perlu tahu *bagaimana cara melakukannya*.
-
----
 
 ## Abstract Class
 
@@ -709,15 +701,12 @@ $avanza->berhenti();
 
 Dengan abstraksi, kode menjadi lebih modular, mudah dikembangkan, dan mengikuti prinsip design to interface, not implementation.
 
----
 
 ## 8. Static Properties dan Methods
 
 ## Apa Itu Static?
 
 Dalam OOP PHP, keyword `static` digunakan untuk mendefinisikan **property** atau **method** yang **terikat ke class**, bukan ke objek. Artinya, kita **tidak perlu membuat objek** untuk mengaksesnya.
-
----
 
 ## Kapan Menggunakan Static?
 
@@ -726,7 +715,6 @@ Gunakan `static` ketika:
 - Ingin menyimpan nilai global dalam konteks class.
 - Membuat utility/helper function (misalnya kalkulasi).
 
----
 
 ## Contoh Static Property
 
@@ -797,7 +785,6 @@ LoginTracker::userLogin(); // User login. Total: 2
 
 Dengan static, kamu bisa membuat class seperti kalkulator, logger, atau konfigurasi global dengan lebih efisien.
 
----
 
 ## 9. Method Chaining
 
@@ -807,15 +794,12 @@ Dengan static, kamu bisa membuat class seperti kalkulator, logger, atau konfigur
 
 Agar method chaining bisa dilakukan, setiap method **harus mengembalikan objek itu sendiri**, biasanya menggunakan `return $this;`.
 
----
 
 ## Kenapa Menggunakan Method Chaining?
 
 - Membuat kode lebih ringkas.
 - Meningkatkan keterbacaan saat mengatur banyak properti/metode berurutan.
 - Populer dalam library seperti Laravel, Guzzle, atau Query Builder.
-
----
 
 ## Contoh Sederhana
 
@@ -891,7 +875,6 @@ $user->setNama("Salsa")
 
 Dengan method chaining, kode PHP kamu akan terlihat lebih profesional dan bersih.
 
----
 
 ## 10. Namespaces
 
@@ -901,15 +884,11 @@ Dengan method chaining, kode PHP kamu akan terlihat lebih profesional dan bersih
 
 Namespace memungkinkan kita untuk memiliki beberapa class atau fungsi dengan nama yang sama tetapi berada di dalam namespace yang berbeda.
 
----
-
 ## Mengapa Menggunakan Namespace?
 
 1. **Menghindari Konflik Nama**: Jika dua library berbeda menggunakan nama yang sama untuk class atau fungsi, kita bisa menaruhnya dalam namespace yang berbeda.
 2. **Organisasi Kode**: Namespace membantu mengelompokkan class atau fungsi berdasarkan fungsionalitas, sehingga lebih mudah dalam manajemen dan pemeliharaan.
 3. **Mempermudah Autoloading**: Framework PHP seperti Composer menggunakan namespace untuk autoloading class.
-
----
 
 ## Cara Mendefinisikan Namespace
 
@@ -1014,7 +993,6 @@ $mc->sayHello();
 
 Dengan namespace, kode kamu menjadi lebih terstruktur, terorganisir, dan mudah di-manage.
 
----
 
 ## 11. Magic Methods (Opsional)
 
@@ -1023,8 +1001,6 @@ Dengan namespace, kode kamu menjadi lebih terstruktur, terorganisir, dan mudah d
 **Magic methods** adalah metode khusus dalam PHP yang memiliki awalan `__` (dua garis bawah). PHP secara otomatis memanggil magic methods ini pada saat-saat tertentu, tanpa perlu memanggilnya langsung. 
 
 Magic methods memberikan kemampuan untuk menangani perilaku khusus dalam objek, seperti ketika properti diakses atau objek dikonstruksi.
-
----
 
 ## Daftar Magic Methods
 
@@ -1039,7 +1015,6 @@ Magic methods memberikan kemampuan untuk menangani perilaku khusus dalam objek, 
 9. **`__unset()`** - Dipanggil saat mencoba menghapus properti yang tidak ada.
 10. **`__clone()`** - Dipanggil saat objek di-clone menggunakan `clone`.
 
----
 
 ## Contoh Magic Method: `__construct` dan `__destruct`
 
