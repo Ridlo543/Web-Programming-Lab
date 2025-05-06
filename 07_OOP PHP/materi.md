@@ -398,7 +398,7 @@ Koneksi ke database ditutup.
 - Destructor berguna untuk penanganan cleanup otomatis saat objek sudah tidak dipakai lagi.
 
 
-## 5. Inheritance (Pewarisan)
+# 5. Inheritance (Pewarisan)
 
 ### 👪 Apa Itu Inheritance?
 
@@ -515,19 +515,115 @@ Inheritance membantu membuat struktur kode yang modular, bersih, dan terorganisi
 
 ---
 
-## 6. Encapsulation (Enkapsulasi)
+# 6. Encapsulation (Enkapsulasi)
 
-Menyembunyikan data internal dengan **access modifiers**: `public`, `private`, `protected`.
+### 🔐 Apa Itu Enkapsulasi?
+
+**Encapsulation (Enkapsulasi)** adalah konsep OOP yang digunakan untuk menyembunyikan data atau implementasi detail dari suatu objek agar tidak bisa diakses secara langsung dari luar class. Tujuannya adalah:
+
+- Meningkatkan keamanan data (data protection)
+- Mengontrol akses terhadap properti dan method
+- Menyediakan antarmuka (interface) yang jelas
+
+---
+
+### 🛡️ Access Modifiers di PHP
+
+PHP menyediakan tiga modifier untuk mengatur visibilitas properti dan method:
+
+| Modifier     | Keterangan                                                                 |
+|--------------|-----------------------------------------------------------------------------|
+| `public`     | Dapat diakses dari mana saja (dalam class, luar class, dan subclass)       |
+| `protected`  | Hanya dapat diakses di dalam class itu sendiri dan subclass-nya            |
+| `private`    | Hanya dapat diakses di dalam class itu sendiri                             |
+
+---
+
+### 📘 Contoh Enkapsulasi Dasar
 
 ```php
-class Bank {
-    private $saldo = 1000;
+class RekeningBank {
+    private $saldo = 0;
+
+    public function setor($jumlah) {
+        if ($jumlah > 0) {
+            $this->saldo += $jumlah;
+        }
+    }
+
+    public function tarik($jumlah) {
+        if ($jumlah > 0 && $jumlah <= $this->saldo) {
+            $this->saldo -= $jumlah;
+        }
+    }
 
     public function lihatSaldo() {
         return $this->saldo;
     }
 }
+
+// Penggunaan
+$akun = new RekeningBank();
+$akun->setor(1000);
+$akun->tarik(200);
+echo "Saldo sekarang: " . $akun->lihatSaldo();        
 ```
+output
+```php
+Saldo sekarang: 800
+```
+###  Tanpa Enkapsulasi (Buruk)
+```php
+class Buruk {
+    public $data = 0;
+}
+
+$obj = new Buruk();
+$obj->data = -100; // Tidak ada kontrol, data bisa tidak valid
+
+```
+### Getter dan Setter
+Getter dan Setter digunakan untuk mengakses dan mengubah properti yang bersifat private/protected.
+```php
+class Produk {
+    private $harga;
+
+    public function setHarga($harga) {
+        if ($harga > 0) {
+            $this->harga = $harga;
+        }
+    }
+
+    public function getHarga() {
+        return $this->harga;
+    }
+}
+
+// Penggunaan
+$barang = new Produk();
+$barang->setHarga(50000);
+echo "Harga produk: " . $barang->getHarga();
+
+```
+### Enkapsulasi + Validasi
+Enkapsulasi memungkinkan kita menambahkan logika validasi dalam setter:
+```php
+public function setUmur($umur) {
+    if ($umur < 0) {
+        echo "Umur tidak boleh negatif!";
+        return;
+    }
+    $this->umur = $umur;
+}
+```
+| Konsep          | Penjelasan Singkat                                               |
+| --------------- | ---------------------------------------------------------------- |
+| Enkapsulasi     | Menyembunyikan data internal dan hanya membukanya lewat method   |
+| Access Modifier | Menentukan level akses data: `public`, `protected`, `private`    |
+| Getter & Setter | Digunakan untuk mengakses dan memodifikasi properti private      |
+| Keamanan Data   | Enkapsulasi mencegah data diubah secara langsung dan sembarangan |
+
+Dengan enkapsulasi, kode menjadi lebih aman, terkontrol, dan terstruktur. Ini adalah salah satu pilar OOP yang krusial untuk menjaga integritas data dalam program.
 
 ---
 
