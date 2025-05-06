@@ -732,20 +732,89 @@ Dengan abstraksi, kode menjadi lebih modular, mudah dikembangkan, dan mengikuti 
 
 ## 8. Static Properties dan Methods
 
-Dapat diakses tanpa membuat objek.
+### 📌 Apa Itu Static?
+
+Dalam OOP PHP, keyword `static` digunakan untuk mendefinisikan **property** atau **method** yang **terikat ke class**, bukan ke objek. Artinya, kita **tidak perlu membuat objek** untuk mengaksesnya.
+
+---
+
+### 🧠 Kapan Menggunakan Static?
+
+Gunakan `static` ketika:
+- Fungsi/properti tidak tergantung pada data instance.
+- Ingin menyimpan nilai global dalam konteks class.
+- Membuat utility/helper function (misalnya kalkulasi).
+
+---
+
+### 📂 Contoh Static Property
 
 ```php
-class Kalkulator {
-    public static $pi = 3.14;
+class Counter {
+    public static $jumlah = 0;
 
-    public static function tambah($a, $b) {
-        return $a + $b;
+    public static function tambah() {
+        self::$jumlah++;
     }
 }
 
-echo Kalkulator::$pi;
-echo Kalkulator::tambah(2, 3);
+Counter::tambah();
+Counter::tambah();
+echo "Jumlah: " . Counter::$jumlah; // Output: Jumlah: 2
 ```
+Penjelasan:
+-`static $jumlah` menyimpan data yang bersifat global antar objek (shared).
+-`self::` digunakan untuk mengakses property/method statis dari dalam class.
+-`Counter::$jumlah` digunakan dari luar class.
+
+### Contoh Static Method
+```php
+class Kalkulator {
+    public static function tambah($a, $b) {
+        return $a + $b;
+    }
+
+    public static function kali($a, $b) {
+        return $a * $b;
+    }
+}
+
+echo Kalkulator::tambah(5, 3); // Output: 8
+echo Kalkulator::kali(4, 2);   // Output: 8
+```
+Static methods cocok untuk fungsi-fungsi utilitas karena bisa dipanggil langsung tanpa objek.
+
+### self vs $this
+| Keyword  | Digunakan untuk     | Kapan digunakan                  |
+| -------- | ------------------- | -------------------------------- |
+| `$this`  | Instance (objek)    | Untuk properti/method non-static |
+| `self::` | Class (bukan objek) | Untuk properti/method static     |
+
+### Catatan Penting
+- Static property bersifat global dalam konteks class, bukan per objek.
+- Static methods tidak bisa mengakses $this karena tidak ada objek yang terlibat.
+- Tidak bisa override static method seperti method biasa (polymorphism terbatas).
+
+### Contoh Kasus Sederhana
+```php
+class LoginTracker {
+    public static $totalLogin = 0;
+
+    public static function userLogin() {
+        self::$totalLogin++;
+        echo "User login. Total: " . self::$totalLogin . "\n";
+    }
+}
+
+LoginTracker::userLogin(); // User login. Total: 1
+LoginTracker::userLogin(); // User login. Total: 2
+```
+### Kesimpulan
+- `static` membuat method/property terikat ke class, bukan objek.
+- Digunakan untuk fungsi atau data yang tidak butuh konteks objek.
+- Diakses menggunakan `self::` (dalam class) dan `ClassName::` (dari luar class).
+
+Dengan static, kamu bisa membuat class seperti kalkulator, logger, atau konfigurasi global dengan lebih efisien.
 
 ---
 
