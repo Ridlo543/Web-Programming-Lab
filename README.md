@@ -6,6 +6,8 @@
 4. [jQuery](04_JQuery/materi.md#praktikum-pemrograman-web-4-jquery)
 5. [AJAX](05_AJAX/materi.md#praktikum-pemrograman-web-5-ajax)
 6. [PHP](06_php/materi.md#praktikum-pemrograman-web-6-php)
+7. [OOP PHP](07_OOP_PHP/materi.md#praktikum-pemrograman-web-7-oop-php)
+8. [CRUD Database](08_CRUD_Database/materi.md#praktikum-pemrograman-web-8-crud-database)
 
 # Tugas
 

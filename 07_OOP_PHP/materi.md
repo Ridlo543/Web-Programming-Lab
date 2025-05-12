@@ -1,4 +1,4 @@
-# OOP PHP (Object-Oriented Programming)
+# Praktikum Pemrograman Web 7: OOP PHP
 
 Panduan dasar dan lanjutan mengenai konsep Object-Oriented Programming (OOP) dalam PHP.
 
