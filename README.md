@@ -55,10 +55,10 @@
 
 11. Laravel Extension Pack
 
-<img width="261" alt="image" src="https://github.com/user-attachments/assets/540d55c5-175e-455e-a3ba-17f4ff08db68" />
+<img height="150" width="auto" alt="image" src="https://github.com/user-attachments/assets/540d55c5-175e-455e-a3ba-17f4ff08db68" />
 
 12. PHP Storm Hint parameter
 
-<img width="316" alt="image" src="https://github.com/user-attachments/assets/847e79ec-2275-4741-8660-78be6c4c0d0a" />
+<img height="150" width="auto" alt="image" src="https://github.com/user-attachments/assets/847e79ec-2275-4741-8660-78be6c4c0d0a" />
 
 
