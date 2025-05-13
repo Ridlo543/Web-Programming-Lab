@@ -13,6 +13,7 @@
 
 1. [Tugas 1: HTML & CSS](02_css/tugas.md)
 2. [Tugas 2: Javascript, jQuery, AJAX](04_AJAX/tugas.md)
+3. [Tugas 3: CRUD PHP](08_CRUD_Database/tugas.md)
 
 # Extension
 
@@ -51,4 +52,13 @@
 10. Jquery
 
 ![image](https://github.com/user-attachments/assets/b1960a26-ea31-46a4-a89f-5454b83cd39f)
+
+11. Laravel Extension Pack
+
+<img width="261" alt="image" src="https://github.com/user-attachments/assets/540d55c5-175e-455e-a3ba-17f4ff08db68" />
+
+12. PHP Storm Hint parameter
+
+<img width="316" alt="image" src="https://github.com/user-attachments/assets/847e79ec-2275-4741-8660-78be6c4c0d0a" />
+
 
