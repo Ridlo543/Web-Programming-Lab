@@ -52,4 +52,3 @@
 
 ![image](https://github.com/user-attachments/assets/b1960a26-ea31-46a4-a89f-5454b83cd39f)
 
-11.
