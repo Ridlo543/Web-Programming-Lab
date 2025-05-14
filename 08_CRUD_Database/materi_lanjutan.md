@@ -222,7 +222,7 @@ $data = $result->fetch_assoc();
 * Form akan menampilkan data lama agar bisa diperbarui.
 * Nilai ID disimpan secara tersembunyi (`hidden`) untuk digunakan saat update.
 
-> ⚠️ Disarankan untuk memvalidasi dan membersihkan input `$_GET['id']` agar terhindar dari SQL injection.
+> Disarankan untuk memvalidasi dan membersihkan input `$_GET['id']` agar terhindar dari SQL injection.
 
 ### Update Data (`update.php`)
 
@@ -246,7 +246,7 @@ header("Location: tampil.php");
 * `UPDATE mahasiswa SET ...`: Mengubah data mahasiswa di database.
 * Setelah update selesai, pengguna diarahkan kembali ke halaman tampil data.
 
-> ✅ Gunakan prepared statement (`$stmt = $koneksi->prepare(...)`) untuk keamanan lebih baik.
+> Gunakan prepared statement (`$stmt = $koneksi->prepare(...)`) untuk keamanan lebih baik.
 
 ### Hapus Data (`hapus.php`)
 
@@ -267,7 +267,7 @@ header("Location: tampil.php");
 * `DELETE FROM mahasiswa WHERE id=$id`: Menghapus data dari tabel mahasiswa.
 * Setelah dihapus, pengguna diarahkan kembali ke daftar data.
 
-> ⚠️ Selalu validasi input dan pastikan bahwa `id` benar-benar ada sebelum melakukan query delete.
+>  Selalu validasi input dan pastikan bahwa `id` benar-benar ada sebelum melakukan query delete.
 
 ---
 
@@ -275,11 +275,11 @@ header("Location: tampil.php");
 
 Relasi antar tabel adalah konsep penting dalam database relasional. Relasi ini digunakan untuk menghubungkan data antar tabel agar lebih terstruktur dan efisien. Salah satu contoh relasi umum adalah **one-to-many**.
 
-### 🗃️ Contoh Kasus: Mahasiswa dan Jurusan
+### Contoh Kasus: Mahasiswa dan Jurusan
 
 Setiap mahasiswa hanya memiliki satu jurusan, namun satu jurusan bisa memiliki banyak mahasiswa. Ini adalah relasi **one-to-many** dari `jurusan` ke `mahasiswa`.
 
-### 🛠️ Struktur Tabel
+### Struktur Tabel
 
 ```sql
 CREATE TABLE jurusan (
@@ -302,7 +302,7 @@ CREATE TABLE mahasiswa (
 
 ---
 
-### 🔍 JOIN pada SQL
+### JOIN pada SQL
 
 ##### 1. INNER JOIN
 
@@ -334,7 +334,7 @@ LEFT JOIN jurusan ON mahasiswa.jurusan_id = jurusan.id;
 
 ---
 
-#### 🧭 Ilustrasi Visual
+#### Ilustrasi Visual
 
 ```
 [ jurusan ]               [ mahasiswa ]
@@ -343,7 +343,7 @@ LEFT JOIN jurusan ON mahasiswa.jurusan_id = jurusan.id;
 
 ---
 
-#### ✅ Kesimpulan
+#### Kesimpulan
 
 - Gunakan **INNER JOIN** jika hanya ingin menampilkan data yang memiliki pasangan di kedua tabel.
 - Gunakan **LEFT JOIN** jika ingin menampilkan semua data dari tabel utama (mahasiswa), meskipun tidak ada pasangan di tabel relasi (jurusan).
