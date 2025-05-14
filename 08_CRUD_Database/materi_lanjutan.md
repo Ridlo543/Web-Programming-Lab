@@ -1,4 +1,3 @@
-
 # Praktikum Pemrograman Web: MySQL & PHP
 
 ## Pengenalan Database dan MySQL + PHP
@@ -36,6 +35,8 @@ PHP (Hypertext Preprocessor) adalah bahasa pemrograman server-side yang digunaka
 * Sangat cocok untuk membangun aplikasi CRUD (Create, Read, Update, Delete)
 
 ---
+
+## Materi MySQL Dasar
 
 ### 1. CREATE (Membuat Tabel)
 
@@ -92,7 +93,11 @@ WHERE id = 1;
 
 ## Implementasi CRUD MySQL dengan PHP
 
+CRUD (Create, Read, Update, Delete) merupakan operasi dasar dalam pengelolaan data pada sistem basis data. PHP dan MySQL sering digunakan bersama untuk membangun aplikasi web dinamis yang memerlukan interaksi dengan database.
+
 ### 1. Koneksi ke Database (`connect.php`)
+
+File ini digunakan untuk membuat koneksi ke database MySQL.
 
 ```php
 <?php
@@ -103,7 +108,17 @@ if ($koneksi->connect_error) {
 ?>
 ```
 
+**Penjelasan:**
+
+* `localhost`: Server database, default-nya adalah localhost untuk pengembangan lokal.
+* `root`: Username default dari MySQL.
+* `""`: Password default kosong (jika tidak diubah).
+* `nama_database`: Ganti dengan nama database yang akan digunakan.
+* `die()`: Menghentikan eksekusi program jika koneksi gagal.
+
 ### 2. Form Input Data (`form.html`)
+
+Form HTML sederhana untuk menginput data ke database.
 
 ```html
 <form method="POST" action="proses_input.php">
@@ -113,7 +128,14 @@ if ($koneksi->connect_error) {
 </form>
 ```
 
+**Penjelasan:**
+
+* `method="POST"`: Mengirim data secara aman ke server.
+* `action="proses_input.php"`: Data akan diproses oleh file `proses_input.php`.
+
 ### 3. Proses Input Data (`proses_input.php`)
+
+Menerima input dari form dan menyimpannya ke database.
 
 ```php
 <?php
@@ -126,7 +148,19 @@ header("Location: tampil.php");
 ?>
 ```
 
+**Penjelasan:**
+
+* `include 'connect.php'`: Memanggil file koneksi.
+* `$_POST['nama']`: Mengambil data dari input form.
+* `INSERT INTO`: Menyimpan data ke tabel `mahasiswa`.
+* `header("Location: tampil.php")`: Mengarahkan kembali ke halaman tampilan data.
+
+> ⚠️ **Catatan Keamanan:**
+> Langkah ini sebaiknya disertai dengan validasi dan sanitasi input (misalnya menggunakan `mysqli_real_escape_string` atau prepared statements) untuk menghindari serangan SQL Injection.
+
 ### 4. Tampilkan Data (`tampil.php`)
+
+Menampilkan data mahasiswa dalam bentuk tabel.
 
 ```php
 <?php
@@ -149,11 +183,22 @@ echo "</table>";
 ?>
 ```
 
+**Penjelasan:**
+
+* `SELECT * FROM mahasiswa`: Mengambil seluruh data dari tabel mahasiswa.
+* `fetch_assoc()`: Mengubah hasil query menjadi array asosiatif.
+* Menampilkan setiap data dalam baris tabel HTML.
+* Disediakan link untuk edit dan hapus berdasarkan `id`.
+
 ---
 
 ## Edit & Hapus Data
 
+Fitur edit dan hapus digunakan untuk memperbarui data yang telah disimpan atau menghapus data yang tidak diperlukan.
+
 ### Edit Data (`edit.php`)
+
+File ini digunakan untuk menampilkan form dengan data yang sudah ada agar bisa diedit.
 
 ```php
 <?php
@@ -170,7 +215,18 @@ $data = $result->fetch_assoc();
 </form>
 ```
 
+**Penjelasan:**
+
+* `$_GET['id']`: Mengambil ID dari URL.
+* `SELECT * FROM mahasiswa WHERE id=$id`: Mengambil data mahasiswa berdasarkan ID.
+* Form akan menampilkan data lama agar bisa diperbarui.
+* Nilai ID disimpan secara tersembunyi (`hidden`) untuk digunakan saat update.
+
+> Disarankan untuk memvalidasi dan membersihkan input `$_GET['id']` agar terhindar dari SQL injection.
+
 ### Update Data (`update.php`)
+
+File ini memproses perubahan data dari form edit.
 
 ```php
 <?php
@@ -184,7 +240,17 @@ header("Location: tampil.php");
 ?>
 ```
 
+**Penjelasan:**
+
+* `$_POST['id']`, `$_POST['nama']`, dan `$_POST['nim']`: Mengambil data hasil input dari form.
+* `UPDATE mahasiswa SET ...`: Mengubah data mahasiswa di database.
+* Setelah update selesai, pengguna diarahkan kembali ke halaman tampil data.
+
+> Gunakan prepared statement (`$stmt = $koneksi->prepare(...)`) untuk keamanan lebih baik.
+
 ### Hapus Data (`hapus.php`)
+
+File ini akan menghapus data berdasarkan ID yang dipilih.
 
 ```php
 <?php
@@ -195,49 +261,25 @@ header("Location: tampil.php");
 ?>
 ```
 
+**Penjelasan:**
+
+* `$_GET['id']`: Mengambil ID dari URL yang dipilih untuk dihapus.
+* `DELETE FROM mahasiswa WHERE id=$id`: Menghapus data dari tabel mahasiswa.
+* Setelah dihapus, pengguna diarahkan kembali ke daftar data.
+
+>  Selalu validasi input dan pastikan bahwa `id` benar-benar ada sebelum melakukan query delete.
+
 ---
 
-## Relasi Antar Tabel & JOIN
+## 🔗 Relasi Antar Tabel & JOIN
+
+Relasi antar tabel adalah konsep penting dalam database relasional. Relasi ini digunakan untuk menghubungkan data antar tabel agar lebih terstruktur dan efisien. Salah satu contoh relasi umum adalah **one-to-many**.
+
+### Contoh Kasus: Mahasiswa dan Jurusan
+
+Setiap mahasiswa hanya memiliki satu jurusan, namun satu jurusan bisa memiliki banyak mahasiswa. Ini adalah relasi **one-to-many** dari `jurusan` ke `mahasiswa`.
 
 ### Struktur Tabel
-
-```sql
-CREATE TABLE jurusan (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nama_jurusan VARCHAR(100)
-);
-
--- Tabel mahasiswa sudah memiliki kolom jurusan_id sebagai foreign key
-```
-
-### Contoh INNER JOIN
-
-```sql
-SELECT mahasiswa.nama, mahasiswa.nim, jurusan.nama_jurusan
-FROM mahasiswa
-INNER JOIN jurusan ON mahasiswa.jurusan_id = jurusan.id;
-```
-
-### Contoh LEFT JOIN
-
-```sql
-SELECT mahasiswa.nama, mahasiswa.nim, jurusan.nama_jurusan
-FROM mahasiswa
-LEFT JOIN jurusan ON mahasiswa.jurusan_id = jurusan.id;
-```
-
----
-
-## Contoh Kasus One-to-Many
-
-Relasi one-to-many terjadi ketika satu baris di tabel A dapat dikaitkan dengan banyak baris di tabel B.
-
-### Studi Kasus:
-- **Satu jurusan** memiliki **banyak mahasiswa**
-- Tabel `jurusan` berperan sebagai **parent**
-- Tabel `mahasiswa` berperan sebagai **child** (menggunakan `jurusan_id` sebagai foreign key)
-
-### Struktur Tabel:
 
 ```sql
 CREATE TABLE jurusan (
@@ -255,39 +297,64 @@ CREATE TABLE mahasiswa (
 ```
 
 ### Penjelasan:
-- Tabel `jurusan` menyimpan data master untuk setiap jurusan.
-- Tabel `mahasiswa` menyimpan data mahasiswa dan mengacu ke `jurusan_id` sebagai penghubung ke tabel `jurusan`.
+- `jurusan.id` adalah **primary key**.
+- `mahasiswa.jurusan_id` adalah **foreign key** yang merujuk ke `jurusan.id`.
 
-### Contoh Data:
+---
 
-Tabel `jurusan`:
+### JOIN pada SQL
 
-| id | nama_jurusan       |
-|----|---------------------|
-| 1  | Teknik Informatika |
-| 2  | Sistem Informasi   |
+##### 1. INNER JOIN
 
-Tabel `mahasiswa`:
+Digunakan untuk mengambil data yang memiliki pasangan yang cocok di kedua tabel.
 
-| id | nama         | nim      | jurusan_id |
-|----|--------------|----------|------------|
-| 1  | Andi         | 12345678 | 1          |
-| 2  | Budi         | 87654321 | 1          |
-| 3  | Citra        | 11223344 | 2          |
-
-### Visualisasi Relasi:
-
-```
-jurusan
-  ├─ Teknik Informatika (id: 1)
-  │   ├─ Andi
-  │   └─ Budi
-  └─ Sistem Informasi (id: 2)
-      └─ Citra
+```sql
+SELECT mahasiswa.nama, mahasiswa.nim, jurusan.nama_jurusan
+FROM mahasiswa
+INNER JOIN jurusan ON mahasiswa.jurusan_id = jurusan.id;
 ```
 
-### Kesimpulan:
-Relasi one-to-many sangat umum digunakan untuk mengelola data yang saling terkait dan menghindari duplikasi data di database relasional.
+📌 **Catatan**:
+- Hanya mahasiswa yang memiliki `jurusan_id` yang sesuai di tabel `jurusan` yang akan ditampilkan.
+
+---
+
+##### 2. LEFT JOIN
+
+Mengambil semua data dari tabel kiri (`mahasiswa`), dan data yang cocok dari tabel kanan (`jurusan`). Jika tidak ada pasangan di tabel kanan, maka akan ditampilkan `NULL`.
+
+```sql
+SELECT mahasiswa.nama, mahasiswa.nim, jurusan.nama_jurusan
+FROM mahasiswa
+LEFT JOIN jurusan ON mahasiswa.jurusan_id = jurusan.id;
+```
+
+📌 **Catatan**:
+- Mahasiswa tanpa jurusan tetap ditampilkan, tetapi `nama_jurusan` akan bernilai `NULL`.
+
+---
+
+#### Ilustrasi Visual
+
+```
+[ jurusan ]               [ mahasiswa ]
+ id | nama_jurusan   <--  jurusan_id | nama | nim
+```
+
+---
+
+#### Kesimpulan
+
+- Gunakan **INNER JOIN** jika hanya ingin menampilkan data yang memiliki pasangan di kedua tabel.
+- Gunakan **LEFT JOIN** jika ingin menampilkan semua data dari tabel utama (mahasiswa), meskipun tidak ada pasangan di tabel relasi (jurusan).
+
+---
+
+##  Contoh Kasus One-to-Many
+
+* **Satu jurusan** memiliki **banyak mahasiswa**
+* Tabel `jurusan` → parent
+* Tabel `mahasiswa` → child (menggunakan `jurusan_id` sebagai foreign key)
 
 ---
 
