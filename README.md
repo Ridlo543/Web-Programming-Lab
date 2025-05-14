@@ -6,11 +6,14 @@
 4. [jQuery](04_JQuery/materi.md#praktikum-pemrograman-web-4-jquery)
 5. [AJAX](05_AJAX/materi.md#praktikum-pemrograman-web-5-ajax)
 6. [PHP](06_php/materi.md#praktikum-pemrograman-web-6-php)
+7. [OOP PHP](07_OOP_PHP/materi.md#praktikum-pemrograman-web-7-oop-php)
+8. [CRUD Database](08_CRUD_Database/materi.md#praktikum-pemrograman-web-8-crud-database)
 
 # Tugas
 
 1. [Tugas 1: HTML & CSS](02_css/tugas.md)
 2. [Tugas 2: Javascript, jQuery, AJAX](04_AJAX/tugas.md)
+3. [Tugas 3: CRUD PHP](08_CRUD_Database/tugas.md)
 
 # Extension
 
@@ -50,4 +53,12 @@
 
 ![image](https://github.com/user-attachments/assets/b1960a26-ea31-46a4-a89f-5454b83cd39f)
 
-11.
+11. Laravel Extension Pack
+
+<img height="150" width="auto" alt="image" src="https://github.com/user-attachments/assets/540d55c5-175e-455e-a3ba-17f4ff08db68" />
+
+12. PHP Storm Hint parameter
+
+<img height="150" width="auto" alt="image" src="https://github.com/user-attachments/assets/847e79ec-2275-4741-8660-78be6c4c0d0a" />
+
+
