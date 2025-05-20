@@ -218,21 +218,90 @@ Untuk keamanan maksimal:
 ---
 
 ## Validasi Tipe Data
+## Validasi Tipe Data
 
-Pastikan data memiliki tipe yang sesuai sebelum diproses atau dimasukkan ke database.
+Validasi tipe data adalah proses untuk memastikan bahwa nilai yang diterima dari pengguna atau dari sumber lain memiliki **jenis data (data type)** yang sesuai sebelum digunakan dalam proses lebih lanjut, seperti perhitungan, penyimpanan ke database, atau logika program.
 
-| Fungsi | Kegunaan |
-|--------|----------|
-| `is_numeric()` | Apakah data angka? |
-| `is_string()` | Apakah data string? |
-| `is_bool()` | Apakah data boolean? |
-| `is_array()` | Apakah data array? |
+Mengabaikan validasi tipe data bisa menyebabkan:
+
+* Error saat program dijalankan
+* Perilaku yang tidak diharapkan (misalnya penjumlahan string dan angka)
+* Celah keamanan (jika input digunakan langsung dalam query atau sistem lain)
+
+---
+
+### Fungsi Validasi Tipe Data di PHP
+
+Berikut adalah fungsi bawaan PHP yang digunakan untuk mengecek tipe data:
+
+| Fungsi         | Kegunaan                                          |
+| -------------- | ------------------------------------------------- |
+| `is_numeric()` | Mengecek apakah nilai adalah angka (int/float)    |
+| `is_string()`  | Mengecek apakah nilai adalah string               |
+| `is_bool()`    | Mengecek apakah nilai adalah boolean (true/false) |
+| `is_array()`   | Mengecek apakah nilai adalah array                |
+
+---
+
+### Contoh Penggunaan
+
+#### 1. Validasi Angka (umur, harga, jumlah)
 
 ```php
 if (!is_numeric($_POST['umur'])) {
     echo "Umur harus berupa angka.";
 }
 ```
+
+* `is_numeric()` menerima angka dalam bentuk string seperti `'123'` atau angka asli seperti `123`.
+
+#### 2. Validasi String
+
+```php
+$nama = $_POST['nama'];
+if (!is_string($nama)) {
+    echo "Nama harus berupa teks.";
+}
+```
+
+* `is_string()` berguna jika ingin memastikan data tidak dalam bentuk array atau tipe lain.
+
+#### 3. Validasi Boolean
+
+```php
+$status = true;
+if (!is_bool($status)) {
+    echo "Status harus bernilai true atau false.";
+}
+```
+
+* Bisa digunakan untuk memeriksa hasil checkbox atau switch input.
+
+#### 4. Validasi Array
+
+```php
+$data = $_POST['hobi'];
+if (!is_array($data)) {
+    echo "Data hobi harus berupa array.";
+}
+```
+
+* Berguna saat menggunakan input form dengan multiple checkbox atau data JSON.
+
+---
+
+### Catatan Tambahan
+
+* **Tipe data sangat penting saat menyimpan ke database**, misalnya `INT`, `VARCHAR`, `BOOLEAN`, dll.
+* Untuk input dari HTML form, **semua data awalnya bertipe string**, jadi perlu dikonversi atau divalidasi sebelum diproses.
+* Kombinasikan validasi tipe dengan **filter\_var**, **regex**, dan **sanitasi input** agar data lebih aman dan terkontrol.
+
+---
+
+### Kesimpulan
+
+Validasi tipe data membantu menjaga integritas sistem dan mencegah error runtime. Gunakan fungsi bawaan PHP seperti `is_numeric()`, `is_string()`, dll., sebagai langkah awal dalam menyaring dan memverifikasi input pengguna.
+
 
 ---
 
@@ -320,16 +389,29 @@ Penjelasan regex `/^[0-9]{10,13}$/`:
 
 ---
 
-## Praktik Terbaik
+## Kesimpulan
 
-- Jangan **percaya 100%** pada input pengguna.
-- Validasi di sisi server meskipun sudah ada validasi client.
-- Gunakan sanitasi sebelum menampilkan data ke browser.
-- Gunakan prepared statement (PDO/Mysqli) untuk input ke database.
+Validasi dan sanitasi adalah **garis pertahanan pertama** terhadap berbagai ancaman seperti:
+
+* **SQL Injection**: ketika input jahat digunakan untuk memanipulasi query database.
+* **XSS (Cross-Site Scripting)**: ketika data pengguna dimasukkan ke halaman web tanpa penyaringan.
+* **Data corrupt**: ketika data yang tidak sesuai tipe atau format masuk ke sistem.
+
+**Checklist keamanan input:**
+
+* Validasi format data (email, URL, nomor telepon, dll)
+* Validasi tipe data (angka, string, array)
+* Sanitasi sebelum digunakan
+* Gunakan prepared statements untuk interaksi dengan database
+
+Dengan disiplin mengikuti prinsip ini, kita dapat membangun aplikasi yang lebih kuat, aman, dan profesional.
 
 ---
 
-## Kesimpulan
+## Referensi 
 
-Validasi dan sanitasi adalah **garis pertahanan pertama** terhadap ancaman seperti SQL Injection, XSS, dan data corrupt. Pastikan semua input selalu dicek dan dibersihkan sebelum digunakan.
+* [filter\_var() – PHP Manual](https://www.php.net/manual/en/function.filter-var.php)
+* [htmlspecialchars() – PHP Manual](https://www.php.net/manual/en/function.htmlspecialchars.php)
+* [is\_numeric(), is\_string(), is\_bool() – PHP Manual](https://www.php.net/manual/en/ref.var.php)
+* [OWASP Input Validation](https://owasp.org/www-community/Input_Validation)
 
