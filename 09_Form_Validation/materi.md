@@ -1,6 +1,4 @@
-## Validasi & Keamanan Input Data dalam PHP
-
-### Pengertian Umum
+# Validasi & Keamanan Input Data dalam PHP
 
 Dalam pengembangan aplikasi web, data yang dikirimkan oleh pengguna (user input) sangat rentan terhadap berbagai bentuk penyalahgunaan. Oleh karena itu, diperlukan mekanisme untuk memastikan bahwa data tersebut:
 
@@ -14,9 +12,8 @@ Dengan menerapkan validasi dan sanitasi, kita dapat:
 * Menjaga kepercayaan pengguna terhadap keamanan aplikasi.
 * Mengurangi risiko sistem crash akibat data tidak sesuai.
 
----
 
-### Apa itu Validasi?
+## Apa itu Validasi?
 
 **Validasi** adalah proses **memverifikasi** bahwa data yang dikirim oleh pengguna **memenuhi aturan yang ditetapkan**. Validasi memastikan bahwa data tersebut:
 
@@ -38,7 +35,7 @@ Validasi bisa dilakukan di:
 
 ---
 
-### Apa itu Sanitasi?
+## Apa itu Sanitasi?
 
 **Sanitasi** adalah proses **membersihkan input dari karakter atau nilai yang tidak aman** sebelum data tersebut diproses atau ditampilkan kembali. Ini melibatkan:
 
@@ -54,7 +51,7 @@ Contoh:
 
 ---
 
-### Mengapa Validasi & Sanitasi Penting?
+## Mengapa Validasi & Sanitasi Penting?
 
 1. **Keamanan Aplikasi** = Melindungi aplikasi dari serangan umum seperti XSS, SQL Injection, dan lainnya.
 
@@ -70,23 +67,23 @@ Contoh:
 
 Dalam proses input data oleh pengguna, validasi dapat dilakukan di dua sisi, yaitu **client-side** (di browser) dan **server-side** (di server). Keduanya memiliki fungsi dan karakteristik yang berbeda namun saling melengkapi.
 
-### 1. Validasi Client-side
+## 1. Validasi Client-side
 
 **Client-side validation** adalah validasi yang dilakukan menggunakan bahasa pemrograman yang dijalankan di sisi klien, seperti JavaScript. Validasi ini terjadi **sebelum data dikirimkan ke server**.
 
-#### Contoh validasi client-side:
+### Contoh validasi client-side:
 
 * Mengecek apakah semua form input sudah diisi.
 * Memastikan format email benar (`user@domain.com`).
 * Menampilkan pesan kesalahan secara langsung jika data tidak sesuai.
 
-#### Kelebihan:
+### Kelebihan:
 
 * Memberikan **umpan balik secara langsung** kepada pengguna tanpa perlu memuat ulang halaman.
 * **Mengurangi beban server**, karena data yang tidak valid bisa dicegah sebelum dikirim.
 * Meningkatkan **user experience (UX)**.
 
-#### Kekurangan:
+### Kekurangan:
 
 * Tidak bisa diandalkan untuk keamanan, karena pengguna dapat **mematikan JavaScript** atau **memodifikasi kode HTML**.
 * Data tetap bisa dimanipulasi dan dikirim langsung ke server menggunakan alat seperti Postman atau browser dev tools.
@@ -95,30 +92,30 @@ Dalam proses input data oleh pengguna, validasi dapat dilakukan di dua sisi, yai
 
 ---
 
-### 2. Validasi Server-side
+## 2. Validasi Server-side
 
 **Server-side validation** dilakukan setelah data dikirim ke server, menggunakan bahasa seperti PHP. Validasi ini bersifat **wajib**, karena hanya pada titik ini kita benar-benar dapat memverifikasi dan mengontrol semua input yang masuk.
 
-#### Contoh validasi server-side:
+### Contoh validasi server-side:
 
 * Mengecek apakah email valid menggunakan `filter_var()`.
 * Memastikan data tidak kosong menggunakan `empty()` atau `isset()`.
 * Menolak data yang tidak sesuai dengan kriteria database (misalnya angka bukan numeric).
 
-#### Kelebihan:
+### Kelebihan:
 
 * **Lebih aman**, karena pengguna tidak bisa melewati validasi ini.
 * Dapat digunakan untuk **memastikan integritas data** sebelum diproses atau disimpan.
 * Mampu menangani berbagai jenis input dari berbagai sumber (bukan hanya form HTML).
 
-#### Kekurangan:
+### Kekurangan:
 
 * Membutuhkan **waktu lebih lama**, karena proses validasi baru terjadi setelah request sampai ke server.
 * Jika terjadi kesalahan, halaman harus dimuat ulang, kecuali menggunakan teknik seperti AJAX.
 
 ---
 
-### Tabel Perbandingan
+## Tabel Perbandingan
 
 | Jenis Validasi  | Dilakukan Di         | Kelebihan                                       | Kekurangan                                        |
 | --------------- | -------------------- | ----------------------------------------------- | ------------------------------------------------- |
@@ -127,7 +124,7 @@ Dalam proses input data oleh pengguna, validasi dapat dilakukan di dua sisi, yai
 
 ---
 
-### Kesimpulan
+## Kesimpulan
 
 Validasi terbaik adalah dengan **menggabungkan keduanya**:
 
@@ -152,11 +149,11 @@ Sanitasi sangat penting terutama saat:
 
 ---
 
-### Fungsi `htmlspecialchars()`
+## Fungsi `htmlspecialchars()`
 
 Fungsi ini digunakan untuk **mengonversi karakter khusus HTML menjadi entitas HTML** agar tidak dieksekusi sebagai kode oleh browser. Ini sangat penting untuk mencegah **serangan XSS (Cross-Site Scripting)**, yaitu teknik di mana penyerang menyisipkan skrip berbahaya ke dalam halaman web melalui input pengguna.
 
-#### Contoh:
+### Contoh:
 
 ```php
 $nama = htmlspecialchars($_POST['nama']);
@@ -178,11 +175,11 @@ Dengan begitu, skrip tidak akan dijalankan oleh browser, tetapi hanya ditampilka
 
 ---
 
-### Fungsi `filter_var()`
+## Fungsi `filter_var()`
 
 Fungsi `filter_var()` digunakan untuk **melakukan sanitasi dan validasi input** menggunakan filter yang telah disediakan PHP. Fungsi ini sangat fleksibel dan aman digunakan untuk menangani berbagai jenis data seperti email, URL, angka, dan sebagainya.
 
-#### Contoh penggunaan untuk sanitasi:
+### Contoh penggunaan untuk sanitasi:
 
 ```php
 $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
@@ -196,7 +193,7 @@ $url = filter_var($_POST['url'], FILTER_SANITIZE_URL);
 
 ---
 
-### Perbandingan `htmlspecialchars()` vs `filter_var()`
+## Perbandingan `htmlspecialchars()` vs `filter_var()`
 
 | Fungsi               | Tujuan                              | Cocok Untuk                |
 | -------------------- | ----------------------------------- | -------------------------- |
@@ -205,7 +202,7 @@ $url = filter_var($_POST['url'], FILTER_SANITIZE_URL);
 
 ---
 
-### Kesimpulan
+## Kesimpulan
 
 Sanitasi input adalah langkah wajib dalam proses pengolahan data dari pengguna. Dengan menyaring data sejak awal, kita dapat mencegah berbagai celah keamanan dan menjaga aplikasi tetap stabil dan aman.
 
@@ -230,7 +227,7 @@ Mengabaikan validasi tipe data bisa menyebabkan:
 
 ---
 
-### Fungsi Validasi Tipe Data di PHP
+## Fungsi Validasi Tipe Data di PHP
 
 Berikut adalah fungsi bawaan PHP yang digunakan untuk mengecek tipe data:
 
@@ -243,9 +240,9 @@ Berikut adalah fungsi bawaan PHP yang digunakan untuk mengecek tipe data:
 
 ---
 
-### Contoh Penggunaan
+## Contoh Penggunaan
 
-#### 1. Validasi Angka (umur, harga, jumlah)
+### 1. Validasi Angka (umur, harga, jumlah)
 
 ```php
 if (!is_numeric($_POST['umur'])) {
@@ -255,7 +252,7 @@ if (!is_numeric($_POST['umur'])) {
 
 * `is_numeric()` menerima angka dalam bentuk string seperti `'123'` atau angka asli seperti `123`.
 
-#### 2. Validasi String
+### 2. Validasi String
 
 ```php
 $nama = $_POST['nama'];
@@ -266,7 +263,7 @@ if (!is_string($nama)) {
 
 * `is_string()` berguna jika ingin memastikan data tidak dalam bentuk array atau tipe lain.
 
-#### 3. Validasi Boolean
+### 3. Validasi Boolean
 
 ```php
 $status = true;
@@ -277,7 +274,7 @@ if (!is_bool($status)) {
 
 * Bisa digunakan untuk memeriksa hasil checkbox atau switch input.
 
-#### 4. Validasi Array
+### 4. Validasi Array
 
 ```php
 $data = $_POST['hobi'];
@@ -290,7 +287,7 @@ if (!is_array($data)) {
 
 ---
 
-### Catatan Tambahan
+## Catatan Tambahan
 
 * **Tipe data sangat penting saat menyimpan ke database**, misalnya `INT`, `VARCHAR`, `BOOLEAN`, dll.
 * Untuk input dari HTML form, **semua data awalnya bertipe string**, jadi perlu dikonversi atau divalidasi sebelum diproses.
@@ -298,7 +295,7 @@ if (!is_array($data)) {
 
 ---
 
-### Kesimpulan
+## Kesimpulan
 
 Validasi tipe data membantu menjaga integritas sistem dan mencegah error runtime. Gunakan fungsi bawaan PHP seperti `is_numeric()`, `is_string()`, dll., sebagai langkah awal dalam menyaring dan memverifikasi input pengguna.
 
@@ -310,11 +307,11 @@ Validasi tipe data membantu menjaga integritas sistem dan mencegah error runtime
 
 Validasi format input adalah bagian penting dari keamanan dan integritas data. PHP menyediakan beberapa fungsi bawaan serta dukungan terhadap **ekspresi reguler (regex)** untuk memeriksa apakah format data yang dikirim oleh pengguna sesuai dengan yang diharapkan.
 
-### Validasi Email
+## Validasi Email
 
 Validasi email bertujuan untuk memastikan bahwa string yang dimasukkan pengguna memiliki **struktur alamat email yang valid** seperti `nama@domain.com`. PHP menyediakan filter khusus untuk ini.
 
-#### Contoh:
+### Contoh:
 
 ```php
 $email = $_POST['email'];
@@ -330,11 +327,11 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
 ---
 
-### Validasi URL
+## Validasi URL
 
 Validasi URL digunakan untuk memastikan input merupakan alamat web yang valid, seperti `https://example.com`. Sama seperti validasi email, PHP juga menyediakan filter bawaan.
 
-#### Contoh:
+### Contoh:
 
 ```php
 $url = $_POST['website'];
@@ -350,11 +347,11 @@ if (!filter_var($url, FILTER_VALIDATE_URL)) {
 
 ---
 
-### Validasi Nomor Telepon (dengan Regex)
+## Validasi Nomor Telepon (dengan Regex)
 
 Validasi nomor telepon biasanya dilakukan menggunakan **regular expression (regex)** karena format nomor telepon bisa sangat bervariasi tergantung negara atau standar perusahaan.
 
-#### Contoh (validasi sederhana, 10–13 digit angka):
+### Contoh (validasi sederhana, 10–13 digit angka):
 
 ```php
 $telepon = $_POST['telepon'];
@@ -381,7 +378,7 @@ Penjelasan regex `/^[0-9]{10,13}$/`:
 | URL           | Built-in PHP Filter | `filter_var(..., FILTER_VALIDATE_URL)`   |
 | Nomor Telepon | Regular Expression  | `preg_match()` dengan regex              |
 
-### Tips Tambahan:
+## Tips Tambahan:
 
 * **Gunakan filter bawaan** PHP sebanyak mungkin karena lebih aman dan efisien.
 * **Gunakan regex** saat format data lebih kompleks atau tidak tersedia filter bawaan.
