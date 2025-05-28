@@ -1,0 +1,60 @@
+--- Folder Structure ---
+.htaccess
+[assets]
+    ├── [css]
+        └── style.css
+    ├── [image]
+    └── [js]
+        └── script.js
+[controllers]
+    └── UserController.php
+[database]
+    ├── [config]
+    └── [migrations]
+[docs]
+    └── .project_structure_ignore
+index.php
+[models]
+    └── User.php
+[views]
+    ├── [components]
+    └── [users]
+        ├── create.php
+        ├── edit.php
+        ├── index.php
+        └── show.php
+
+--- File Contents ---
+
+--- File: .htaccess ---
+
+
+--- File: assets\css\style.css ---
+
+
+--- File: assets\js\script.js ---
+
+
+--- File: controllers\UserController.php ---
+
+
+--- File: docs\.project_structure_ignore ---
+
+
+--- File: index.php ---
+
+
+--- File: models\User.php ---
+
+
+--- File: views\users\create.php ---
+
+
+--- File: views\users\edit.php ---
+
+
+--- File: views\users\index.php ---
+
+
+--- File: views\users\show.php ---
+

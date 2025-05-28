@@ -1,0 +1,9 @@
+CREATE DATABASE crud_db_pemweb8_1;
+USE crud_db_pemweb8_1;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
