@@ -1,9 +1,11 @@
 <?php
-
+session_start();
 require_once 'database/config.php';
 require_once 'controllers/UserController.php';
+require_once 'controllers/AuthController.php';
 
 $controller = new UserController($pdo);
+$authController = new AuthController($pdo);
 
 $url = isset($_GET['url']) ? rtrim($_GET['url'], '/') : '';
 $url = explode('/', $url);
@@ -12,6 +14,21 @@ $action = isset($url[0]) && !empty($url[0]) ? $url[0] : 'index';
 $id = isset($url[1]) ? $url[1] : null;
 
 switch ($action) {
+    case 'login':
+        $authController->login();
+        break;
+    case 'doLogin':
+        $authController->doLogin();
+        break;
+    case 'register':
+        $authController->register();
+        break;
+    case 'doRegister':
+        $authController->doRegister();
+        break;
+    case 'logout':
+        $authController->logout();
+        break;
     case 'create':
         $controller->create();
         break;
