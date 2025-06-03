@@ -1,8 +1,5 @@
 # **Pengenalan Laravel Framework 12**
 
-Tentu! Berikut adalah penjelasan yang lebih **detail dan mendalam** mengenai Laravel:
-
----
 
 ## **Apa itu Laravel?**
 
@@ -10,13 +7,13 @@ Tentu! Berikut adalah penjelasan yang lebih **detail dan mendalam** mengenai Lar
 
 Laravel pertama kali dirilis oleh **Taylor Otwell** pada tahun 2011 dan sejak saat itu terus berkembang hingga versi terbaru (Laravel 12).
 
----
+
 
 ### **Fitur Utama Laravel**
 
 Laravel dirancang dengan pendekatan **"developer-first"**, artinya framework ini berusaha menyederhanakan proses coding tanpa mengorbankan fleksibilitas dan kekuatan sistem. Berikut adalah beberapa fitur kunci Laravel yang sangat membantu dalam pengembangan web:
 
----
+
 
 #### 1. **Routing yang Elegan**
 
@@ -36,7 +33,7 @@ Routing Laravel juga mendukung:
 * Named Routes
 * Route Caching untuk performa
 
----
+
 
 #### 2. **Eloquent ORM (Object Relational Mapping)**
 
@@ -55,7 +52,7 @@ Fitur Eloquent:
 * Soft Deletes
 * Mutators & Accessors
 
----
+
 
 #### 3. **Blade Templating Engine**
 
@@ -77,7 +74,7 @@ Keunggulan Blade:
 * Komponen Blade (`<x-alert>`)
 * Kondisi dan perulangan sederhana
 
----
+
 
 #### 4. **Middleware, Queue, Event Broadcasting**
 
@@ -85,7 +82,7 @@ Keunggulan Blade:
 * **Queue**: Memproses tugas-tugas berat (seperti kirim email, generate laporan) secara asynchronous.
 * **Event Broadcasting**: Menghubungkan Laravel dengan front-end secara real-time (dengan WebSocket).
 
----
+
 
 #### 5. **Built-in Security & Authentication**
 
@@ -97,7 +94,7 @@ Laravel menyediakan:
 * Guard dan Role Permission
 * Token-based API authentication (Sanctum, Passport)
 
----
+
 
 #### 6. **Artisan Command Line Interface (CLI)**
 
@@ -117,7 +114,7 @@ Fitur Artisan:
 * Menjalankan server lokal
 * Custom command (bisa bikin sendiri)
 
----
+
 
 ## **Kelebihan Laravel Dibanding Framework Lain**
 
@@ -148,14 +145,14 @@ Laravel tidak berdiri sendiri. Ia hadir dengan berbagai tool pelengkap:
 
 Laravel 12 adalah versi terbaru dari framework Laravel, dan untuk dapat menjalankannya dengan baik, kamu perlu memenuhi beberapa **prasyarat teknis**, lalu melakukan **instalasi** dan **konfigurasi awal proyek**.
 
----
+
 
 ### Prasyarat Sistem
 
 Sebelum menginstal Laravel, pastikan kamu sudah menyiapkan lingkungan kerja dengan spesifikasi berikut:
 
 | Komponen         | Keterangan                                                                  |
-| ---------------- | --------------------------------------------------------------------------- |
+| - |  |
 | PHP              | Versi **8.2 atau lebih tinggi** (Laravel 12 tidak mendukung PHP versi lama) |
 | Composer         | Dependency manager untuk PHP (mengelola package Laravel dan library lain)   |
 | MySQL/PostgreSQL | Database engine yang digunakan (default: MySQL)                             |
@@ -164,7 +161,7 @@ Sebelum menginstal Laravel, pastikan kamu sudah menyiapkan lingkungan kerja deng
 
 > **Catatan**: Untuk pengembangan lokal, cukup menggunakan Artisan (`php artisan serve`) tanpa harus setup server Apache/Nginx.
 
----
+
 
 ### Langkah Instalasi Laravel 12
 
@@ -198,7 +195,7 @@ php artisan serve
 > Defaultnya, aplikasi akan dapat diakses melalui:
 > `http://127.0.0.1:8000` atau `http://localhost:8000`
 
----
+
 
 ### Konfigurasi Awal Laravel
 
@@ -233,7 +230,7 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
----
+
 
 ### Konfigurasi Koneksi Database
 
@@ -250,7 +247,7 @@ Pastikan database yang dimaksud sudah dibuat di sistem MySQL-mu. Misalnya, buat 
 CREATE DATABASE laravel12db;
 ```
 
----
+
 
 ### Menjalankan Migrasi Default
 
@@ -267,7 +264,7 @@ Migrating: 2024_01_01_000000_create_users_table
 Migrated:  2024_01_01_000000_create_users_table (12ms)
 ```
 
----
+
 
 ### Tes Awal Laravel
 
@@ -277,7 +274,7 @@ Setelah semua langkah selesai:
 2. Buka browser ke `http://127.0.0.1:8000`
 3. Kamu akan melihat tampilan **Laravel Welcome Page**.
 
----
+
 
 ### Tips Tambahan Setelah Instalasi
 
@@ -308,7 +305,7 @@ Laravel dibangun menggunakan **arsitektur MVC** (Model-View-Controller), yang me
 ### Apa itu MVC?
 
 | Komponen       | Tugas Utama                                | Dalam Laravel                      |
-| -------------- | ------------------------------------------ | ---------------------------------- |
+| -- |  | - |
 | **Model**      | Mengelola data, komunikasi dengan database | Eloquent ORM (`app/Models`)        |
 | **View**       | Menampilkan data ke user (UI)              | Blade Template (`resources/views`) |
 | **Controller** | Mengatur alur logika dan permintaan user   | (`app/Http/Controllers`)           |
@@ -396,7 +393,7 @@ routes/
 └── web.php                     ← rute URL
 ```
 
----
+
 
 ### Analogi Sederhana
 
@@ -414,7 +411,7 @@ Bayangkan kamu memesan makanan di restoran:
 3. **Tim Developer**: Developer backend bisa fokus di Controller/Model, frontend di View.
 4. **Reusability**: Model dan View bisa digunakan ulang di berbagai bagian.
 
----
+
 
 Jika kamu ingin saya bantu buatkan **contoh CRUD lengkap berbasis MVC di Laravel 12** (beserta controller, model, view, dan routing), tinggal bilang saja! Bisa juga saya bantu dengan ilustrasi diagram MVC atau animasi alurnya.
 
@@ -431,7 +428,7 @@ Berikut penjelasan **lebih detail dan menyeluruh** mengenai:
 Laravel memisahkan rute ke dalam beberapa file di direktori `routes/`:
 
 | File                  | Kegunaan                                                                |
-| --------------------- | ----------------------------------------------------------------------- |
+|  | -- |
 | `routes/web.php`      | Untuk rute yang melayani halaman web biasa (menggunakan session/cookie) |
 | `routes/api.php`      | Untuk rute REST API (stateless)                                         |
 | `routes/console.php`  | Untuk command-line routes (Artisan commands)                            |
@@ -439,7 +436,7 @@ Laravel memisahkan rute ke dalam beberapa file di direktori `routes/`:
 
 Untuk aplikasi web biasa, kamu akan banyak bekerja di **`web.php`**.
 
----
+
 
 ### **Contoh Routing Dasar**
 
@@ -461,7 +458,7 @@ Route::get('/about', function () {
 * `'/'` → URL yang diakses
 * `function () { ... }` → logika yang dijalankan ketika URL tersebut diakses
 
----
+
 
 ### **Route ke Controller**
 
@@ -508,7 +505,7 @@ Route::get('/user/{name?}', function ($name = 'Guest') {
 
 Tambahkan `?` di dalam `{}` agar parameter jadi opsional, dan beri nilai default di fungsi.
 
----
+
 
 ### **Route dengan Validasi Parameter (Route Constraints)**
 
@@ -522,7 +519,7 @@ Route::get('/user/{id}', function ($id) {
 
 > Hanya menerima angka untuk `{id}`
 
----
+
 
 ### **Named Route**
 
@@ -538,7 +535,7 @@ Lalu di blade:
 <a href="{{ route('user.profile') }}">Lihat Profil</a>
 ```
 
----
+
 
 ### **Route Grouping**
 
@@ -555,7 +552,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 ### **Ringkasan Jenis HTTP Method di Routing**
 
 | Method      | Digunakan untuk           | Contoh Laravel                  |
-| ----------- | ------------------------- | ------------------------------- |
+| -- | - | - |
 | `GET`       | Menampilkan data          | `Route::get()`                  |
 | `POST`      | Menyimpan data            | `Route::post()`                 |
 | `PUT/PATCH` | Mengupdate data           | `Route::put() / Route::patch()` |
@@ -563,7 +560,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 | `ANY`       | Menangani semua metode    | `Route::any()`                  |
 | `MATCH`     | Menangani metode tertentu | `Route::match(['get', 'post'])` |
 
----
+
 
 ### Cek Semua Route
 
@@ -579,7 +576,7 @@ Akan menampilkan daftar lengkap route: URL, method, controller, middleware, dsb.
 
 Tiga komponen inti dari arsitektur MVC Laravel adalah **Model**, **Controller**, dan **Action (method di controller)**. Mereka bekerja sama untuk mengelola alur data, logika bisnis, dan tampilan.
 
----
+
 
 ### **Model di Laravel**
 
@@ -633,7 +630,7 @@ php artisan make:controller PostController
 Action adalah **method** dalam controller yang menangani satu unit logika, seperti:
 
 | Method         | Kegunaan                    |
-| -------------- | --------------------------- |
+| -- |  |
 | `index()`      | Menampilkan semua data      |
 | `show($id)`    | Menampilkan detail data     |
 | `create()`     | Menampilkan form input data |
@@ -712,7 +709,7 @@ class PostController extends Controller
 }
 ```
 
----
+
 
 ### **Integrasi Model, Controller, dan Routing**
 
@@ -751,7 +748,7 @@ Route::resource('posts', PostController::class);
 
 > File Blade diakhiri dengan ekstensi: `.blade.php`
 
----
+
 
 ## Struktur Dasar Blade
 
@@ -786,7 +783,7 @@ Blade mendukung layout dan inheritance, seperti konsep template di banyak framew
 
 * `@yield('title')` dan `@yield('content')` adalah **slot** untuk diisi oleh child template.
 
----
+
 
 ### Menggunakan Layout
 
@@ -807,7 +804,7 @@ Blade mendukung layout dan inheritance, seperti konsep template di banyak framew
 * `@section('title', '...')` → Mengisi konten di slot `@yield('title')`
 * `@section('content') ... @endsection` → Mengisi konten utama halaman
 
----
+
 
 ## Menampilkan Data
 
@@ -826,7 +823,7 @@ Jika ingin menampilkan HTML asli (tidak di-escape), gunakan:
 
 > Hati-hati menggunakan `{!! !!}` karena bisa dieksploitasi jika kontennya tidak divalidasi!
 
----
+
 
 ## Loop dan Logika
 
@@ -874,7 +871,7 @@ Blade juga mendukung:
 @endempty
 ```
 
----
+
 
 ## Komponen dan Include
 
@@ -896,12 +893,12 @@ Laravel 12 juga mendukung **komponen** seperti ini:
 
 Komponen ini bisa didefinisikan di `app/View/Components/Alert.php` dan view-nya di `resources/views/components/alert.blade.php`.
 
----
+
 
 ## Blade Directive Khusus
 
 | Directive         | Fungsi                                    |
-| ----------------- | ----------------------------------------- |
+| -- | -- |
 | `@csrf`           | Menyisipkan token keamanan CSRF           |
 | `@method('PUT')`  | Digunakan untuk spoof HTTP method di form |
 | `@error('field')` | Menampilkan error validasi                |
@@ -917,7 +914,7 @@ Komponen ini bisa didefinisikan di `app/View/Components/Alert.php` dan view-nya 
 </form>
 ```
 
----
+
 
 ## Bonus: Komentar di Blade
 
@@ -927,7 +924,7 @@ Komponen ini bisa didefinisikan di `app/View/Components/Alert.php` dan view-nya 
 
 Komentar ini tidak akan muncul di output HTML, berbeda dengan `<!-- komentar HTML -->`.
 
----
+
 
 ## Kesimpulan
 
@@ -937,13 +934,13 @@ Blade adalah sistem templating yang:
 * Mendukung **layout inheritance** dan **komponen**
 * Punya sintaks **ringan, ekspresif**, dan mudah dibaca
 
----
+
 
 
 # Referensi
 Berikut adalah **referensi resmi dan relevan** yang digunakan sebagai dasar materi Laravel 12 yang telah dijelaskan:
 
----
+
 
 ## **Referensi Utama**
 
