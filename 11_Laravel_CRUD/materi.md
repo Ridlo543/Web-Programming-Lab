@@ -151,13 +151,14 @@ Laravel 12 adalah versi terbaru dari framework Laravel, dan untuk dapat menjalan
 
 Sebelum menginstal Laravel, pastikan kamu sudah menyiapkan lingkungan kerja dengan spesifikasi berikut:
 
-| Komponen         | Keterangan                                                                  |
-| - |  |
+| Komponen         | Keterangan                                                                 |
+|------------------|------------------------------------------------------------------------------|
 | PHP              | Versi **8.2 atau lebih tinggi** (Laravel 12 tidak mendukung PHP versi lama) |
 | Composer         | Dependency manager untuk PHP (mengelola package Laravel dan library lain)   |
 | MySQL/PostgreSQL | Database engine yang digunakan (default: MySQL)                             |
 | Node.js + NPM    | Untuk mengelola asset frontend (JS, CSS, Vite, Tailwind, dll)               |
 | Web Server       | Bisa menggunakan Apache, Nginx, Laravel Valet, atau Artisan Serve           |
+
 
 > **Catatan**: Untuk pengembangan lokal, cukup menggunakan Artisan (`php artisan serve`) tanpa harus setup server Apache/Nginx.
 
@@ -304,11 +305,12 @@ Laravel dibangun menggunakan **arsitektur MVC** (Model-View-Controller), yang me
 
 ### Apa itu MVC?
 
-| Komponen       | Tugas Utama                                | Dalam Laravel                      |
-| -- |  | - |
-| **Model**      | Mengelola data, komunikasi dengan database | Eloquent ORM (`app/Models`)        |
-| **View**       | Menampilkan data ke user (UI)              | Blade Template (`resources/views`) |
-| **Controller** | Mengatur alur logika dan permintaan user   | (`app/Http/Controllers`)           |
+| Komponen   | Tugas Utama                                 | Dalam Laravel                    |
+|------------|----------------------------------------------|----------------------------------|
+| Model      | Mengelola data, komunikasi dengan database   | Eloquent ORM (`app/Models`)      |
+| View       | Menampilkan data ke user (UI)                | Blade Template (`resources/views`) |
+| Controller | Mengatur alur logika dan permintaan user     | (`app/Http/Controllers`)         |
+   |
 
 
 ### Alur Kerja MVC di Laravel
@@ -428,11 +430,12 @@ Berikut penjelasan **lebih detail dan menyeluruh** mengenai:
 Laravel memisahkan rute ke dalam beberapa file di direktori `routes/`:
 
 | File                  | Kegunaan                                                                |
-|  | -- |
+|-----------------------|-------------------------------------------------------------------------|
 | `routes/web.php`      | Untuk rute yang melayani halaman web biasa (menggunakan session/cookie) |
 | `routes/api.php`      | Untuk rute REST API (stateless)                                         |
 | `routes/console.php`  | Untuk command-line routes (Artisan commands)                            |
 | `routes/channels.php` | Untuk broadcasting (websockets)                                         |
+
 
 Untuk aplikasi web biasa, kamu akan banyak bekerja di **`web.php`**.
 
@@ -551,15 +554,14 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
 ### **Ringkasan Jenis HTTP Method di Routing**
 
-| Method      | Digunakan untuk           | Contoh Laravel                  |
-| -- | - | - |
-| `GET`       | Menampilkan data          | `Route::get()`                  |
-| `POST`      | Menyimpan data            | `Route::post()`                 |
-| `PUT/PATCH` | Mengupdate data           | `Route::put() / Route::patch()` |
-| `DELETE`    | Menghapus data            | `Route::delete()`               |
-| `ANY`       | Menangani semua metode    | `Route::any()`                  |
-| `MATCH`     | Menangani metode tertentu | `Route::match(['get', 'post'])` |
-
+| Method      | Digunakan untuk           | Contoh Laravel                      |
+|-------------|--------------------------|-----------------------------------|
+| `GET`       | Menampilkan data          | `Route::get()`                    |
+| `POST`      | Menyimpan data            | `Route::post()`                   |
+| `PUT/PATCH` | Mengupdate data           | `Route::put()` / `Route::patch()`|
+| `DELETE`    | Menghapus data            | `Route::delete()`                 |
+| `ANY`       | Menangani semua metode    | `Route::any()`                    |
+| `MATCH`     | Menangani metode tertentu | `Route::match(['get', 'post'])`  |
 
 
 ### Cek Semua Route
@@ -630,7 +632,7 @@ php artisan make:controller PostController
 Action adalah **method** dalam controller yang menangani satu unit logika, seperti:
 
 | Method         | Kegunaan                    |
-| -- |  |
+|----------------|-----------------------------|
 | `index()`      | Menampilkan semua data      |
 | `show($id)`    | Menampilkan detail data     |
 | `create()`     | Menampilkan form input data |
@@ -638,6 +640,7 @@ Action adalah **method** dalam controller yang menangani satu unit logika, seper
 | `edit($id)`    | Menampilkan form edit data  |
 | `update($id)`  | Menyimpan perubahan data    |
 | `destroy($id)` | Menghapus data              |
+
 
 #### Contoh: `PostController.php`
 
@@ -898,11 +901,12 @@ Komponen ini bisa didefinisikan di `app/View/Components/Alert.php` dan view-nya 
 ## Blade Directive Khusus
 
 | Directive         | Fungsi                                    |
-| -- | -- |
+|-------------------|-------------------------------------------|
 | `@csrf`           | Menyisipkan token keamanan CSRF           |
 | `@method('PUT')`  | Digunakan untuk spoof HTTP method di form |
-| `@error('field')` | Menampilkan error validasi                |
-| `@auth`, `@guest` | Mengecek autentikasi pengguna             |
+| `@error('field')` | Menampilkan error validasi                 |
+| `@auth`, `@guest` | Mengecek autentikasi pengguna              |
+
 
 #### Contoh penggunaan form:
 
