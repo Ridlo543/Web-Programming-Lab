@@ -8,6 +8,16 @@
 - **Yajra DataTables** untuk tabel interaktif.
 - **Pengetahuan dasar** tentang Laravel (MVC, Blade, Eloquent).
 
+## Jika Github Clone
+- Clone repository ini dan pindah ke direktori pemweb-crud-laravel:
+
+```bash 
+- composer install
+atau composer install --ignore-platform-reqs
+- composer install
+- cp .env.example .env 
+- php artisan key:generate
+```
 ## Langkah-Langkah Implementasi CRUD
 
 ### Langkah 1: Perbarui Migrasi untuk Menambahkan Kolom `phone_number`
