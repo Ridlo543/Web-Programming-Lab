@@ -8,7 +8,7 @@
 
 Memahami cara kerja middleware sebagai *filter* yang memproses HTTP request sebelum atau sesudah mencapai controller. Middleware berguna untuk otorisasi pengguna, validasi request, logging, proteksi CSRF, dan lainnya.
 
----
+
 
 #### Konsep Dasar Middleware
 
@@ -21,7 +21,7 @@ Contoh penggunaan middleware:
 * Menambahkan header tertentu ke response
 * Mencatat log setiap request masuk
 
----
+
 
 #### Studi Kasus: Proteksi Akses Admin
 
@@ -88,7 +88,7 @@ Route::get('/admin', function () {
 })->middleware(\App\Http\Middleware\IsAdmin::class);
 ```
 
----
+
 
 #### .4 Global Middleware
 
@@ -105,7 +105,7 @@ public function boot(): void
 
 Namun pendekatan ini lebih jarang digunakan dan hanya jika memang semua route harus difilter.
 
----
+
 
 ### Kesimpulan
 
@@ -114,7 +114,7 @@ Namun pendekatan ini lebih jarang digunakan dan hanya jika memang semua route ha
 | ≤ Laravel 10  | `app/Http/Kernel.php` → `$routeMiddleware`              |
 | ≥ Laravel 11  | Langsung di `routes/*.php` atau melalui ServiceProvider |
 
----
+
 
 #### Catatan Penting
 
@@ -125,7 +125,7 @@ Namun pendekatan ini lebih jarang digunakan dan hanya jika memang semua route ha
 
 Berikut adalah penjelasan mendalam mengenai **Authentication menggunakan Auth Facade (untuk Web)** dan **Laravel Sanctum (untuk API)** berdasarkan Laravel versi terbaru:
 
----
+
 
 ## 2. Authentication (Auth Facade dan Laravel Sanctum)
 
@@ -133,7 +133,7 @@ Berikut adalah penjelasan mendalam mengenai **Authentication menggunakan Auth Fa
 
 Mahasiswa diharapkan memahami dan dapat menerapkan sistem autentikasi pengguna di Laravel baik untuk **aplikasi web berbasis session** maupun **aplikasi berbasis API menggunakan token**.
 
----
+
 
 ### A. Auth Facade (Autentikasi Web Berbasis Session)
 
@@ -185,7 +185,7 @@ Laravel menyediakan autentikasi berbasis session secara built-in. Fitur ini coco
   })->middleware('auth');
   ```
 
----
+
 
 ### B. Laravel Sanctum (Autentikasi API berbasis Token)
 
@@ -270,12 +270,12 @@ Sanctum menggunakan **token berbasis database** dan mendukung **multiple token p
 * Token dapat dicabut/dihapus
 * Tidak seperti `Passport`, Sanctum tidak menggunakan OAuth full stack, sehingga lebih ringan dan sederhana
 
----
+
 
 ### Perbandingan Singkat
 
 | Fitur       | Auth Facade (Session) | Laravel Sanctum (API Token) |
-| ----------- | --------------------- | --------------------------- |
+| -------- | --------------------- | --------------------------- |
 | Basis       | Session               | Token                       |
 | Cocok untuk | Web (form login)      | SPA, Mobile App, REST API   |
 | Middleware  | `auth`                | `auth:sanctum`              |
@@ -293,7 +293,7 @@ Berikut adalah penjelasan yang lebih lengkap dan terstruktur mengenai:
 
 Memahami dan mempraktikkan teknik pencarian data dari database menggunakan pendekatan **Eloquent ORM** dan **Query Builder** di Laravel. Fokus utamanya adalah mencari berdasarkan teks yang diketikkan pengguna.
 
----
+
 
 ### A. Dasar Pencarian Data
 
@@ -303,7 +303,7 @@ Dalam Laravel, pencarian data biasanya dilakukan dengan:
 * Digunakan pada satu atau lebih kolom, seperti `title` atau `body`
 * Diterapkan melalui Eloquent ORM atau Query Builder
 
----
+
 
 ### B. Studi Kasus: Pencarian Artikel pada Tabel `posts`
 
@@ -333,7 +333,7 @@ use App\Http\Controllers\PostController;
 Route::get('/search', [PostController::class, 'search'])->name('posts.search');
 ```
 
----
+
 
 #### 2. Controller
 
@@ -365,7 +365,7 @@ class PostController extends Controller
 * `orWhere` digunakan untuk mencari di lebih dari satu kolom
 * Hasil pencarian dikirim ke view melalui variabel `results`
 
----
+
 
 #### 3. View: resources/views/search/results.blade.php
 
@@ -386,7 +386,7 @@ class PostController extends Controller
 @endif
 ```
 
----
+
 
 #### 4. Form Pencarian
 
@@ -399,7 +399,7 @@ Form ini bisa diletakkan di layout atau halaman mana pun:
 </form>
 ```
 
----
+
 
 #W# D. Implementasi Alternatif dengan Query Builder
 
@@ -414,7 +414,7 @@ $results = DB::table('posts')
             ->get();
 ```
 
----
+
 
 #### E. Validasi Input (Opsional tapi Direkomendasikan)
 
@@ -428,7 +428,7 @@ $request->validate([
 
 Letakkan validasi ini sebelum `$query = $request->input('q');`.
 
----
+
 
 #### F. Rangkuman
 
@@ -448,7 +448,7 @@ Letakkan validasi ini sebelum `$query = $request->input('q');`.
 
 Memahami dan mempraktikkan penggunaan **Full-text Search** di Laravel menggunakan MySQL untuk meningkatkan efisiensi dan akurasi pencarian teks. Dibandingkan pencarian dengan `LIKE`, full-text search jauh lebih cepat dan mampu memberikan hasil yang lebih relevan.
 
----
+
 
 ## A. Konsep Full-text Search
 
@@ -520,7 +520,7 @@ public function search(Request $request)
 | `laravel -vue`  | Hasil yang mengandung “laravel” **tapi tidak** “vue” |
 | `"php laravel"` | Cari frasa **eksak** “php laravel”                   |
 
----
+
 
 ## D. View dan Form (Sama seperti pencarian biasa)
 
@@ -535,7 +535,7 @@ Form pencarian tetap sama:
 
 Tampilan hasil juga bisa menggunakan view `resources/views/search/results.blade.php` seperti sebelumnya.
 
----
+
 
 ## E. Catatan Penting
 
@@ -543,7 +543,7 @@ Tampilan hasil juga bisa menggunakan view `resources/views/search/results.blade.
 * MySQL default hanya akan mencocokkan kata minimal 3 karakter.
 * Pastikan tidak menggunakan `LIKE` bersamaan dalam query full-text karena akan menonaktifkan optimasi.
 
----
+
 
 ## F. Perbandingan Like vs Full-text
 
@@ -554,7 +554,7 @@ Tampilan hasil juga bisa menggunakan view `resources/views/search/results.blade.
 
 Berikut adalah materi lengkap mengenai:
 
----
+
 
 ## 5. Pagination (Segmentasi Hasil Pencarian)
 
@@ -562,13 +562,13 @@ Berikut adalah materi lengkap mengenai:
 
 Menerapkan sistem **pembagian halaman (pagination)** pada hasil pencarian agar data tidak ditampilkan sekaligus. Pagination meningkatkan performa tampilan dan memberikan pengalaman pengguna yang lebih baik ketika data yang dicari berjumlah banyak.
 
----
+
 
 ## A. Konsep Pagination di Laravel
 
 Laravel menyediakan metode `paginate()` dan `simplePaginate()` yang bekerja langsung dengan **Eloquent ORM** dan **Query Builder**. Saat digunakan, Laravel otomatis menangani logika offset dan limit SQL serta menyediakan navigasi halaman di sisi view.
 
----
+
 
 ## B. Implementasi dengan Eloquent ORM
 
@@ -597,7 +597,7 @@ public function search(Request $request)
 * `paginate(10)` akan mengambil maksimal 10 data per halaman.
 * Laravel akan otomatis membaca parameter `?page=2`, `?page=3`, dst.
 
----
+
 
 ## C. View Blade
 
@@ -631,7 +631,7 @@ Pada `resources/views/search/results.blade.php`:
 * `links()` menampilkan link halaman: 1, 2, 3, dst.
 * Untuk gaya tampilan, Laravel menggunakan Bootstrap jika disiapkan (bisa diatur di `AppServiceProvider`).
 
----
+
 
 ## D. Query Builder dengan Pagination
 
@@ -648,7 +648,7 @@ $results = DB::table('posts')
 
 Sama seperti Eloquent, hasilnya bisa ditampilkan dengan `@foreach` dan `{{ $results->links() }}`.
 
----
+
 
 ## E. Menyesuaikan Tampilan Pagination
 
@@ -671,7 +671,7 @@ public function boot()
 
 Letakkan kode tersebut di dalam `AppServiceProvider::boot()`.
 
----
+
 
 ## F. Kesimpulan
 
@@ -685,7 +685,7 @@ Letakkan kode tersebut di dalam `AppServiceProvider::boot()`.
 
 Baik, berikut adalah versi **materi ulang yang lebih lengkap dan lebih detail** untuk:
 
----
+
 
 # 6. Performance Optimization
 
@@ -693,7 +693,7 @@ Baik, berikut adalah versi **materi ulang yang lebih lengkap dan lebih detail** 
 
 Meningkatkan performa aplikasi Laravel dengan berbagai teknik optimasi yang dapat **mengurangi jumlah query ke database**, **menghemat penggunaan memori**, serta **mempercepat waktu eksekusi** dalam aplikasi skala kecil maupun besar.
 
----
+
 
 ## A. Eager Loading
 
@@ -727,7 +727,7 @@ $posts = Post::with('category', 'author')->get();
 * Saat menampilkan data relasi dalam tampilan atau loop.
 * Saat menggunakan banyak relasi yang saling terhubung.
 
----
+
 
 ## B. Cache dengan Cache Facade
 
@@ -761,7 +761,7 @@ $posts = Cache::remember('posts.all', 60, function () {
 * Untuk menyimpan hasil query besar.
 * Untuk endpoint yang sering diakses tapi jarang berubah.
 
----
+
 
 ## C. Lazy Collection
 
@@ -788,7 +788,7 @@ Post::cursor()->each(function ($post) {
 * Hemat memori dan lebih stabil pada proses besar.
 * Cocok digunakan untuk command-line task atau background jobs.
 
----
+
 
 ## Ringkasan Teknik Optimasi
 
@@ -800,7 +800,7 @@ Post::cursor()->each(function ($post) {
 
 Berikut adalah **daftar referensi lengkap** seluruh materi dalam format daftar link:
 
----
+
 
 ## Referensi
 
