@@ -12,7 +12,7 @@
 # Tugas
 
 1. [Tugas 1: HTML & CSS](02_css/tugas.md)
-2. [Tugas 2: Javascript, jQuery, AJAX](04_AJAX/tugas.md)
+2. [Tugas 2: Javascript, jQuery, AJAX](05_AJAX/tugas.md)
 3. [Tugas 3: CRUD PHP](08_CRUD_Database/tugas.md)
 4. [Tugas 4: Validation, Session, Cookies](10_Cookies_Session/Tugas4.md)
 
